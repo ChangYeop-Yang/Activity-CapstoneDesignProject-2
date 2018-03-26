@@ -69,15 +69,16 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="3" id="vN6-oa-ghc"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUA-wC-Jr2">
-                                                        <rect key="frame" x="32" y="62.5" width="36" height="36"/>
-                                                        <state key="normal" image="ic_local_dining_white_36pt"/>
+                                                        <rect key="frame" x="25" y="55.5" width="50" height="50"/>
+                                                        <state key="normal" image="icons8-control-panel-50"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KITCHEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djn-Fw-7sz">
-                                                        <rect key="frame" x="8" y="106.5" width="84" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REMOTE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djn-Fw-7sz">
+                                                        <rect key="frame" x="8" y="113.5" width="84" height="18"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -111,6 +112,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKe-R1-dgL">
                                                         <rect key="frame" x="32" y="63" width="36" height="36"/>
                                                         <state key="normal" image="ic_filter_hdr_white_36pt"/>
+                                                        <connections>
+                                                            <segue destination="ygP-Uv-PDm" kind="showDetail" id="bjL-60-JM4"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OUTSIDE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVl-RY-gVl">
                                                         <rect key="frame" x="8" y="107" width="84" height="18"/>
@@ -147,6 +151,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqQ-Fl-wSz">
                                                         <rect key="frame" x="32" y="62.5" width="36" height="36"/>
                                                         <state key="normal" image="ic_settings_white_36pt"/>
+                                                        <connections>
+                                                            <segue destination="Mbi-y2-bDp" kind="showDetail" id="5wL-1A-Cz9"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLK-jz-NTF">
                                                         <rect key="frame" x="8" y="106.5" width="84" height="18"/>
@@ -178,9 +185,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDy-My-Mkb">
                                                         <rect key="frame" x="0.0" y="0.0" width="275" height="145.5"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4X-ba-czd">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4X-ba-czd" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
                                                                 <rect key="frame" x="58" y="0.0" width="217" height="116"/>
-                                                                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </view>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-thermometer-40" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1a-5B-Luy">
                                                                 <rect key="frame" x="10" y="10" width="48" height="125.5"/>
@@ -226,9 +233,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="al1-Sp-vfH">
                                                         <rect key="frame" x="0.0" y="145.5" width="275" height="145"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olT-Ef-7w7">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olT-Ef-7w7" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
                                                                 <rect key="frame" x="58" y="0.0" width="217" height="115.5"/>
-                                                                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </view>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-hygrometer-48" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-Qh-0R9">
                                                                 <rect key="frame" x="10" y="10" width="48" height="125"/>
@@ -274,9 +281,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bn3-Uo-FVP">
                                                         <rect key="frame" x="0.0" y="290.5" width="275" height="145.5"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lm-a0-iHh">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lm-a0-iHh" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
                                                                 <rect key="frame" x="58" y="0.0" width="217" height="116"/>
-                                                                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </view>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-gas-industry-64" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9oV-TF-7lh">
                                                                 <rect key="frame" x="10" y="10" width="48" height="125.5"/>
@@ -322,9 +329,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkd-EK-sLO">
                                                         <rect key="frame" x="0.0" y="436" width="275" height="145"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jX6-8F-Qzf">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jX6-8F-Qzf" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
                                                                 <rect key="frame" x="58" y="0.0" width="217" height="115.5"/>
-                                                                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </view>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-audacity-48" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fj7-Xz-b3h">
                                                                 <rect key="frame" x="10" y="10" width="48" height="125"/>
@@ -425,15 +432,31 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
         </scene>
+        <!--OutSideStoryboard-->
+        <scene sceneID="mVX-Le-3kt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OutSideStoryboard" id="ygP-Uv-PDm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGi-SF-AcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="641" y="32"/>
+        </scene>
+        <!--SettingStoryboard-->
+        <scene sceneID="EmB-PG-ae8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingStoryboard" id="Mbi-y2-bDp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fwj-dz-95E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="206"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_bluetooth_connected_white_48pt" width="48" height="48"/>
         <image name="ic_filter_hdr_white_36pt" width="36" height="36"/>
         <image name="ic_lightbulb_outline_white_48pt" width="48" height="48"/>
-        <image name="ic_local_dining_white_36pt" width="36" height="36"/>
         <image name="ic_settings_white_36pt" width="36" height="36"/>
         <image name="ic_tv_white_36pt" width="36" height="36"/>
         <image name="icons8-audacity-48" width="48" height="48"/>
+        <image name="icons8-control-panel-50" width="50" height="50"/>
         <image name="icons8-gas-industry-64" width="64" height="64"/>
         <image name="icons8-hygrometer-48" width="48" height="48"/>
         <image name="icons8-thermometer-40" width="40" height="40"/>
