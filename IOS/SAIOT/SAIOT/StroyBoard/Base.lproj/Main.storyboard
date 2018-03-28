@@ -54,7 +54,7 @@
                                                         <rect key="frame" x="25" y="55.5" width="50" height="50"/>
                                                         <state key="normal" image="icons8-control-panel-50"/>
                                                         <connections>
-                                                            <segue destination="bU7-WK-l28" kind="showDetail" id="bCP-Vd-MBP"/>
+                                                            <segue destination="bU7-WK-l28" kind="show" action="showDetailViewController:sender:" id="bCP-Vd-MBP"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REMOTE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djn-Fw-7sz">
@@ -80,7 +80,7 @@
                                                         <rect key="frame" x="32" y="63" width="36" height="36"/>
                                                         <state key="normal" image="ic_filter_hdr_white_36pt"/>
                                                         <connections>
-                                                            <segue destination="ygP-Uv-PDm" kind="showDetail" id="bjL-60-JM4"/>
+                                                            <segue destination="ygP-Uv-PDm" kind="show" action="showDetailViewController:sender:" id="bjL-60-JM4"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OUTSIDE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVl-RY-gVl">
@@ -106,7 +106,7 @@
                                                         <rect key="frame" x="32" y="62.5" width="36" height="36"/>
                                                         <state key="normal" image="ic_settings_white_36pt"/>
                                                         <connections>
-                                                            <segue destination="Mbi-y2-bDp" kind="showDetail" id="5wL-1A-Cz9"/>
+                                                            <segue destination="Mbi-y2-bDp" kind="show" action="showDetailViewController:sender:" id="5wL-1A-Cz9"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLK-jz-NTF">
