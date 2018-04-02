@@ -13,9 +13,9 @@ class RemoteList: Object {
     // MARK: - Date Value
     @objc dynamic var usedDate: Date = Date()
     
-    // MARK: - Strign Value
-    @objc dynamic var hueBridgeName: String = ""
-    @objc dynamic var hubBridgeIP: String = ""
+    // MARK: - Integer Value
+    @objc dynamic var hue: Int = 0
+    @objc dynamic var colors: [Int] = [0, 0, 0]
     
     // MARK: - List
     let controllerList = List<RemoteControllerInfo>()

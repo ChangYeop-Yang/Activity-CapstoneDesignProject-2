@@ -114,10 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				27185D3720628D2600469807 /* Main.storyboard */,
+				27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */,
 				277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */,
 				277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */,
 				277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */,
-				27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */,
 			);
 			path = StroyBoard;
 			sourceTree = "<group>";
