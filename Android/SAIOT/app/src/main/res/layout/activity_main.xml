@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:background="#434343"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+
+                android:background="#434343"
+                android:orientation="vertical">
+
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:background="@drawable/background_border"
+                    android:textColor="#ffffff"
+                    android:drawableTop="@drawable/ic_tv_white_36dp"
+
+                    android:text="HOME"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:drawableTop="@drawable/icons8_control_panel_50"
+                    android:background="@drawable/background_border"
+                    android:textColor="#ffffff"
+                    android:text="REMOTE"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:background="@drawable/background_border"
+                    android:textColor="#ffffff"
+                    android:drawableTop="@drawable/ic_filter_hdr_white_36dp"
+
+                    android:text="OUTSIDE"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_border"
+                    android:drawableTop="@drawable/ic_settings_white_36dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:textColor="#ffffff"
+                    android:text="SETTING"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#434343"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imageButton9"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="#00ff0000"
+                        app:srcCompat="@drawable/icons8_thermometer_40" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="7.5"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart2"
+                            android:layout_width="240dp"
+                            android:background="#7a7a7a"
+                            android:layout_height="120dp" />
+
+                        <TextView
+
+                            android:id="@+id/textView26"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TEMPERATURE        10"
+                            android:textColor="#ffffff"
+                            android:textSize="9dp"
+                            android:textStyle="bold" />
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imageButton10"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="#00ff0000"
+                        app:srcCompat="@drawable/icons8_hygrometer_48" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="7.5"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart3"
+                            android:layout_width="240dp"
+                            android:background="#7a7a7a"
+                            android:layout_height="120dp" />
+
+                        <TextView
+
+                            android:id="@+id/textView27"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TEMPERATURE        10"
+                            android:textColor="#ffffff"
+                            android:textSize="9dp"
+                            android:textStyle="bold" />
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imageButton11"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="#00ff0000"
+                        app:srcCompat="@drawable/icons8_gas_industry_64" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="7.5"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart4"
+                            android:layout_width="240dp"
+                            android:background="#7a7a7a"
+                            android:layout_height="120dp" />
+
+                        <TextView
+
+                            android:id="@+id/textView28"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TEMPERATURE        10"
+                            android:textColor="#ffffff"
+                            android:textSize="9dp"
+                            android:textStyle="bold" />
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imageButton12"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="#00ff0000"
+                        app:srcCompat="@drawable/icons8_audacity_48" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="7.5"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart5"
+                            android:layout_width="240dp"
+                            android:background="#7a7a7a"
+                            android:layout_height="120dp" />
+
+                        <TextView
+
+                            android:id="@+id/textView29"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TEMPERATURE        10"
+                            android:textColor="#ffffff"
+                            android:textSize="9dp"
+                            android:textStyle="bold" />
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imageButton5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00ff0000"
+                        app:srcCompat="@drawable/ic_lightbulb_outline_white_48dp" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00ff0000"
+                        app:srcCompat="@drawable/ic_bluetooth_connected_white_48dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
+
