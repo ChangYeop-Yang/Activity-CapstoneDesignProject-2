@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7W0-AF-Esg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HOME-->
+        <scene sceneID="yIq-Kx-ccv">
+            <objects>
+                <viewController storyboardIdentifier="HomeStoryboard" id="7W0-AF-Esg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zzb-uv-ISd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdQ-mF-H1O">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_tv_white_36pt" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHu-d3-amH">
+                                        <rect key="frame" x="0.0" y="10" width="375" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="EnF-cU-G9f"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bHu-d3-amH" secondAttribute="trailing" id="MVR-Qd-wBh"/>
+                                    <constraint firstItem="bHu-d3-amH" firstAttribute="leading" secondItem="wdQ-mF-H1O" secondAttribute="leading" id="gDb-HC-xOy"/>
+                                    <constraint firstItem="bHu-d3-amH" firstAttribute="top" secondItem="wdQ-mF-H1O" secondAttribute="top" constant="10" id="lLd-u0-qEq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wdQ-mF-H1O" firstAttribute="leading" secondItem="kUD-9L-aIE" secondAttribute="leading" id="0NI-RM-njX"/>
+                            <constraint firstItem="kUD-9L-aIE" firstAttribute="bottom" secondItem="wdQ-mF-H1O" secondAttribute="bottom" id="Frf-20-UKD"/>
+                            <constraint firstItem="kUD-9L-aIE" firstAttribute="trailing" secondItem="wdQ-mF-H1O" secondAttribute="trailing" id="Hus-Jc-bHU"/>
+                            <constraint firstItem="wdQ-mF-H1O" firstAttribute="top" secondItem="kUD-9L-aIE" secondAttribute="top" id="vDH-KF-aP1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kUD-9L-aIE"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="HOME" image="ic_tv_white_36pt" id="3tS-Ug-GbQ">
+                        <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDK-MX-970" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="513" y="-161"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_tv_white_36pt" width="36" height="36"/>
+    </resources>
+</document>

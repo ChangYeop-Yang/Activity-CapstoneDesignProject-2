@@ -16,6 +16,12 @@
 		277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */; };
 		277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */; };
 		277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */; };
+		2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */; };
+		27F85AF120712CB100FFE763 /* LivingSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F85AF020712CB100FFE763 /* LivingSensor.swift */; };
+		27F85AF320712CF400FFE763 /* RemoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F85AF220712CF400FFE763 /* RemoteList.swift */; };
+		27F85AF520712D0400FFE763 /* OutsideSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F85AF420712D0400FFE763 /* OutsideSensor.swift */; };
+		27F85AF72071316D00FFE763 /* RemoteControllerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F85AF62071316D00FFE763 /* RemoteControllerInfo.swift */; };
+		27F85AF92071403B00FFE763 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */; };
 		FB1F3D1B9823B130E37A4476 /* Pods_SAIOT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397CE0EC1A0F803942D5E158 /* Pods_SAIOT.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +38,12 @@
 		277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemoteStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutSideStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
+		2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutSideViewController.swift; sourceTree = "<group>"; };
+		27F85AF020712CB100FFE763 /* LivingSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivingSensor.swift; sourceTree = "<group>"; };
+		27F85AF220712CF400FFE763 /* RemoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteList.swift; sourceTree = "<group>"; };
+		27F85AF420712D0400FFE763 /* OutsideSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideSensor.swift; sourceTree = "<group>"; };
+		27F85AF62071316D00FFE763 /* RemoteControllerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControllerInfo.swift; sourceTree = "<group>"; };
+		27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		397CE0EC1A0F803942D5E158 /* Pods_SAIOT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAIOT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8584840B623EF40E58D2CB /* Pods-SAIOT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAIOT.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAIOT/Pods-SAIOT.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +81,7 @@
 		27185D3220628D2600469807 /* SAIOT */ = {
 			isa = PBXGroup;
 			children = (
+				27F85AEF20712B4A00FFE763 /* DataModel */,
 				27185D4A2062904300469807 /* StroyBoard */,
 				27185D492062903100469807 /* ViewController */,
 				27185D4820628FE100469807 /* Surport Files */,
@@ -92,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				27185D3520628D2600469807 /* ViewController.swift */,
+				2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -103,8 +117,20 @@
 				277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */,
 				277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */,
 				277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */,
+				27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */,
 			);
 			path = StroyBoard;
+			sourceTree = "<group>";
+		};
+		27F85AEF20712B4A00FFE763 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				27F85AF020712CB100FFE763 /* LivingSensor.swift */,
+				27F85AF220712CF400FFE763 /* RemoteList.swift */,
+				27F85AF62071316D00FFE763 /* RemoteControllerInfo.swift */,
+				27F85AF420712D0400FFE763 /* OutsideSensor.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		3FD24DFD2ABB3961B6C45A00 /* Frameworks */ = {
@@ -190,6 +216,7 @@
 				27185D4120628D2600469807 /* LaunchScreen.storyboard in Resources */,
 				277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */,
 				27185D3E20628D2600469807 /* Assets.xcassets in Resources */,
+				27F85AF92071403B00FFE763 /* HomeStoryboard.storyboard in Resources */,
 				277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */,
 				27185D3920628D2600469807 /* Main.storyboard in Resources */,
 			);
@@ -223,10 +250,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SAIOT/Pods-SAIOT-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				27185D3C20628D2600469807 /* SAIOT.xcdatamodeld in Sources */,
+				27F85AF72071316D00FFE763 /* RemoteControllerInfo.swift in Sources */,
 				27185D3620628D2600469807 /* ViewController.swift in Sources */,
+				2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */,
 				27185D3420628D2600469807 /* AppDelegate.swift in Sources */,
+				27F85AF120712CB100FFE763 /* LivingSensor.swift in Sources */,
+				27F85AF520712D0400FFE763 /* OutsideSensor.swift in Sources */,
+				27F85AF320712CF400FFE763 /* RemoteList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
