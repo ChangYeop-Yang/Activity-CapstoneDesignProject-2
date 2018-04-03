@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		27185D3420628D2600469807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27185D3320628D2600469807 /* AppDelegate.swift */; };
-		27185D3620628D2600469807 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27185D3520628D2600469807 /* ViewController.swift */; };
 		27185D3920628D2600469807 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27185D3720628D2600469807 /* Main.storyboard */; };
 		27185D3C20628D2600469807 /* SAIOT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27185D3A20628D2600469807 /* SAIOT.xcdatamodeld */; };
 		27185D3E20628D2600469807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27185D3D20628D2600469807 /* Assets.xcassets */; };
 		27185D4120628D2600469807 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27185D3F20628D2600469807 /* LaunchScreen.storyboard */; };
+		2741DDB72073C8FA0064F312 /* ColorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDB62073C8FA0064F312 /* ColorCode.swift */; };
+		2741DDBA2073CFA60064F312 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDB92073CFA60064F312 /* HomeViewController.swift */; };
+		2741DDBC2073CFB20064F312 /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDBB2073CFB20064F312 /* RemoteViewController.swift */; };
+		2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDBD2073CFC40064F312 /* SettingViewController.swift */; };
 		277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */; };
 		277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */; };
 		277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */; };
@@ -29,12 +32,15 @@
 		06503B470310F5E9F6EB1233 /* Pods-SAIOT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAIOT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SAIOT/Pods-SAIOT.debug.xcconfig"; sourceTree = "<group>"; };
 		27185D3020628D2600469807 /* SAIOT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAIOT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27185D3320628D2600469807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		27185D3520628D2600469807 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27185D3820628D2600469807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27185D3B20628D2600469807 /* SAIOT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SAIOT.xcdatamodel; sourceTree = "<group>"; };
 		27185D3D20628D2600469807 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27185D4020628D2600469807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27185D4220628D2600469807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2741DDB62073C8FA0064F312 /* ColorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCode.swift; sourceTree = "<group>"; };
+		2741DDB92073CFA60064F312 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2741DDBB2073CFB20064F312 /* RemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
+		2741DDBD2073CFC40064F312 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemoteStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutSideStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -81,6 +87,7 @@
 		27185D3220628D2600469807 /* SAIOT */ = {
 			isa = PBXGroup;
 			children = (
+				2741DDB82073C8FE0064F312 /* Public */,
 				27F85AEF20712B4A00FFE763 /* DataModel */,
 				27185D4A2062904300469807 /* StroyBoard */,
 				27185D492062903100469807 /* ViewController */,
@@ -104,8 +111,10 @@
 		27185D492062903100469807 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				27185D3520628D2600469807 /* ViewController.swift */,
+				2741DDB92073CFA60064F312 /* HomeViewController.swift */,
+				2741DDBB2073CFB20064F312 /* RemoteViewController.swift */,
 				2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */,
+				2741DDBD2073CFC40064F312 /* SettingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -120,6 +129,14 @@
 				277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */,
 			);
 			path = StroyBoard;
+			sourceTree = "<group>";
+		};
+		2741DDB82073C8FE0064F312 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				2741DDB62073C8FA0064F312 /* ColorCode.swift */,
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 		27F85AEF20712B4A00FFE763 /* DataModel */ = {
@@ -289,12 +306,15 @@
 			files = (
 				27185D3C20628D2600469807 /* SAIOT.xcdatamodeld in Sources */,
 				27F85AF72071316D00FFE763 /* RemoteControllerInfo.swift in Sources */,
-				27185D3620628D2600469807 /* ViewController.swift in Sources */,
 				2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */,
+				2741DDB72073C8FA0064F312 /* ColorCode.swift in Sources */,
+				2741DDBA2073CFA60064F312 /* HomeViewController.swift in Sources */,
 				27185D3420628D2600469807 /* AppDelegate.swift in Sources */,
 				27F85AF120712CB100FFE763 /* LivingSensor.swift in Sources */,
 				27F85AF520712D0400FFE763 /* OutsideSensor.swift in Sources */,
+				2741DDBC2073CFB20064F312 /* RemoteViewController.swift in Sources */,
 				27F85AF320712CF400FFE763 /* RemoteList.swift in Sources */,
+				2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

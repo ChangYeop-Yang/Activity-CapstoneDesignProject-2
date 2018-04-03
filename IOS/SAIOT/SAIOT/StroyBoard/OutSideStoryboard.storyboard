@@ -45,7 +45,10 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3p-o6-feX">
                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
-                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="1" green="0.92156862745098034" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="showState:" destination="NDf-G5-NAo" eventType="touchUpInside" id="xds-rX-PvZ"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ra-pq-wUl">
                                                 <rect key="frame" x="95.5" y="96" width="64" height="64"/>
@@ -101,11 +104,12 @@
                     <connections>
                         <outlet property="innerCircle" destination="7ra-pq-wUl" id="AJt-Um-kxf"/>
                         <outlet property="outsideCircle" destination="Dce-bS-fKd" id="VC5-8g-6ko"/>
+                        <outlet property="stateCircle" destination="K3p-o6-feX" id="XEh-SY-0J7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rof-Gi-ypN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="192"/>
+            <point key="canvasLocation" x="324" y="58"/>
         </scene>
     </scenes>
     <resources>
