@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <tabs>
+        <tab
+            id="@+id/tab_home"
+            icon="@drawable/ic_tv_white_36dp"
+            title="HOME"
+            titleSize="20dp"/>
+        <tab
+            id="@+id/tab_remote"
+            icon="@drawable/ic_open_with_white_24dp"
+            title="REMOTE" />
+        <tab
+            id="@+id/tab_outside"
+            icon="@drawable/ic_filter_hdr_white_36dp"
+            title="OUTSIDE" />
+        <tab
+            id="@+id/tab_setting"
+            icon="@drawable/ic_settings_white_36dp"
+            title="SETTING" />
+    </tabs>
+</PreferenceScreen>
+

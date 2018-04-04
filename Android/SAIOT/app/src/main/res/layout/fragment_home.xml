@@ -6,6 +6,8 @@
     tools:context="androidtown.org.saiot.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,19 +15,32 @@
         android:orientation="vertical">
 
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_tv_white_36dp2" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton9"
+
+
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
+                android:paddingTop="20dp"
+                android:textSize="10dp"
+                android:paddingBottom="20dp"
+                android:drawableTop="@drawable/icons8_thermometer_40"
                 android:background="#00ff0000"
-                app:srcCompat="@drawable/icons8_thermometer_40" />
+                android:textColor="#ffffff"
+                android:text="TEMPUTURE"/>
+
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -37,7 +52,7 @@
 
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/chart2"
-                    android:layout_width="240dp"
+                    android:layout_width="300dp"
                     android:background="#7a7a7a"
                     android:layout_height="120dp" />
 
@@ -64,13 +79,18 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton10"
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
+                android:paddingTop="20dp"
+                android:textSize="10dp"
+                android:paddingBottom="20dp"
+                android:drawableTop="@drawable/icons8_hygrometer_48"
                 android:background="#00ff0000"
-                app:srcCompat="@drawable/icons8_hygrometer_48" />
+                android:textColor="#ffffff"
+                android:text="HUMIDITY"/>
+
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -82,7 +102,7 @@
 
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/chart3"
-                    android:layout_width="240dp"
+                    android:layout_width="300dp"
                     android:background="#7a7a7a"
                     android:layout_height="120dp" />
 
@@ -109,13 +129,18 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton11"
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
+                android:paddingTop="10dp"
+                android:textSize="10dp"
+                android:paddingBottom="20dp"
+                android:drawableTop="@drawable/icons8_gas_industry_64"
                 android:background="#00ff0000"
-                app:srcCompat="@drawable/icons8_gas_industry_64" />
+                android:textColor="#ffffff"
+                android:text="GAS"/>
+
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -127,7 +152,7 @@
 
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/chart4"
-                    android:layout_width="240dp"
+                    android:layout_width="300dp"
                     android:background="#7a7a7a"
                     android:layout_height="120dp" />
 
@@ -154,13 +179,17 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton12"
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
+                android:paddingTop="20dp"
+                android:textSize="0dp"
+                android:paddingBottom="20dp"
+                android:drawableTop="@drawable/icons8_audacity_48"
                 android:background="#00ff0000"
-                app:srcCompat="@drawable/icons8_audacity_48" />
+                android:textColor="#ffffff"
+                android:text="NOISE"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -172,7 +201,7 @@
 
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/chart5"
-                    android:layout_width="240dp"
+                    android:layout_width="300dp"
                     android:background="#7a7a7a"
                     android:layout_height="120dp" />
 
@@ -196,24 +225,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.4"
+            android:layout_weight="0.6"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton5"
+            <Button
+                android:id="@+id/bluetoothbtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#00ff0000"
-                app:srcCompat="@drawable/ic_lightbulb_outline_white_48dp" />
+                android:background="#434343"
+                android:textColor="#ffffff"
+                android:drawableLeft="@drawable/ic_bluetooth_connected_white_48dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Bluetooth"/>
 
-            <ImageButton
-                android:id="@+id/imageButton6"
+            <Button
+                android:id="@+id/huebtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#00ff0000"
-                app:srcCompat="@drawable/ic_bluetooth_connected_white_48dp" />
+                android:background="#434343"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:drawableLeft="@drawable/ic_lightbulb_outline_white_48dp"
+                android:text="HUE"/>
+
         </LinearLayout>
     </LinearLayout>
 
