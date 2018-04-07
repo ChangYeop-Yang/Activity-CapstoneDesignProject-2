@@ -12,6 +12,7 @@ class LivingSensor: Object {
     
     // MARK: - Date Value
     @objc dynamic var collectDate: Date = Date()
+    @objc dynamic var occurSparkDate: Date = Date()
     
     // MARK: - Integer Value
     @objc dynamic var temputure: Int = 0
