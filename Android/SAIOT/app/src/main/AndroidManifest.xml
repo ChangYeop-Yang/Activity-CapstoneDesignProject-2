@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".OutsideActivity" />
-        <activity android:name=".RemoteActivity"></activity>
+        <activity android:name=".RemoteActivity" />
+        <activity android:name=".SettingActivity"></activity>
     </application>
 
 </manifest>

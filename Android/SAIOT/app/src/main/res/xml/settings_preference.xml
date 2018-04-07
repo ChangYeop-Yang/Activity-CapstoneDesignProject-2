@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceScreen
+        android:title="SETTING"
+        android:icon="@drawable/ic_settings_white_36dphd"
+
+
+        ></PreferenceScreen>
+
+
+    <PreferenceCategory android:title="DEVLOPER INFO">
+
+
+        <PreferenceScreen
+            android:key="send_email"
+            android:title="Send To E-mail"
+            android:summary="개발자에게 이메일을 전송합니다.">
+
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="introduce"
+            android:title="Introduce Developer"
+            android:summary="개발자의 정보를 확인합니다.">
+
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="opensource"
+            android:title="Open Source License"
+            android:summary="오픈소스의 라이센스를 확인합니다.">
+
+        </PreferenceScreen>
+        <PreferenceScreen
+        android:key="privacy"
+        android:title="Privacy Information Policy"
+        android:summary="개인정보 정책을 확인합니다.">
+
+    </PreferenceScreen>
+
+
+
+
+    </PreferenceCategory>
+
+
+
+
+    <PreferenceCategory android:title="APP SETTING">
+
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="alarm"
+            android:summary="알람을 활성화 및 비활성화 시킵니다"
+            android:title="Device Alarm"/>
+
+        <SwitchPreference
+            android:key="help"
+            android:title="Help Application"
+            android:summary="APP 사용 방법을 확인합니다"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>
