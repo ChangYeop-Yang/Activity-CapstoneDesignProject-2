@@ -1,5 +1,9 @@
 #include <MsTimer2.h>
 
+// MARK: - Define
+#define GAS_LIMIT 1000
+#define CHECK_GAS_M(X) X >= GAS_LIMIT ? true : false
+
 // MARK: - Digital Pin
 enum DigitalPin {
   FLARE_DPIN = 7,
@@ -11,13 +15,15 @@ enum DigitalPin {
 
 // MARK: - Analog Pin
 enum AnalogPin {
-  TEMPERATURE_APIN = 5
+  TEMPERATURE_APIN = 5,
+  GAS_APIN = 4
 };
 
 typedef struct flag {
   bool flare_Flag = false;
   bool byzzer_Flag = false;
   bool hotTemp_Flag = false;
+  bool gas_Flag = false;
 } CFlag;
 
 CFlag currentState;
@@ -46,6 +52,9 @@ void loop ()
 {
   // MARK: - Sensing fire flare Mehod
   senseFlare();
+
+  // MARK: - Sensing gas Method
+  senseGas();
 }
 
 // MARK: - Function
@@ -73,12 +82,44 @@ void senseFlare() {
   }
 }
 
+void senseGas() {
+
+  int rawADC = analogRead(GAS_APIN);
+    
+    if (CHECK_GAS_M(rawADC)) {
+        
+      currentState.gas_Flag = true;
+      while (currentState.gas_Flag) {
+        
+        if (CHECK_GAS_M(rawADC) == false) {
+          currentState.gas_Flag = false;
+        }
+        
+        for (int i = 0; i < 80; i++) {
+          digitalWrite (BYZZER_DPIN, HIGH); delay (2);  // Delay 1ms
+          digitalWrite (BYZZER_DPIN, LOW);  delay (1);  // Delay 1ms
+          digitalWrite (LED_RED_DPIN, HIGH); delay (1); // Delay 1ms
+        }
+        for (int i = 0; i < 100; i++) {
+          digitalWrite (BYZZER_DPIN, HIGH); delay (1); // Delay 2ms
+          digitalWrite (BYZZER_DPIN, LOW);  delay (2); // Delay 2ms
+          digitalWrite (LED_RED_DPIN, LOW); delay (2); // Delay 2ms
+        }
+        
+         Serial.println("Current Danger GAS PPM!!!");
+         Serial.print( analogRead(GAS_APIN) ); Serial.println("PPM");
+      }
+    } 
+
+    currentState.gas_Flag = false;
+}
+
 void readingTemperatuer() {
 
-  int RawADC = analogRead(TEMPERATURE_APIN);
+  int rawADC = analogRead(TEMPERATURE_APIN);
   
   double Temp;
-  Temp = log(10000.0*((1024.0/RawADC-1))); 
+  Temp = log(10000.0*((1024.0/rawADC-1))); 
   Temp = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * Temp * Temp ))* Temp );
   Temp = Temp - 273.15;            // Convert Kelvin to Celcius
   //Temp = (Temp * 9.0)/ 5.0 + 32.0; // Celsius to Fahrenheit - comment out this line if you need Celsius
