@@ -1,7 +1,11 @@
 #include <MsTimer2.h>
+#include <math.h>
+#include <SoftwareSerial.h>
 
 // MARK: - Define
 #define GAS_LIMIT 1000
+#define SOUND_LIMIT_NIGHT 10
+#define SOUND_LIMIT_MORNING 43
 #define CHECK_GAS_M(X) X >= GAS_LIMIT ? true : false
 
 // MARK: - Digital Pin
@@ -10,13 +14,16 @@ enum DigitalPin {
   BYZZER_DPIN = 8,
   LED_RED_DPIN = 13,
   LED_GREEN_DPIN = 12,
-  LED_BLUE_DPIN = 11
+  LED_BLUE_DPIN = 11,
+  BLUETOOTH_RX_DPIN = 2,
+  BLUETOOTH_TX_DPIN = 3
 };
 
 // MARK: - Analog Pin
 enum AnalogPin {
   TEMPERATURE_APIN = 5,
-  GAS_APIN = 4
+  GAS_APIN = 4,
+  SOUND_APIN = 2
 };
 
 typedef struct flag {
@@ -26,11 +33,18 @@ typedef struct flag {
   bool gas_Flag = false;
 } CFlag;
 
+// MARK: - Global Variable
 CFlag currentState;
+SoftwareSerial bluetoothSerial(BLUETOOTH_TX_DPIN, BLUETOOTH_RX_DPIN);
  
 void setup ()
 { 
   Serial.begin(9600);
+
+  /* setting bluetooth module */
+  bluetoothSerial.begin(9600);
+  bluetoothSerial.write("AT+NAMEArduino-Kitchen");
+  bluetoothSerial.write("AT+PIN9311");
   
   /* setting controls the digital IO foot buzzer */
   pinMode (BYZZER_DPIN, OUTPUT);
@@ -45,6 +59,10 @@ void setup ()
 
   /* setting Analog Temperature Timmer */
   MsTimer2::set(60000, readingTemperatuer);
+  MsTimer2::start();
+
+  /* setting Analog Sound Timmer */
+  MsTimer2::set(60000, senseAreaSound);
   MsTimer2::start();
 }
 
@@ -80,6 +98,24 @@ void senseFlare() {
       } 
     } 
   }
+}
+
+void senseAreaSound() {
+
+  int rawValue = analogRead(SOUND_APIN);
+  int db = (rawValue + 83.2073) / 11.003;
+
+  if (db < SOUND_LIMIT_MORNING && db > SOUND_LIMIT_NIGHT) {
+    digitalWrite (LED_RED_DPIN, HIGH);  digitalWrite (LED_GREEN_DPIN, HIGH); delay(2);
+    digitalWrite (LED_RED_DPIN, LOW);   digitalWrite (LED_GREEN_DPIN, LOW);
+    Serial.println("[Night] Current room dB vary high!!!");
+  } else if (db > SOUND_LIMIT_MORNING) {
+    digitalWrite (LED_BLUE_DPIN, HIGH);  digitalWrite (LED_GREEN_DPIN, HIGH); delay(2);
+    digitalWrite (LED_BLUE_DPIN, LOW);   digitalWrite (LED_GREEN_DPIN, LOW);
+    Serial.println("[Mornig] Current room dB vary high!!!");
+  }
+
+  Serial.print("Current dB Value: "); Serial.println(db);
 }
 
 void senseGas() {
