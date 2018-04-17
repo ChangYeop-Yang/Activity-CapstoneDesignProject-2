@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyHue
 
 class HomeViewController: UIViewController {
     

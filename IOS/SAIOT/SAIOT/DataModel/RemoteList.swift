@@ -17,6 +17,11 @@ class RemoteList: Object {
     @objc dynamic var hue: Int = 0
     @objc dynamic var colors: [Int] = [0, 0, 0]
     
+    // MARK: - String Value
+    @objc dynamic var hueBridgeID: String = ""
+    @objc dynamic var hueBridgeIP: String = ""
+    @objc dynamic var hueBridgeName: String = ""
+    
     // MARK: - List
     let controllerList = List<RemoteControllerInfo>()
 }

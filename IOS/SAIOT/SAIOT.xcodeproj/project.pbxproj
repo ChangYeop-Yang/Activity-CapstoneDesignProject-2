@@ -20,6 +20,8 @@
 		277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */; };
 		277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */; };
 		2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */; };
+		27923DE920865DEF00516EEB /* PhilipsHueBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */; };
+		27923DEB20865E0200516EEB /* PhilipsHueControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27923DEA20865E0200516EEB /* PhilipsHueControl.swift */; };
 		27B376DB208501DC009AE9AC /* DetailHue.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B376DA208501DC009AE9AC /* DetailHue.xib */; };
 		27B376DD20850900009AE9AC /* DetailHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B376DC20850900009AE9AC /* DetailHue.swift */; };
 		27F85AF120712CB100FFE763 /* LivingSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F85AF020712CB100FFE763 /* LivingSensor.swift */; };
@@ -47,6 +49,8 @@
 		277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutSideStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
 		2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutSideViewController.swift; sourceTree = "<group>"; };
+		27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilipsHueBridge.swift; sourceTree = "<group>"; };
+		27923DEA20865E0200516EEB /* PhilipsHueControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilipsHueControl.swift; sourceTree = "<group>"; };
 		27B376DA208501DC009AE9AC /* DetailHue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHue.xib; sourceTree = "<group>"; };
 		27B376DC20850900009AE9AC /* DetailHue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHue.swift; sourceTree = "<group>"; };
 		27F85AF020712CB100FFE763 /* LivingSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivingSensor.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				2741DDB62073C8FA0064F312 /* ColorCode.swift */,
+				27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */,
+				27923DEA20865E0200516EEB /* PhilipsHueControl.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -331,8 +337,10 @@
 				27F85AF72071316D00FFE763 /* RemoteControllerInfo.swift in Sources */,
 				2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */,
 				2741DDB72073C8FA0064F312 /* ColorCode.swift in Sources */,
+				27923DEB20865E0200516EEB /* PhilipsHueControl.swift in Sources */,
 				2741DDBA2073CFA60064F312 /* HomeViewController.swift in Sources */,
 				27185D3420628D2600469807 /* AppDelegate.swift in Sources */,
+				27923DE920865DEF00516EEB /* PhilipsHueBridge.swift in Sources */,
 				27F85AF120712CB100FFE763 /* LivingSensor.swift in Sources */,
 				27F85AF520712D0400FFE763 /* OutsideSensor.swift in Sources */,
 				2741DDBC2073CFB20064F312 /* RemoteViewController.swift in Sources */,
