@@ -7,7 +7,7 @@ target 'SAIOT' do
 
   pod 'ScrollableGraphView'
   pod 'RealmSwift'
-
+  pod 'SwiftyHue', '0.4.1'
   # Pods for SAIOT
 
 end

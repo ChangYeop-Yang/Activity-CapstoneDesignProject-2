@@ -13,7 +13,7 @@
         <!--HOME-->
         <scene sceneID="yIq-Kx-ccv">
             <objects>
-                <viewController storyboardIdentifier="HomeStoryboard" id="7W0-AF-Esg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeStoryboard" id="7W0-AF-Esg" customClass="HomeViewController" customModule="SAIOT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zzb-uv-ISd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,17 +27,15 @@
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yrC-Mh-AKd">
                                 <rect key="frame" x="0.0" y="563" width="375" height="55"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlu-o7-irm">
-                                        <rect key="frame" x="0.0" y="0.0" width="182.5" height="55"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="Bluetooth" image="ic_bluetooth_connected_white_48pt"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8m-ml-vDv">
-                                        <rect key="frame" x="192.5" y="0.0" width="182.5" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                                         <state key="normal" title="HUE" image="ic_lightbulb_outline_white_48pt"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="keM-HH-0tF" appends="YES" id="BZl-o5-SGJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -284,12 +282,16 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDK-MX-970" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="keM-HH-0tF">
+                    <connections>
+                        <action selector="ShowDetailHueMent:" destination="7W0-AF-Esg" id="g1N-8n-VUo"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="512.79999999999995" y="-161.46926536731635"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ic_bluetooth_connected_white_48pt" width="48" height="48"/>
         <image name="ic_lightbulb_outline_white_48pt" width="48" height="48"/>
         <image name="ic_tv_white_36pt" width="36" height="36"/>
         <image name="icons8-audacity-48" width="48" height="48"/>

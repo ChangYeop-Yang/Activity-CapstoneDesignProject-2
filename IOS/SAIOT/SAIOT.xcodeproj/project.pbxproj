@@ -20,6 +20,8 @@
 		277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */; };
 		277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */; };
 		2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */; };
+		27B376DB208501DC009AE9AC /* DetailHue.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B376DA208501DC009AE9AC /* DetailHue.xib */; };
+		27B376DD20850900009AE9AC /* DetailHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B376DC20850900009AE9AC /* DetailHue.swift */; };
 		27F85AF120712CB100FFE763 /* LivingSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F85AF020712CB100FFE763 /* LivingSensor.swift */; };
 		27F85AF320712CF400FFE763 /* RemoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F85AF220712CF400FFE763 /* RemoteList.swift */; };
 		27F85AF520712D0400FFE763 /* OutsideSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F85AF420712D0400FFE763 /* OutsideSensor.swift */; };
@@ -45,6 +47,8 @@
 		277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutSideStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
 		2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutSideViewController.swift; sourceTree = "<group>"; };
+		27B376DA208501DC009AE9AC /* DetailHue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHue.xib; sourceTree = "<group>"; };
+		27B376DC20850900009AE9AC /* DetailHue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHue.swift; sourceTree = "<group>"; };
 		27F85AF020712CB100FFE763 /* LivingSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivingSensor.swift; sourceTree = "<group>"; };
 		27F85AF220712CF400FFE763 /* RemoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteList.swift; sourceTree = "<group>"; };
 		27F85AF420712D0400FFE763 /* OutsideSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideSensor.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		27185D3220628D2600469807 /* SAIOT */ = {
 			isa = PBXGroup;
 			children = (
+				27B376D92085019D009AE9AC /* Nib */,
 				2741DDB82073C8FE0064F312 /* Public */,
 				27F85AEF20712B4A00FFE763 /* DataModel */,
 				27185D4A2062904300469807 /* StroyBoard */,
@@ -137,6 +142,15 @@
 				2741DDB62073C8FA0064F312 /* ColorCode.swift */,
 			);
 			path = Public;
+			sourceTree = "<group>";
+		};
+		27B376D92085019D009AE9AC /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				27B376DA208501DC009AE9AC /* DetailHue.xib */,
+				27B376DC20850900009AE9AC /* DetailHue.swift */,
+			);
+			path = Nib;
 			sourceTree = "<group>";
 		};
 		27F85AEF20712B4A00FFE763 /* DataModel */ = {
@@ -232,6 +246,7 @@
 				277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */,
 				27185D4120628D2600469807 /* LaunchScreen.storyboard in Resources */,
 				277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */,
+				27B376DB208501DC009AE9AC /* DetailHue.xib in Resources */,
 				27185D3E20628D2600469807 /* Assets.xcassets in Resources */,
 				27F85AF92071403B00FFE763 /* HomeStoryboard.storyboard in Resources */,
 				277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */,
@@ -267,15 +282,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SAIOT/Pods-SAIOT-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyHue/SwiftyHue.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyHue.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -315,6 +338,7 @@
 				2741DDBC2073CFB20064F312 /* RemoteViewController.swift in Sources */,
 				27F85AF320712CF400FFE763 /* RemoteList.swift in Sources */,
 				2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */,
+				27B376DD20850900009AE9AC /* DetailHue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

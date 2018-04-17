@@ -11,7 +11,7 @@ import RealmSwift
 class RemoteList: Object {
     
     // MARK: - Date Value
-    @objc dynamic var usedDate: Date = Date()
+    @objc dynamic var usedDate: Date = Date() 
     
     // MARK: - Integer Value
     @objc dynamic var hue: Int = 0

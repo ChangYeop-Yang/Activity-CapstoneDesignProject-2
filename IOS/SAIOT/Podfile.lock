@@ -1,20 +1,38 @@
 PODS:
-  - Realm (3.0.2):
-    - Realm/Headers (= 3.0.2)
-  - Realm/Headers (3.0.2)
-  - RealmSwift (3.0.2):
-    - Realm (= 3.0.2)
+  - Alamofire (4.5.1)
+  - CocoaAsyncSocket (7.6.2)
+  - Gloss (2.0.0)
+  - Realm (3.3.2):
+    - Realm/Headers (= 3.3.2)
+  - Realm/Headers (3.3.2)
+  - RealmSwift (3.3.2):
+    - Realm (= 3.3.2)
   - ScrollableGraphView (4.0.4)
+  - SwiftyHue (0.4.1):
+    - SwiftyHue/Base (= 0.4.1)
+    - SwiftyHue/BridgeServices (= 0.4.1)
+  - SwiftyHue/Base (0.4.1):
+    - Alamofire (= 4.5.1)
+    - Gloss (= 2.0.0)
+  - SwiftyHue/BridgeServices (0.4.1):
+    - Alamofire (= 4.5.1)
+    - CocoaAsyncSocket (= 7.6.2)
+    - Gloss (= 2.0.0)
 
 DEPENDENCIES:
   - RealmSwift
   - ScrollableGraphView
+  - SwiftyHue (= 0.4.1)
 
 SPEC CHECKSUMS:
-  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
-  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  CocoaAsyncSocket: 3541e024f48c54b251638ef72d51dd42808de932
+  Gloss: b67617f327406adfd47adf20172d00680a3a31bd
+  Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
+  RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
   ScrollableGraphView: 072ea302f4ca27779692656a49d51fe537b2b1e7
+  SwiftyHue: 9dfa91b75ec025c15c3e1078ce195a7b1a8d48aa
 
-PODFILE CHECKSUM: 62295c22739a1880ecbad8ac7d03b280d65fbbd3
+PODFILE CHECKSUM: d86eb83bbfab293f906ba9e7c2df834185db66cf
 
 COCOAPODS: 1.3.1
