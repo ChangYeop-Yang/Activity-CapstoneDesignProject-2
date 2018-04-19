@@ -1,11 +1,14 @@
+#include <ESP8266.h>
+#include <ESP8266Client.h>
+#include <SoftwareSerial.h>
 #include <MsTimer2.h>
 #include <math.h>
-#include <SoftwareSerial.h>
 
 // MARK: - Define
 #define GAS_LIMIT 1000
 #define SOUND_LIMIT_NIGHT 10
 #define SOUND_LIMIT_MORNING 43
+#define CDS_LIMIT_LIGHT 450
 #define CHECK_GAS_M(X) X >= GAS_LIMIT ? true : false
 
 // MARK: - Digital Pin
@@ -15,15 +18,21 @@ enum DigitalPin {
   LED_RED_DPIN = 13,
   LED_GREEN_DPIN = 12,
   LED_BLUE_DPIN = 11,
-  BLUETOOTH_RX_DPIN = 2,
-  BLUETOOTH_TX_DPIN = 3
 };
 
 // MARK: - Analog Pin
 enum AnalogPin {
   TEMPERATURE_APIN = 5,
   GAS_APIN = 4,
-  SOUND_APIN = 2
+  SOUND_APIN = 3,
+  CDS_APIN = 2
+};
+
+// MARK: - Standard Lux Value
+enum StandardCDS {
+  BAD_ROOM_CDS = 15,
+  KITCHEN_CDS = 150,
+  LIVING_ROOM_CDS = 60
 };
 
 typedef struct flag {
@@ -35,16 +44,18 @@ typedef struct flag {
 
 // MARK: - Global Variable
 CFlag currentState;
-SoftwareSerial bluetoothSerial(BLUETOOTH_TX_DPIN, BLUETOOTH_RX_DPIN);
+SoftwareSerial esp8266_Serial = SoftwareSerial(4, 3);
+ESP8266 wifi_Esp8266 = ESP8266(esp8266_Serial);
  
 void setup ()
 { 
   Serial.begin(9600);
 
-  /* setting bluetooth module */
-  bluetoothSerial.begin(9600);
-  bluetoothSerial.write("AT+NAMEArduino-Kitchen");
-  bluetoothSerial.write("AT+PIN9311");
+  /* setting Esp8266 WIFI Serial Module */
+  esp8266_Serial.begin(9600);
+  wifi_Esp8266.begin();
+  wifi_Esp8266.setTimeout(1000);
+  connectWIFI(wifi_Esp8266.test());
   
   /* setting controls the digital IO foot buzzer */
   pinMode (BYZZER_DPIN, OUTPUT);
@@ -57,12 +68,8 @@ void setup ()
   pinMode(LED_GREEN_DPIN, OUTPUT);
   pinMode(LED_BLUE_DPIN, OUTPUT);
 
-  /* setting Analog Temperature Timmer */
-  MsTimer2::set(60000, readingTemperatuer);
-  MsTimer2::start();
-
-  /* setting Analog Sound Timmer */
-  MsTimer2::set(60000, senseAreaSound);
+  /* setting Collect Sensor Date Timmer */
+  MsTimer2::set(60000, collectSensorDate);
   MsTimer2::start();
 }
 
@@ -76,6 +83,18 @@ void loop ()
 }
 
 // MARK: - Function
+void collectSensorDate() {
+  
+  /* setting Analog Sound Timmer */
+  senseAreaSound();
+
+  /* setting Analog Temperature Timmer */
+  readingTemperatuer();
+
+  /* setting Analog CDS Timmer */
+  collectCDS();
+}
+
 void senseFlare() {
 
   // MARK: Sensing Fire
@@ -169,3 +188,31 @@ void readingTemperatuer() {
   
   Serial.print("- Current Tempuerature = "); Serial.print(celsius); Serial.println("℃");
 }
+
+void collectCDS() {
+
+  int cdsValue = analogRead(CDS_APIN);
+  Serial.print("- Current CDS: "); Serial.print(cdsValue); Serial.println("[Lx]");
+
+  if (cdsValue >= CDS_LIMIT_LIGHT) {
+    Serial.println("The room is current brightness very dark. (TURN OFF)");
+    return;
+  }
+
+  if (BAD_ROOM_CDS >= cdsValue) {
+    Serial.println("The bad room is current good brightness.");
+  } else if (LIVING_ROOM_CDS >= cdsValue) {
+    Serial.println("The living room is current good brightness.");
+  } else if (KITCHEN_CDS >= cdsValue) {
+    Serial.println("The kitchen is current good brightness.");
+  }
+}
+
+void connectWIFI(bool state) {
+
+  if (state) {
+    Serial.println("The successfully is operating WIFI(ESP8266) Module.");
+    digitalWrite(LED_GREEN_DPIN, HIGH); delay(2000); digitalWrite (LED_GREEN_DPIN, LOW);
+  }
+}
+
