@@ -11,11 +11,16 @@ import RealmSwift
 class RemoteList: Object {
     
     // MARK: - Date Value
-    @objc dynamic var usedDate: Date = Date()
+    @objc dynamic var usedDate: Date = Date() 
     
     // MARK: - Integer Value
     @objc dynamic var hue: Int = 0
     @objc dynamic var colors: [Int] = [0, 0, 0]
+    
+    // MARK: - String Value
+    @objc dynamic var hueBridgeID: String = ""
+    @objc dynamic var hueBridgeIP: String = ""
+    @objc dynamic var hueBridgeName: String = ""
     
     // MARK: - List
     let controllerList = List<RemoteControllerInfo>()

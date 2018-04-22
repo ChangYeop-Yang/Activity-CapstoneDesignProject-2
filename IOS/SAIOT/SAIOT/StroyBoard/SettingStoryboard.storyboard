@@ -13,7 +13,7 @@
         <!--SETTING-->
         <scene sceneID="RIs-BX-qH2">
             <objects>
-                <viewController id="4lQ-5s-Gfg" sceneMemberID="viewController">
+                <viewController id="4lQ-5s-Gfg" customClass="SettingViewController" customModule="SAIOT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j23-ey-YF5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

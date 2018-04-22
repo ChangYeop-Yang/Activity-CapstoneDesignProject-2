@@ -7,29 +7,42 @@
 //
 
 import UIKit
+import SwiftyHue
 
 class HomeViewController: UIViewController {
-
+    
+    // MARK: - Variable
+    private var isSubView: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Outlet Action Method
+    @IBAction func ShowDetailHueMent(_ sender: UILongPressGestureRecognizer) {
+        
+        if (isSubView == false) {
+            
+            UIView.animate(withDuration: 1, animations: {
+                
+                let detailView = UINib(nibName: "DetailHue", bundle: nil).instantiate(withOwner: self, options: nil).first as! DetailHue
+                detailView.delegate = self
+                detailView.center = self.view.center
+                self.view.addSubview(detailView)
+            }, completion: nil)
+            
+            isSubView = true
+        }
+        
     }
-    */
+}
 
+// MAKR: - DetailHue Delegate Extension
+extension HomeViewController: DetailHueDelegate {
+    
+    func closeSubView() {
+        isSubView = false
+    }
 }

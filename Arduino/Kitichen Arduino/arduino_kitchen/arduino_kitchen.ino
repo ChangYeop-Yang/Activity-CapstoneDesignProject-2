@@ -1,7 +1,14 @@
+#include <ESP8266.h>
+#include <ESP8266Client.h>
+#include <SoftwareSerial.h>
 #include <MsTimer2.h>
+#include <math.h>
 
 // MARK: - Define
 #define GAS_LIMIT 1000
+#define SOUND_LIMIT_NIGHT 10
+#define SOUND_LIMIT_MORNING 43
+#define CDS_LIMIT_LIGHT 450
 #define CHECK_GAS_M(X) X >= GAS_LIMIT ? true : false
 
 // MARK: - Digital Pin
@@ -10,13 +17,22 @@ enum DigitalPin {
   BYZZER_DPIN = 8,
   LED_RED_DPIN = 13,
   LED_GREEN_DPIN = 12,
-  LED_BLUE_DPIN = 11
+  LED_BLUE_DPIN = 11,
 };
 
 // MARK: - Analog Pin
 enum AnalogPin {
   TEMPERATURE_APIN = 5,
-  GAS_APIN = 4
+  GAS_APIN = 4,
+  SOUND_APIN = 3,
+  CDS_APIN = 2
+};
+
+// MARK: - Standard Lux Value
+enum StandardCDS {
+  BAD_ROOM_CDS = 15,
+  KITCHEN_CDS = 150,
+  LIVING_ROOM_CDS = 60
 };
 
 typedef struct flag {
@@ -26,11 +42,20 @@ typedef struct flag {
   bool gas_Flag = false;
 } CFlag;
 
+// MARK: - Global Variable
 CFlag currentState;
+SoftwareSerial esp8266_Serial = SoftwareSerial(4, 3);
+ESP8266 wifi_Esp8266 = ESP8266(esp8266_Serial);
  
 void setup ()
 { 
   Serial.begin(9600);
+
+  /* setting Esp8266 WIFI Serial Module */
+  esp8266_Serial.begin(9600);
+  wifi_Esp8266.begin();
+  wifi_Esp8266.setTimeout(1000);
+  connectWIFI(wifi_Esp8266.test());
   
   /* setting controls the digital IO foot buzzer */
   pinMode (BYZZER_DPIN, OUTPUT);
@@ -43,8 +68,8 @@ void setup ()
   pinMode(LED_GREEN_DPIN, OUTPUT);
   pinMode(LED_BLUE_DPIN, OUTPUT);
 
-  /* setting Analog Temperature Timmer */
-  MsTimer2::set(60000, readingTemperatuer);
+  /* setting Collect Sensor Date Timmer */
+  MsTimer2::set(60000, collectSensorDate);
   MsTimer2::start();
 }
 
@@ -58,6 +83,18 @@ void loop ()
 }
 
 // MARK: - Function
+void collectSensorDate() {
+  
+  /* setting Analog Sound Timmer */
+  senseAreaSound();
+
+  /* setting Analog Temperature Timmer */
+  readingTemperatuer();
+
+  /* setting Analog CDS Timmer */
+  collectCDS();
+}
+
 void senseFlare() {
 
   // MARK: Sensing Fire
@@ -80,6 +117,24 @@ void senseFlare() {
       } 
     } 
   }
+}
+
+void senseAreaSound() {
+
+  int rawValue = analogRead(SOUND_APIN);
+  int db = (rawValue + 83.2073) / 11.003;
+
+  if (db < SOUND_LIMIT_MORNING && db > SOUND_LIMIT_NIGHT) {
+    digitalWrite (LED_RED_DPIN, HIGH);  digitalWrite (LED_GREEN_DPIN, HIGH); delay(2);
+    digitalWrite (LED_RED_DPIN, LOW);   digitalWrite (LED_GREEN_DPIN, LOW);
+    Serial.println("[Night] Current room dB vary high!!!");
+  } else if (db > SOUND_LIMIT_MORNING) {
+    digitalWrite (LED_BLUE_DPIN, HIGH);  digitalWrite (LED_GREEN_DPIN, HIGH); delay(2);
+    digitalWrite (LED_BLUE_DPIN, LOW);   digitalWrite (LED_GREEN_DPIN, LOW);
+    Serial.println("[Mornig] Current room dB vary high!!!");
+  }
+
+  Serial.print("Current dB Value: "); Serial.println(db);
 }
 
 void senseGas() {
@@ -133,3 +188,31 @@ void readingTemperatuer() {
   
   Serial.print("- Current Tempuerature = "); Serial.print(celsius); Serial.println("℃");
 }
+
+void collectCDS() {
+
+  int cdsValue = analogRead(CDS_APIN);
+  Serial.print("- Current CDS: "); Serial.print(cdsValue); Serial.println("[Lx]");
+
+  if (cdsValue >= CDS_LIMIT_LIGHT) {
+    Serial.println("The room is current brightness very dark. (TURN OFF)");
+    return;
+  }
+
+  if (BAD_ROOM_CDS >= cdsValue) {
+    Serial.println("The bad room is current good brightness.");
+  } else if (LIVING_ROOM_CDS >= cdsValue) {
+    Serial.println("The living room is current good brightness.");
+  } else if (KITCHEN_CDS >= cdsValue) {
+    Serial.println("The kitchen is current good brightness.");
+  }
+}
+
+void connectWIFI(bool state) {
+
+  if (state) {
+    Serial.println("The successfully is operating WIFI(ESP8266) Module.");
+    digitalWrite(LED_GREEN_DPIN, HIGH); delay(2000); digitalWrite (LED_GREEN_DPIN, LOW);
+  }
+}
+
