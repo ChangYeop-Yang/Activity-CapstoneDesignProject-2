@@ -19,172 +19,172 @@
             android:layout_height="130dp"
             android:paddingTop="30dp"
             android:paddingBottom="10dp"
-            android:background="#434343"
+            android:background="#00ff0000"
             android:textColor="#ffffff"
             android:drawableTop="@drawable/ic_open_with_white_24dp"
             android:text="REMOTE CONTROL"/>
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingLeft="130dp"
-        android:paddingRight="130dp"
-        android:background="#434343"
-        android:textColor="#ffffff"
-        android:drawableLeft="@drawable/ic_power_settings_new_white_48dp"
-        android:text="POWER"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
         <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
-            android:background="#434343"
+            android:paddingLeft="130dp"
+            android:paddingRight="130dp"
+            android:background="#00ff0000"
             android:textColor="#ffffff"
-            android:drawableLeft="@drawable/ic_keyboard_arrow_up_white_48dp"
-            android:drawablePadding="0dp"
-            android:text="UP"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:drawablePadding="0dp"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
-            android:background="#434343"
-            android:textColor="#ffffff"
-            android:drawableLeft="@drawable/ic_keyboard_arrow_down_white_48dp"
-            android:text="DOWN"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_gravity="center_vertical"
-        android:layout_height="0dp"
-        android:layout_weight="3.5">
+            android:drawableLeft="@drawable/ic_power_settings_new_white_48dp"
+            android:text="POWER"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.75"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <ImageButton
-                android:id="@+id/imageButton7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
-                android:background="#434343"
-                android:src="@drawable/ic_video_label_white_48dp" />
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <ImageButton
-                android:id="@+id/imageButton8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:background="#434343"
-                android:src="@drawable/ic_live_tv_white_48dp" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:background="#00ff0000"
+                android:textColor="#ffffff"
+                android:drawableLeft="@drawable/ic_keyboard_arrow_up_white_48dp"
+                android:drawablePadding="0dp"
+                android:text="UP"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="0dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:background="#00ff0000"
+                android:textColor="#ffffff"
+                android:drawableLeft="@drawable/ic_keyboard_arrow_down_white_48dp"
+                android:text="DOWN"/>
 
         </LinearLayout>
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.75"
+            android:orientation="vertical"
             android:layout_gravity="center_vertical"
-            android:gravity="center"
+            android:layout_height="0dp"
+            android:layout_weight="3.5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.75"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/imageButton7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:background="#434343"
+                    android:src="@drawable/ic_video_label_white_48dp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:background="#434343"
+                    android:src="@drawable/ic_live_tv_white_48dp" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.75"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imageButton13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:background="#434343"
+                    android:src="@drawable/ic_ac_unit_white_48dp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:background="#434343"
+                    android:src="@drawable/ic_all_inclusive_white_48dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:text="HUE CONTROL"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButton13"
-                android:layout_width="wrap_content"
+                android:id="@+id/imageButton"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingTop="40dp"
+                android:scaleType="centerCrop"
                 android:background="#434343"
-                android:src="@drawable/ic_ac_unit_white_48dp" />
+                android:src="@drawable/pencil_red" />
 
             <ImageButton
-                android:id="@+id/imageButton14"
-                android:layout_width="wrap_content"
+                android:id="@+id/imageButton2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+                android:paddingTop="40dp"
+                android:scaleType="centerCrop"
                 android:background="#434343"
-                android:src="@drawable/ic_all_inclusive_white_48dp" />
-        </LinearLayout>
+                android:src="@drawable/pencil_green" />
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="40dp"
+                android:scaleType="centerCrop"
+                android:background="#434343"
+                android:src="@drawable/pencil_blue" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.7"
-        android:text="HUE CONTROL"
-        android:textStyle="bold"
-        android:gravity="center"/>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:paddingStart="10dp"
-            android:paddingTop="40dp"
-            android:scaleType="centerCrop"
-            android:background="#434343"
-            android:src="@drawable/pencil_red" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="40dp"
-            android:scaleType="centerCrop"
-            android:background="#434343"
-            android:src="@drawable/pencil_green" />
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="40dp"
-            android:scaleType="centerCrop"
-            android:background="#434343"
-            android:src="@drawable/pencil_blue" />
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="40dp"
-            android:scaleType="centerCrop"
-            android:background="#434343"
-            android:src="@drawable/pencil_pink" />
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="40dp"
+                android:scaleType="centerCrop"
+                android:background="#434343"
+                android:src="@drawable/pencil_pink" />
 
         </LinearLayout>
 

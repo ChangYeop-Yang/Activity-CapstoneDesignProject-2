@@ -54,7 +54,7 @@
                     android:id="@+id/chart2"
                     android:layout_width="300dp"
                     android:background="#7a7a7a"
-                    android:layout_height="120dp" />
+                    android:layout_height="90dp" />
 
                 <TextView
 
@@ -104,7 +104,7 @@
                     android:id="@+id/chart3"
                     android:layout_width="300dp"
                     android:background="#7a7a7a"
-                    android:layout_height="120dp" />
+                    android:layout_height="90dp" />
 
                 <TextView
 
@@ -154,7 +154,7 @@
                     android:id="@+id/chart4"
                     android:layout_width="300dp"
                     android:background="#7a7a7a"
-                    android:layout_height="120dp" />
+                    android:layout_height="90dp" />
 
                 <TextView
 
@@ -184,7 +184,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
                 android:paddingTop="20dp"
-                android:textSize="0dp"
+                android:textSize="10dp"
                 android:paddingBottom="20dp"
                 android:drawableTop="@drawable/icons8_audacity_48"
                 android:background="#00ff0000"
@@ -202,8 +202,8 @@
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/chart5"
                     android:layout_width="300dp"
-                    android:background="#7a7a7a"
-                    android:layout_height="120dp" />
+                    android:layout_height="90dp"
+                    android:background="#7a7a7a" />
 
                 <TextView
 
@@ -236,8 +236,8 @@
                 android:background="#434343"
                 android:textColor="#ffffff"
                 android:drawableLeft="@drawable/ic_bluetooth_connected_white_48dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp"
                 android:text="Bluetooth"/>
 
             <Button
@@ -247,8 +247,9 @@
                 android:layout_weight="1"
                 android:background="#434343"
                 android:textColor="#ffffff"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp"
                 android:drawableLeft="@drawable/ic_lightbulb_outline_white_48dp"
                 android:text="HUE"/>
 

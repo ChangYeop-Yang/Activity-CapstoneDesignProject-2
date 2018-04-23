@@ -1,8 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#434343">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,28 +18,41 @@
 
 
 
-            <Button
-                android:id="@+id/outsidebtn"
+
+        <Button
+            android:id="@+id/outsidebtn"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:paddingTop="35dp"
+            android:paddingBottom="35dp"
+            android:textColor="#ffffff"
+            android:background="#00ff0000"
+            android:drawableTop="@drawable/ic_filter_hdr_white_36dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:text="REMOTE STATE"/>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/lay_arc"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:paddingTop="35dp"
-                android:paddingBottom="35dp"
-                android:background="#434343"
-                android:textColor="#ffffff"
-                android:drawableTop="@drawable/ic_filter_hdr_white_36dp"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:text="REMOTE STATE"/>
-
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
 
             <Button
-                android:id="@+id/button1"
+
+                android:id="@+id/buttonoutside"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
-                android:background="@drawable/round_btn"
+                android:background="@drawable/rippe_background"
                 android:text=""
                 android:textColor="#f8fdf9" />
+        </FrameLayout>
 
         <Button
             android:id="@+id/connectbtn"
@@ -48,8 +60,8 @@
             android:layout_height="130dp"
             android:paddingLeft="120dp"
             android:paddingRight="120dp"
-            android:background="#434343"
             android:textColor="#ffffff"
+            android:background="#00ff0000"
             android:drawableLeft="@drawable/icons8_connected_50"
             android:text="연결상태"/>
 
