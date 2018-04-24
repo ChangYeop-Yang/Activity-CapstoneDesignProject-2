@@ -1,7 +1,6 @@
-#include <ESP8266.h>
 #include <ESP8266Client.h>
-#include <SoftwareSerial.h>
 #include <MsTimer2.h>
+#include <SoftwareSerial.h>
 #include <math.h>
 
 // MARK: - Define
@@ -10,6 +9,7 @@
 #define SOUND_LIMIT_MORNING 43
 #define CDS_LIMIT_LIGHT 450
 #define CHECK_GAS_M(X) X >= GAS_LIMIT ? true : false
+#define DEBUG true
 
 // MARK: - Digital Pin
 enum DigitalPin {
@@ -44,19 +44,18 @@ typedef struct flag {
 
 // MARK: - Global Variable
 CFlag currentState;
-SoftwareSerial esp8266_Serial = SoftwareSerial(4, 3);
-ESP8266 wifi_Esp8266 = ESP8266(esp8266_Serial);
+
+// MARK: - ESP8266 Variable
+SoftwareSerial esp8266_Serial = SoftwareSerial(2, 3);
  
 void setup ()
 { 
   Serial.begin(9600);
-
+  
   /* setting Esp8266 WIFI Serial Module */
   esp8266_Serial.begin(9600);
-  wifi_Esp8266.begin();
-  wifi_Esp8266.setTimeout(1000);
-  connectWIFI(wifi_Esp8266.test());
-  
+  settingESP8266(true);
+    
   /* setting controls the digital IO foot buzzer */
   pinMode (BYZZER_DPIN, OUTPUT);
 
@@ -80,6 +79,10 @@ void loop ()
 
   // MARK: - Sensing gas Method
   senseGas();
+
+  while (esp8266_Serial.available()) {
+    Serial.println("Receive WEB Data.");
+  }
 }
 
 // MARK: - Function
@@ -208,11 +211,52 @@ void collectCDS() {
   }
 }
 
-void connectWIFI(bool state) {
+void settingESP8266(bool state) {
 
   if (state) {
-    Serial.println("The successfully is operating WIFI(ESP8266) Module.");
-    digitalWrite(LED_GREEN_DPIN, HIGH); delay(2000); digitalWrite (LED_GREEN_DPIN, LOW);
+    Serial.println("The ESP8266 is operating success.");
+    
+    // Setting ESP8266 Configuration
+    setESP8266("AT+RST\r\n",2000,DEBUG); // reset module
+    setESP8266("AT+CIOBAUD?\r\n",2000,DEBUG); // check baudrate (redundant)
+    setESP8266("AT+CWMODE=3\r\n",1000,DEBUG); // configure as access point (working mode: AP+STA)
+    setESP8266("AT+CWLAP\r\n",3000,DEBUG); // list available access points
+    setESP8266("AT+CWJAP=\"MariStore2Ghz\",\"1q2w3e4r!\"\r\n",5000,DEBUG); // join the access point
+    setESP8266("AT+CIPMUX=1\r\n",1000,DEBUG); // configure for multiple connections
+    setESP8266("AT+CIPSERVER=1,80\r\n",1000,DEBUG); // turn on server on port 80
+    setESP8266("AT+CIFSR\r\n",1000,DEBUG); // get ip address 
+
+    sendSensorData();
   }
 }
 
+const bool sendSensorData() {
+
+  const String backup_ServerURL = "yeop9657.duckdns.org";
+  setESP8266("AT+CIPSTART=\"TCP\",\"" + backup_ServerURL + "\",80",1000, DEBUG);
+
+  if (esp8266_Serial.find("OK")) {
+    Serial.println("TCP Connection Ready");
+  }
+}
+
+const String setESP8266(String command, const int timeout, boolean debug) {
+  
+    String response = "";
+    esp8266_Serial.print(command); // send the read character to the esp8266
+    
+    long int time = millis();
+    while( (time+timeout) > millis()) {
+      while(esp8266_Serial.available()) {
+        // The esp has data so display its output to the serial window 
+        char c = esp8266_Serial.read(); // read the next character.
+        response+=c;
+      }
+    }
+    
+    if(debug) {
+      Serial.print(response);
+    }
+    
+    return response;
+}
