@@ -1,7 +1,9 @@
 package androidtown.org.saiot;
 
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.YAxis;
@@ -36,6 +40,9 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button huebtn;
+
 
 
     private OnFragmentInteractionListener mListener;
@@ -101,8 +108,46 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_home,null);
+        //buttonoutside=(Button) getActivity().findViewById(R.id.buttonoutside);
+
+        //휴 버튼
+        huebtn = (Button) view.findViewById(R.id.huebtn);
+        huebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new Handler().postDelayed(new Runnable() {//1초후 실행
+                    @Override
+                    public void run() {
+                        //1초후 실행할
+                        Activity root = getActivity(); //이 클래스가 프레그먼트이기 때문에 액티비티 정보를 얻는다.
+
+                        Toast.makeText(root, "토스트 사용!", Toast.LENGTH_SHORT).show();
+
+
+                        Intent intent1 = new Intent(getActivity(), CustomDialogActivity.class);
+                        startActivity(intent1);
+                    }
+                },1000);
+
+
+
+
+
+
+
+                // view.startAnimation(animation);
+                //return view;
+
+            }
+        });
+
+        return view;
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        //return inflater.inflate(R.layout.fragment_home, container, false);
 
     }
 

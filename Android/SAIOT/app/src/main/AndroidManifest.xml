@@ -19,6 +19,9 @@
         <activity android:name=".OutsideActivity" />
         <activity android:name=".RemoteActivity" />
         <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".CustomDialogActivity"
+            android:theme="@android:style/Theme.Dialog">
+        </activity>
     </application>
 
 </manifest>

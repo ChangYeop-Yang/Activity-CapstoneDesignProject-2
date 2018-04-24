@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/rounddialog"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_width="290dp"
+    android:layout_height="500dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/icons8_light_on_64" />
+
+        <TextView
+            android:id="@+id/txtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="RED COLOR"
+            android:layout_marginBottom="8dp"
+            android:textColor="#ff00"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:src="@drawable/minus_box" />
+
+            <SeekBar
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:progressDrawable="@drawable/seekbar"
+                android:thumb="@drawable/thumb_image"
+                android:max="100"
+                android:id="@+id/seekBarr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_weight="1" />
+
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:paddingRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:src="@drawable/plus_box" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/txtView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="GREEN COLOR"
+            android:layout_marginBottom="8dp"
+            android:textColor="#2c9e57"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:src="@drawable/minus_box" />
+
+            <SeekBar
+                android:id="@+id/seekBarg"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:progressDrawable="@drawable/seekbar"
+                android:thumb="@drawable/thumb_image"
+                android:max="100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:paddingRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:src="@drawable/plus_box" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/txtView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="BLUE COLOR"
+            android:layout_marginBottom="8dp"
+            android:textColor="#0022ff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:src="@drawable/minus_box" />
+
+            <SeekBar
+                android:id="@+id/seekBarb"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:progressDrawable="@drawable/seekbar"
+                android:thumb="@drawable/thumb_image"
+                android:max="100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imageButton10"
+                android:paddingRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:src="@drawable/plus_box" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="ALPHA"
+            android:layout_marginBottom="8dp"
+            android:textColor="#b3b3b3"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton11"
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:src="@drawable/minus_box" />
+
+            <SeekBar
+                android:id="@+id/seekBara"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:progressDrawable="@drawable/seekbar"
+                android:thumb="@drawable/thumb_image"
+                android:max="100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:paddingRight="5dp"
+                android:id="@+id/imageButton12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:src="@drawable/plus_box" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:background="@drawable/dialogcancle"
+    android:layout_weight="1.4">
+    <Button
+        android:id="@+id/btnConfirm"
+        android:background="@drawable/dialogcancle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:text="Cancle" />
+</LinearLayout>
+
+
+
+
+
+</LinearLayout>

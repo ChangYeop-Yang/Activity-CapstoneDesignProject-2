@@ -31,6 +31,8 @@ public class MainActivity extends FragmentActivity {
 
 
 
+
+
     //bottom tab 4.4 14:00
     private HomeFragment homeFragment;
     private RmoteFragment rmoteFragment;
@@ -50,6 +52,10 @@ public class MainActivity extends FragmentActivity {
         rmoteFragment = new RmoteFragment();
         outsideFragment = new OutsideFragment();
         settingActivity = new SettingActivity();
+
+        //hue버튼
+       // huebtn=(Button)findViewById(R.id.huebtn);
+       // huebtn.setOnClickListener((View.OnClickListener) this);
 
 
         BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
@@ -111,6 +117,17 @@ public class MainActivity extends FragmentActivity {
 
 */
     }
+/*
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.huebtn:
+                startActivity(new Intent(this,CustomDialogActivity.class));
+                break;
+
+        }
+
+
+    }*/
 
 
     public void initFragment(){
