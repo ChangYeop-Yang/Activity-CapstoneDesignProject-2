@@ -1,7 +1,6 @@
-#include <ESP8266.h>
 #include <ESP8266Client.h>
+#include <Timer.h>
 #include <SoftwareSerial.h>
-#include <MsTimer2.h>
 #include <math.h>
 
 // MARK: - Define
@@ -10,6 +9,7 @@
 #define SOUND_LIMIT_MORNING 43
 #define CDS_LIMIT_LIGHT 450
 #define CHECK_GAS_M(X) X >= GAS_LIMIT ? true : false
+#define DEBUG true
 
 // MARK: - Digital Pin
 enum DigitalPin {
@@ -44,19 +44,19 @@ typedef struct flag {
 
 // MARK: - Global Variable
 CFlag currentState;
-SoftwareSerial esp8266_Serial = SoftwareSerial(4, 3);
-ESP8266 wifi_Esp8266 = ESP8266(esp8266_Serial);
+Timer sensorTimer;
+
+// MARK: - ESP8266 Variable
+SoftwareSerial esp8266_Serial = SoftwareSerial(2, 3);
  
 void setup ()
 { 
   Serial.begin(9600);
-
+  
   /* setting Esp8266 WIFI Serial Module */
   esp8266_Serial.begin(9600);
-  wifi_Esp8266.begin();
-  wifi_Esp8266.setTimeout(1000);
-  connectWIFI(wifi_Esp8266.test());
-  
+  settingESP8266(true);
+    
   /* setting controls the digital IO foot buzzer */
   pinMode (BYZZER_DPIN, OUTPUT);
 
@@ -69,8 +69,7 @@ void setup ()
   pinMode(LED_BLUE_DPIN, OUTPUT);
 
   /* setting Collect Sensor Date Timmer */
-  MsTimer2::set(60000, collectSensorDate);
-  MsTimer2::start();
+  sensorTimer.every(60000, collectSensorDate);
 }
 
 void loop ()
@@ -80,19 +79,24 @@ void loop ()
 
   // MARK: - Sensing gas Method
   senseGas();
+
+  sensorTimer.update();
 }
 
 // MARK: - Function
 void collectSensorDate() {
   
   /* setting Analog Sound Timmer */
-  senseAreaSound();
+  int noise = senseAreaSound();
 
   /* setting Analog Temperature Timmer */
-  readingTemperatuer();
+  int temputure = readingTemperatuer();
 
   /* setting Analog CDS Timmer */
-  collectCDS();
+  int brightness = collectCDS();
+
+  /* Sending Data to Server Timmer */
+  sendSensorData(temputure, brightness, noise);
 }
 
 void senseFlare() {
@@ -119,7 +123,7 @@ void senseFlare() {
   }
 }
 
-void senseAreaSound() {
+int senseAreaSound() {
 
   int rawValue = analogRead(SOUND_APIN);
   int db = (rawValue + 83.2073) / 11.003;
@@ -135,6 +139,8 @@ void senseAreaSound() {
   }
 
   Serial.print("Current dB Value: "); Serial.println(db);
+
+  return db;
 }
 
 void senseGas() {
@@ -167,9 +173,10 @@ void senseGas() {
     } 
 
     currentState.gas_Flag = false;
+    return analogRead(GAS_APIN);
 }
 
-void readingTemperatuer() {
+int readingTemperatuer() {
 
   int rawADC = analogRead(TEMPERATURE_APIN);
   
@@ -187,16 +194,17 @@ void readingTemperatuer() {
   }
   
   Serial.print("- Current Tempuerature = "); Serial.print(celsius); Serial.println("℃");
+  return celsius;
 }
 
-void collectCDS() {
+int collectCDS() {
 
   int cdsValue = analogRead(CDS_APIN);
   Serial.print("- Current CDS: "); Serial.print(cdsValue); Serial.println("[Lx]");
 
   if (cdsValue >= CDS_LIMIT_LIGHT) {
     Serial.println("The room is current brightness very dark. (TURN OFF)");
-    return;
+    return cdsValue;
   }
 
   if (BAD_ROOM_CDS >= cdsValue) {
@@ -206,13 +214,56 @@ void collectCDS() {
   } else if (KITCHEN_CDS >= cdsValue) {
     Serial.println("The kitchen is current good brightness.");
   }
+
+  return cdsValue;
 }
 
-void connectWIFI(bool state) {
+void settingESP8266(bool state) {
 
-  if (state) {
-    Serial.println("The successfully is operating WIFI(ESP8266) Module.");
-    digitalWrite(LED_GREEN_DPIN, HIGH); delay(2000); digitalWrite (LED_GREEN_DPIN, LOW);
+    // Setting ESP8266 Configuration
+    esp8266_Serial.println("AT+RST\r");
+    if ( esp8266_Serial.find("OK") ) {
+      Serial.println("- ESP8266 module is operating success.");
+      
+      esp8266_Serial.println("AT+CIOBAUD?\r\n");
+      esp8266_Serial.println("AT+CWMODE=3\r\n");
+      esp8266_Serial.println("AT+CWJAP=\"YCY-Android-Note7\",\"1q2w3e4r!\"\r\n");
+      esp8266_Serial.println("AT+CIPMUX=0\r\n");
+      esp8266_Serial.println("AT+CIPSERVER=1,80\r\n");
+    }
+}
+
+bool sendSensorData(int temp, int cmd, int noise) {
+
+  const String backup_ServerURL = "yeop9657.duckdns.org";
+  delay(5000);
+  
+  esp8266_Serial.println("AT+CIPSTART=\"TCP\",\"" + backup_ServerURL + "\",80\r");
+  if ( esp8266_Serial.find("OK") ) {
+    Serial.println("- HTTP TCP Connection Ready.");
+
+    String query;
+    query.concat("GET /insert.php?TEMP=");  query.concat(temp);
+    query.concat("&CMD=");                  query.concat(cmd);  
+    query.concat("&NOISE=");                query.concat(noise);
+    query.concat("&FLARE=");                query.concat(currentState.flare_Flag);
+    query.concat("&GAS=");                  query.concat(analogRead(GAS_APIN));      query.concat("\r\n");
+
+    delay(5000);
+    const String sendCommand = "AT+CIPSEND=";
+    esp8266_Serial.print(sendCommand);
+    esp8266_Serial.println(query.length());
+
+    if ( esp8266_Serial.find(">") ) {
+
+      delay(500);
+      Serial.println("- Please, Input GET Request Query.");
+      esp8266_Serial.println(query);
+
+      if ( esp8266_Serial.find("SEND OK") ) {
+        Serial.println("- Success send server packet.");
+      }
+    }
   }
+  esp8266_Serial.println("AT+CIPCLOSE\r");
 }
-
