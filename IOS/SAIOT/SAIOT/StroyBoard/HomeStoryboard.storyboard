@@ -280,6 +280,12 @@
                         <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gasGraph" destination="RCd-nH-zNe" id="Sf1-rc-ryt"/>
+                        <outlet property="humidityGraph" destination="6Au-eN-Gb5" id="bbC-XQ-Vao"/>
+                        <outlet property="noiseGraph" destination="eGo-i1-KLN" id="bK8-zG-oSO"/>
+                        <outlet property="tempGraph" destination="XDi-Mg-BCW" id="KU0-rG-FYX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDK-MX-970" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="keM-HH-0tF">
