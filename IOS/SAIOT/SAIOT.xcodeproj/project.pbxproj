@@ -16,6 +16,7 @@
 		2741DDBA2073CFA60064F312 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDB92073CFA60064F312 /* HomeViewController.swift */; };
 		2741DDBC2073CFB20064F312 /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDBB2073CFB20064F312 /* RemoteViewController.swift */; };
 		2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDBD2073CFC40064F312 /* SettingViewController.swift */; };
+		274AC2062098342F0049B133 /* ParserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AC2052098342F0049B133 /* ParserStruct.swift */; };
 		275F3A132096F5490002FF77 /* GraphSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F3A122096F5490002FF77 /* GraphSet.swift */; };
 		275F3A172097341C0002FF77 /* ParserJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F3A162097341C0002FF77 /* ParserJSON.swift */; };
 		277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */; };
@@ -47,6 +48,7 @@
 		2741DDB92073CFA60064F312 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2741DDBB2073CFB20064F312 /* RemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
 		2741DDBD2073CFC40064F312 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		274AC2052098342F0049B133 /* ParserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserStruct.swift; sourceTree = "<group>"; };
 		275F3A122096F5490002FF77 /* GraphSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSet.swift; sourceTree = "<group>"; };
 		275F3A162097341C0002FF77 /* ParserJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserJSON.swift; sourceTree = "<group>"; };
 		277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemoteStoryboard.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				275F3A162097341C0002FF77 /* ParserJSON.swift */,
+				274AC2052098342F0049B133 /* ParserStruct.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */,
 				27B376DD20850900009AE9AC /* DetailHue.swift in Sources */,
 				275F3A132096F5490002FF77 /* GraphSet.swift in Sources */,
+				274AC2062098342F0049B133 /* ParserStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

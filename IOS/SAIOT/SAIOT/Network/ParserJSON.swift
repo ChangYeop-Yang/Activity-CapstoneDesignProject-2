@@ -12,6 +12,11 @@ final class ParserJSON: NSObject {
     
     // MARK: - Variable
     internal static let parsorInstance: ParserJSON = ParserJSON()
+    internal var temputuerList: [Double] = [Double]()
+    internal var cdsList: [Double] = [Double]()
+    internal var noiseList: [Double] = [Double]()
+    internal var gasList: [Double] = [Double]()
+    internal var dateList: [String] = [String]()
     
     // MARK: - get Instance Method
     private override init() {}
@@ -25,13 +30,49 @@ final class ParserJSON: NSObject {
             return
         }
         
-        DispatchQueue.global(qos: .userInteractive).async { [weak weakSelf = self] in
+        let defaultSession = URLSession(configuration: .default)
+        let urlTask = defaultSession.dataTask(with: URLRequest(url: httpURL), completionHandler: { [weak weakSelf = self] (data, response, error) in
             
-            URLSession.shared.dataTask(with: httpURL) { (data, response, error) in
-                // Check Error and Empty Parsing Data
-                let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: [])
-                print(jsonSerialized)
-            }.resume()
+            guard error == nil else {
+                print("Error, HTTP Request: \(String(describing: error))")
+                return
+            }
+            
+            do {
+                guard let jsonData = data else {
+                    print("Error, HTTP Request Data Empty.")
+                    return
+                }
+                
+                let jsonSerialized = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String : Any]
+                if let sensorDatas = jsonSerialized["SensorDatas"] as? [[String:Any]]  {
+                    
+                    for item in sensorDatas {
+                        
+                        // Processing Save Json
+                        weakSelf?.temputuerList.append( Double(item[jsonName.temputure.rawValue] as! String)! )
+                        weakSelf?.noiseList.append( Double(item[jsonName.noise.rawValue] as! String)! )
+                        weakSelf?.gasList.append( Double(item[jsonName.gas.rawValue] as! String)! )
+                        weakSelf?.cdsList.append( Double(item[jsonName.cds.rawValue] as! String)! )
+                        
+                        // Processing Dateformatter
+                        let formatter: DateFormatter = DateFormatter()
+                        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                        if let insertDT: Date = formatter.date(from: item[jsonName.date.rawValue] as! String) {
+                            let hour = Calendar.current.component(.hour, from: insertDT)
+                            let minute = Calendar.current.component(.minute, from: insertDT)
+                            weakSelf?.dateList.append("\(hour):\(minute)")
+                        }
+                    }
+                }
+            } catch let jsonError as NSError {
+                print("Failed to load: \(jsonError)")
+            }
+        })
+        
+        // DispatchQueue
+        DispatchQueue.global(qos: .userInteractive).async {
+            urlTask.resume()
         }
     }
 }

@@ -14,10 +14,6 @@ class HomeViewController: UIViewController {
     
     // MARK: - Variable
     private var isSubView: Bool = false
-    private var temputureArray = [Int]()
-    private var humdityArray = [Int]()
-    private var gasArray = [Int]()
-    private var noiseArray = [Int]()
     
     // MARK: - Outlet Variable
     @IBOutlet weak var tempGraph: ScrollableGraphView!
@@ -27,31 +23,38 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tempGraph.reload()
+        humidityGraph.reload()
+        gasGraph.reload()
+        noiseGraph.reload()
+    }
     
-        let datas: [Double] = [11.32, 34.23, 25.61, 36.15, 27.54, 19.63, 16.54, 29.43, 11.23, 24.33]
-        let string: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        ParserJSON.parsorInstance.parsorSensorDataJSON(url: "http://yeop9657.duckdns.org/select.php")
-        
-        // MARK: Create Graph
-        let graphTemputure: GraphSet = GraphSet(dataList: datas, labelList: string)
-        graphTemputure.createGraphSheet(graph: tempGraph, identifier: "TEMPUTURE", lineColor: .blue, dotColor: .lightcoral)
-        
-        let graphHumidity: GraphSet = GraphSet(dataList: datas, labelList: string)
-        graphHumidity.createGraphSheet(graph: humidityGraph, identifier: "HUMIDITY", lineColor: .brown, dotColor: .lightcoral)
-        
-        let graphGas: GraphSet = GraphSet(dataList: datas, labelList: string)
-        graphGas.createGraphSheet(graph: gasGraph, identifier: "GAS", lineColor: .red, dotColor: .lightcoral)
-        
-        let graphNoise: GraphSet = GraphSet(dataList: datas, labelList: string)
-        graphNoise.createGraphSheet(graph: noiseGraph, identifier: "NOISE", lineColor: .blue, dotColor: .lightcoral)
+        if !ParserJSON.parsorInstance.dateList.isEmpty {
+            print(ParserJSON.parsorInstance.temputuerList)
+            // MARK: Create Graph
+            let graphTemputure: GraphSet = GraphSet(dataList: ParserJSON.parsorInstance.temputuerList, labelList: ParserJSON.parsorInstance.dateList)
+            graphTemputure.createGraphSheet(graph: tempGraph, identifier: "TEMPUTURE", lineColor: .blue, dotColor: .lightcoral)
+            
+            let graphGas: GraphSet = GraphSet(dataList: ParserJSON.parsorInstance.gasList, labelList: ParserJSON.parsorInstance.dateList)
+            graphGas.createGraphSheet(graph: gasGraph, identifier: "GAS", lineColor: .red, dotColor: .lightcoral)
+            
+            let graphNoise: GraphSet = GraphSet(dataList: ParserJSON.parsorInstance.noiseList, labelList: ParserJSON.parsorInstance.dateList)
+            graphNoise.createGraphSheet(graph: noiseGraph, identifier: "NOISE", lineColor: .blue, dotColor: .lightcoral)
+            
+            tempGraph.reload()
+            humidityGraph.reload()
+            gasGraph.reload()
+            noiseGraph.reload()
+        }
     }
     
     // MARK: - Outlet Action Method
     @IBAction func ShowDetailHueMent(_ sender: UILongPressGestureRecognizer) {
         
         if (isSubView == false) {
-            
             UIView.animate(withDuration: 1, animations: {
                 
                 let detailView = UINib(nibName: "DetailHue", bundle: nil).instantiate(withOwner: self, options: nil).first as! DetailHue
@@ -59,10 +62,9 @@ class HomeViewController: UIViewController {
                 detailView.center = self.view.center
                 self.view.addSubview(detailView)
             }, completion: nil)
-            
+
             isSubView = true
         }
-        
     }
 }
 
