@@ -13,7 +13,7 @@
 
 // MARK: - Digital Pin
 enum DigitalPin {
-  FLARE_DPIN = 7,
+  FLARE_DPIN = 6,
   BYZZER_DPIN = 8,
   LED_RED_DPIN = 13,
   LED_GREEN_DPIN = 12,
@@ -25,7 +25,7 @@ enum AnalogPin {
   TEMPERATURE_APIN = 5,
   GAS_APIN = 4,
   SOUND_APIN = 3,
-  CDS_APIN = 2
+  CDS_APIN = 2,
 };
 
 // MARK: - Standard Lux Value

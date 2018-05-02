@@ -16,6 +16,9 @@
 		2741DDBA2073CFA60064F312 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDB92073CFA60064F312 /* HomeViewController.swift */; };
 		2741DDBC2073CFB20064F312 /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDBB2073CFB20064F312 /* RemoteViewController.swift */; };
 		2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDBD2073CFC40064F312 /* SettingViewController.swift */; };
+		274AC2062098342F0049B133 /* ParserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AC2052098342F0049B133 /* ParserStruct.swift */; };
+		275F3A132096F5490002FF77 /* GraphSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F3A122096F5490002FF77 /* GraphSet.swift */; };
+		275F3A172097341C0002FF77 /* ParserJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F3A162097341C0002FF77 /* ParserJSON.swift */; };
 		277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */; };
 		277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */; };
 		277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */; };
@@ -45,6 +48,9 @@
 		2741DDB92073CFA60064F312 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2741DDBB2073CFB20064F312 /* RemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
 		2741DDBD2073CFC40064F312 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		274AC2052098342F0049B133 /* ParserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserStruct.swift; sourceTree = "<group>"; };
+		275F3A122096F5490002FF77 /* GraphSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSet.swift; sourceTree = "<group>"; };
+		275F3A162097341C0002FF77 /* ParserJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserJSON.swift; sourceTree = "<group>"; };
 		277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemoteStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutSideStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -95,6 +101,8 @@
 		27185D3220628D2600469807 /* SAIOT */ = {
 			isa = PBXGroup;
 			children = (
+				275F3A15209733DB0002FF77 /* PhillpsHue */,
+				275F3A14209733C90002FF77 /* Network */,
 				27B376D92085019D009AE9AC /* Nib */,
 				2741DDB82073C8FE0064F312 /* Public */,
 				27F85AEF20712B4A00FFE763 /* DataModel */,
@@ -144,10 +152,27 @@
 			isa = PBXGroup;
 			children = (
 				2741DDB62073C8FA0064F312 /* ColorCode.swift */,
+				275F3A122096F5490002FF77 /* GraphSet.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		275F3A14209733C90002FF77 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				275F3A162097341C0002FF77 /* ParserJSON.swift */,
+				274AC2052098342F0049B133 /* ParserStruct.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		275F3A15209733DB0002FF77 /* PhillpsHue */ = {
+			isa = PBXGroup;
+			children = (
 				27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */,
 				27923DEA20865E0200516EEB /* PhilipsHueControl.swift */,
 			);
-			path = Public;
+			path = PhillpsHue;
 			sourceTree = "<group>";
 		};
 		27B376D92085019D009AE9AC /* Nib */ = {
@@ -335,6 +360,7 @@
 			files = (
 				27185D3C20628D2600469807 /* SAIOT.xcdatamodeld in Sources */,
 				27F85AF72071316D00FFE763 /* RemoteControllerInfo.swift in Sources */,
+				275F3A172097341C0002FF77 /* ParserJSON.swift in Sources */,
 				2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */,
 				2741DDB72073C8FA0064F312 /* ColorCode.swift in Sources */,
 				27923DEB20865E0200516EEB /* PhilipsHueControl.swift in Sources */,
@@ -347,6 +373,8 @@
 				27F85AF320712CF400FFE763 /* RemoteList.swift in Sources */,
 				2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */,
 				27B376DD20850900009AE9AC /* DetailHue.swift in Sources */,
+				275F3A132096F5490002FF77 /* GraphSet.swift in Sources */,
+				274AC2062098342F0049B133 /* ParserStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,7 +45,7 @@ extension PhilipsHueBridge: BridgeAuthenticatorDelegate {
     }
     
     func bridgeAuthenticator(_ authenticator: BridgeAuthenticator, didFailWithError error: NSError) {
-        <#code#>
+        
     }
     
     func bridgeAuthenticatorRequiresLinkButtonPress(_ authenticator: BridgeAuthenticator, secondsLeft: TimeInterval) {
@@ -53,6 +53,6 @@ extension PhilipsHueBridge: BridgeAuthenticatorDelegate {
     }
     
     func bridgeAuthenticatorDidTimeout(_ authenticator: BridgeAuthenticator) {
-        <#code#>
+        
     }
 }

@@ -17,6 +17,6 @@ class LivingSensor: Object {
     // MARK: - Integer Value
     @objc dynamic var temputure: Int = 0
     @objc dynamic var humidity: Int = 0
-    @objc dynamic var noize: Int = 0
+    @objc dynamic var noise: Int = 0
     @objc dynamic var gas: Int = 0
 }
