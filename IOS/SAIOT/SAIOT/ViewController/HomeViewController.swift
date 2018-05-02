@@ -14,41 +14,37 @@ class HomeViewController: UIViewController {
     
     // MARK: - Variable
     private var isSubView: Bool = false
+    private var group: DispatchGroup = DispatchGroup()
     
     // MARK: - Outlet Variable
     @IBOutlet weak var tempGraph: ScrollableGraphView!
     @IBOutlet weak var humidityGraph: ScrollableGraphView!
     @IBOutlet weak var gasGraph: ScrollableGraphView!
     @IBOutlet weak var noiseGraph: ScrollableGraphView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tempGraph.reload()
-        humidityGraph.reload()
-        gasGraph.reload()
-        noiseGraph.reload()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        if !ParserJSON.parsorInstance.dateList.isEmpty {
-            print(ParserJSON.parsorInstance.temputuerList)
-            // MARK: Create Graph
+        ParserJSON.parsorInstance.group.notify(queue: .main, execute: {
+            
+            self.loadingIndicator.stopAnimating()
+            
+            // MARK: Create ScrollableGraphView
             let graphTemputure: GraphSet = GraphSet(dataList: ParserJSON.parsorInstance.temputuerList, labelList: ParserJSON.parsorInstance.dateList)
-            graphTemputure.createGraphSheet(graph: tempGraph, identifier: "TEMPUTURE", lineColor: .blue, dotColor: .lightcoral)
+            graphTemputure.createGraphSheet(graph: self.tempGraph, identifier: "TEMPUTURE", lineColor: .blue, dotColor: .lightcoral)
             
             let graphGas: GraphSet = GraphSet(dataList: ParserJSON.parsorInstance.gasList, labelList: ParserJSON.parsorInstance.dateList)
-            graphGas.createGraphSheet(graph: gasGraph, identifier: "GAS", lineColor: .red, dotColor: .lightcoral)
+            graphGas.createGraphSheet(graph: self.gasGraph, identifier: "GAS", lineColor: .red, dotColor: .lightcoral)
             
             let graphNoise: GraphSet = GraphSet(dataList: ParserJSON.parsorInstance.noiseList, labelList: ParserJSON.parsorInstance.dateList)
-            graphNoise.createGraphSheet(graph: noiseGraph, identifier: "NOISE", lineColor: .blue, dotColor: .lightcoral)
+            graphNoise.createGraphSheet(graph: self.noiseGraph, identifier: "NOISE", lineColor: .blue, dotColor: .lightcoral)
             
-            tempGraph.reload()
-            humidityGraph.reload()
-            gasGraph.reload()
-            noiseGraph.reload()
-        }
+            self.tempGraph.reload()
+            self.humidityGraph.reload()
+            self.gasGraph.reload()
+            self.noiseGraph.reload()
+        })
     }
     
     // MARK: - Outlet Action Method

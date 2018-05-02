@@ -260,6 +260,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oK5-Kt-y5G">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -267,6 +270,8 @@
                             <constraint firstItem="yrC-Mh-AKd" firstAttribute="bottom" secondItem="kUD-9L-aIE" secondAttribute="bottom" id="Kax-Pc-SC9"/>
                             <constraint firstItem="QiS-N5-UGI" firstAttribute="leading" secondItem="kUD-9L-aIE" secondAttribute="leading" id="NdW-nH-ocV"/>
                             <constraint firstItem="kUD-9L-aIE" firstAttribute="trailing" secondItem="8gR-dL-bSu" secondAttribute="trailing" id="Nyz-cU-eNa"/>
+                            <constraint firstItem="oK5-Kt-y5G" firstAttribute="centerX" secondItem="Zzb-uv-ISd" secondAttribute="centerX" id="QMg-dc-rzc"/>
+                            <constraint firstItem="oK5-Kt-y5G" firstAttribute="centerY" secondItem="Zzb-uv-ISd" secondAttribute="centerY" id="Ytk-hF-8Xn"/>
                             <constraint firstItem="kUD-9L-aIE" firstAttribute="trailing" secondItem="yrC-Mh-AKd" secondAttribute="trailing" id="d8b-wg-NPl"/>
                             <constraint firstItem="yrC-Mh-AKd" firstAttribute="leading" secondItem="kUD-9L-aIE" secondAttribute="leading" id="eK1-xR-JC1"/>
                             <constraint firstItem="8gR-dL-bSu" firstAttribute="top" secondItem="QiS-N5-UGI" secondAttribute="bottom" id="loh-ul-K8g"/>
@@ -283,6 +288,7 @@
                     <connections>
                         <outlet property="gasGraph" destination="RCd-nH-zNe" id="Sf1-rc-ryt"/>
                         <outlet property="humidityGraph" destination="6Au-eN-Gb5" id="bbC-XQ-Vao"/>
+                        <outlet property="loadingIndicator" destination="oK5-Kt-y5G" id="Ggp-Sb-dIh"/>
                         <outlet property="noiseGraph" destination="eGo-i1-KLN" id="bK8-zG-oSO"/>
                         <outlet property="tempGraph" destination="XDi-Mg-BCW" id="KU0-rG-FYX"/>
                     </connections>

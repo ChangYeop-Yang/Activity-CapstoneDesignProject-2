@@ -12,6 +12,7 @@ final class ParserJSON: NSObject {
     
     // MARK: - Variable
     internal static let parsorInstance: ParserJSON = ParserJSON()
+    internal var group: DispatchGroup = DispatchGroup()
     internal var temputuerList: [Double] = [Double]()
     internal var cdsList: [Double] = [Double]()
     internal var noiseList: [Double] = [Double]()
@@ -31,7 +32,7 @@ final class ParserJSON: NSObject {
         }
         
         let defaultSession = URLSession(configuration: .default)
-        let urlTask = defaultSession.dataTask(with: URLRequest(url: httpURL), completionHandler: { [weak weakSelf = self] (data, response, error) in
+        let urlTask = defaultSession.dataTask(with: URLRequest(url: httpURL), completionHandler: { [weak self] (data, response, error) in
             
             guard error == nil else {
                 print("Error, HTTP Request: \(String(describing: error))")
@@ -50,10 +51,10 @@ final class ParserJSON: NSObject {
                     for item in sensorDatas {
                         
                         // Processing Save Json
-                        weakSelf?.temputuerList.append( Double(item[jsonName.temputure.rawValue] as! String)! )
-                        weakSelf?.noiseList.append( Double(item[jsonName.noise.rawValue] as! String)! )
-                        weakSelf?.gasList.append( Double(item[jsonName.gas.rawValue] as! String)! )
-                        weakSelf?.cdsList.append( Double(item[jsonName.cds.rawValue] as! String)! )
+                        self?.temputuerList.append( Double(item[jsonName.temputure.rawValue] as! String)! )
+                        self?.noiseList.append( Double(item[jsonName.noise.rawValue] as! String)! )
+                        self?.gasList.append( Double(item[jsonName.gas.rawValue] as! String)! )
+                        self?.cdsList.append( Double(item[jsonName.cds.rawValue] as! String)! )
                         
                         // Processing Dateformatter
                         let formatter: DateFormatter = DateFormatter()
@@ -61,9 +62,10 @@ final class ParserJSON: NSObject {
                         if let insertDT: Date = formatter.date(from: item[jsonName.date.rawValue] as! String) {
                             let hour = Calendar.current.component(.hour, from: insertDT)
                             let minute = Calendar.current.component(.minute, from: insertDT)
-                            weakSelf?.dateList.append("\(hour):\(minute)")
+                            self?.dateList.append("\(hour):\(minute)")
                         }
                     }
+                    self?.group.leave()
                 }
             } catch let jsonError as NSError {
                 print("Failed to load: \(jsonError)")
@@ -71,8 +73,9 @@ final class ParserJSON: NSObject {
         })
         
         // DispatchQueue
-        DispatchQueue.global(qos: .userInteractive).async {
+        group.enter()
+        DispatchQueue.main.async(group: group, execute: {
             urlTask.resume()
-        }
+        })
     }
 }
