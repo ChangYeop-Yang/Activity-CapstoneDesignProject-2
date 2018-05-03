@@ -26,9 +26,10 @@
 		277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */; };
 		2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */; };
 		27923DE920865DEF00516EEB /* PhilipsHueBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */; };
-		27923DEB20865E0200516EEB /* PhilipsHueControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27923DEA20865E0200516EEB /* PhilipsHueControl.swift */; };
 		27B376DB208501DC009AE9AC /* DetailHue.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B376DA208501DC009AE9AC /* DetailHue.xib */; };
 		27B376DD20850900009AE9AC /* DetailHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B376DC20850900009AE9AC /* DetailHue.swift */; };
+		27B57A3B209B1044005FE84B /* PressHueBridge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B57A3A209B1044005FE84B /* PressHueBridge.xib */; };
+		27B57A3D209B1054005FE84B /* PressHueBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B57A3C209B1054005FE84B /* PressHueBridge.swift */; };
 		27F85AF92071403B00FFE763 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */; };
 		FB1F3D1B9823B130E37A4476 /* Pods_SAIOT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397CE0EC1A0F803942D5E158 /* Pods_SAIOT.framework */; };
 /* End PBXBuildFile section */
@@ -56,9 +57,10 @@
 		277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
 		2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutSideViewController.swift; sourceTree = "<group>"; };
 		27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilipsHueBridge.swift; sourceTree = "<group>"; };
-		27923DEA20865E0200516EEB /* PhilipsHueControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilipsHueControl.swift; sourceTree = "<group>"; };
 		27B376DA208501DC009AE9AC /* DetailHue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHue.xib; sourceTree = "<group>"; };
 		27B376DC20850900009AE9AC /* DetailHue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHue.swift; sourceTree = "<group>"; };
+		27B57A3A209B1044005FE84B /* PressHueBridge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PressHueBridge.xib; sourceTree = "<group>"; };
+		27B57A3C209B1054005FE84B /* PressHueBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressHueBridge.swift; sourceTree = "<group>"; };
 		27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		397CE0EC1A0F803942D5E158 /* Pods_SAIOT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAIOT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8584840B623EF40E58D2CB /* Pods-SAIOT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAIOT.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAIOT/Pods-SAIOT.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */,
-				27923DEA20865E0200516EEB /* PhilipsHueControl.swift */,
 			);
 			path = PhillpsHue;
 			sourceTree = "<group>";
@@ -177,6 +178,8 @@
 				27B376DC20850900009AE9AC /* DetailHue.swift */,
 				273A0DE22099D2C70093D481 /* DetailGraph.xib */,
 				273A0DE42099D2D90093D481 /* DetailGraph.swift */,
+				27B57A3A209B1044005FE84B /* PressHueBridge.xib */,
+				27B57A3C209B1054005FE84B /* PressHueBridge.swift */,
 			);
 			path = Nib;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */,
+				27B57A3B209B1044005FE84B /* PressHueBridge.xib in Resources */,
 				27185D4120628D2600469807 /* LaunchScreen.storyboard in Resources */,
 				277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */,
 				27B376DB208501DC009AE9AC /* DetailHue.xib in Resources */,
@@ -346,7 +350,6 @@
 				273A0DE52099D2D90093D481 /* DetailGraph.swift in Sources */,
 				2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */,
 				2741DDB72073C8FA0064F312 /* ColorCode.swift in Sources */,
-				27923DEB20865E0200516EEB /* PhilipsHueControl.swift in Sources */,
 				2741DDBA2073CFA60064F312 /* HomeViewController.swift in Sources */,
 				27185D3420628D2600469807 /* AppDelegate.swift in Sources */,
 				27923DE920865DEF00516EEB /* PhilipsHueBridge.swift in Sources */,
@@ -355,6 +358,7 @@
 				27B376DD20850900009AE9AC /* DetailHue.swift in Sources */,
 				275F3A132096F5490002FF77 /* GraphSet.swift in Sources */,
 				274AC2062098342F0049B133 /* ParserStruct.swift in Sources */,
+				27B57A3D209B1054005FE84B /* PressHueBridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

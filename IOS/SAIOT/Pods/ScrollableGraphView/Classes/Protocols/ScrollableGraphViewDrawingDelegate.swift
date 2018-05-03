@@ -2,7 +2,7 @@
 import UIKit
 
 // Delegate definition that provides the data required by the drawing layers.
-internal protocol ScrollableGraphViewDrawingDelegate : class {
+internal protocol ScrollableGraphViewDrawingDelegate {
     func intervalForActivePoints() -> CountableRange<Int>
     func rangeForActivePoints() -> (min: Double, max: Double)
     func paddingForPoints() -> (leftmostPointPadding: CGFloat, rightmostPointPadding: CGFloat)

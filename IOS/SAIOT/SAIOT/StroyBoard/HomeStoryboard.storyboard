@@ -32,7 +32,7 @@
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
-                                        <state key="normal" title="HUE" image="ic_lightbulb_outline_white_48pt"/>
+                                        <state key="normal" title="PHILIPS HUE" image="ic_lightbulb_outline_white_48pt"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="keM-HH-0tF" appends="YES" id="BZl-o5-SGJ"/>
                                         </connections>

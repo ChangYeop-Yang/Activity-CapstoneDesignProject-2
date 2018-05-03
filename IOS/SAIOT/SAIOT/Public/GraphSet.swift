@@ -33,6 +33,8 @@ class GraphSet: NSObject {
         graph.addReferenceLines(referenceLines: attribute.Reference)
         graph.addPlot(plot: attribute.Line)
         graph.addPlot(plot: attribute.Dots)
+        
+        graph.reload()
     }
     
     // MARK: Convert Data Plot to Array Method

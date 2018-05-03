@@ -24,10 +24,18 @@ internal protocol DetailHueDelegate: class {
 class DetailHue: UIView {
 
     // MARK: - Outlet Variable
-    @IBOutlet weak var redSlider: UISlider!
-    @IBOutlet weak var greenSlider: UISlider!
-    @IBOutlet weak var blueSlider: UISlider!
-    @IBOutlet weak var alphaSlider: UISlider!
+    @IBOutlet weak var redSlider: UISlider! {
+        didSet { redSlider.isContinuous = false }
+    }
+    @IBOutlet weak var greenSlider: UISlider! {
+        didSet { greenSlider.isContinuous = false }
+    }
+    @IBOutlet weak var blueSlider: UISlider! {
+        didSet { blueSlider.isContinuous = false }
+    }
+    @IBOutlet weak var alphaSlider: UISlider! {
+        didSet { alphaSlider.isContinuous = false }
+    }
     
     // MARK: - Variable
     internal weak var delegate: DetailHueDelegate?
@@ -51,8 +59,9 @@ class DetailHue: UIView {
             case .BLUE: hueColors.BLUE      = Int(sender.value)
             case .ALPHA: hueColors.ALPHA    = Int(sender.value)
         }
+        
+        PhilipsHueBridge.hueInstance.changeHueColor(red: hueColors.RED, green: hueColors.GREEN, blue: hueColors.BLUE, alpha: hueColors.ALPHA)
     }
-    
     @IBAction func cancleNib(_ sender: UIButton) {
         delegate?.closeSubView()
         self.removeFromSuperview()
