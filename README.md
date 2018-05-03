@@ -17,9 +17,10 @@ jesboom0635@naver.com
 - 경북대학교 IT대학 컴퓨터 학부 허수호  ::WEB -> Node.js | HW::
 conankids62@gmail.com
 
-### 프로젝트 진행 목표 사항
-- [ ] 프로젝트 계획서 작성
-- [ ] 프로젝트 아이디어 구상 회의
-- [ ] 프로젝트 시작 발표 자료 작성
-
-
+### 프로젝트 구현 목표
+- [ ] Android 및 IOS Firebase Colud Messaging 기능 구현
+- [ ] JavaScript Relational Database 기능 구현 (MySQL)
+- [ ] PHP Relational Database 기능 구현 (MySQL)
+- [ ] IOS Philips Hue 스마트 전구 연동 기능 구현
+- [ ] Arduino WIFI Remote Control 기능 구현
+- [ ] Arduino IR Remote Control 기능 구현 (TV, Air Condictioner, DVD player, Etc)
