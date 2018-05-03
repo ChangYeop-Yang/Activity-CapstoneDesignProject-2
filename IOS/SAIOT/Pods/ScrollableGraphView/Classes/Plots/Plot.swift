@@ -6,7 +6,7 @@ open class Plot {
     // The id for this plot. Used when determining which data to give it in the dataSource
     open var identifier: String!
     
-    var graphViewDrawingDelegate: ScrollableGraphViewDrawingDelegate! = nil
+    weak var graphViewDrawingDelegate: ScrollableGraphViewDrawingDelegate! = nil
     
     // Animation Settings
     // ##################
@@ -219,6 +219,12 @@ open class Plot {
         displayLink?.invalidate()
         previousTimestamp = 0
         currentTimestamp = 0
+    }
+    
+    internal func invalidate() {
+        currentAnimations.removeAll()
+        graphPoints.removeAll()
+        displayLink?.invalidate()
     }
     
     internal func graphPoint(forIndex index: Int) -> GraphPoint {

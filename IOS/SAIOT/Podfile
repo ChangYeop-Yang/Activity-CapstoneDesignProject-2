@@ -6,7 +6,6 @@ target 'SAIOT' do
   use_frameworks!
 
   pod 'ScrollableGraphView'
-  pod 'RealmSwift'
   pod 'SwiftyHue', '0.4.1'
   # Pods for SAIOT
 

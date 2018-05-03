@@ -96,7 +96,7 @@ import UIKit
     private var labelPool = LabelPool()
     
     // Data Source
-    open var dataSource: ScrollableGraphViewDataSource? {
+    weak open var dataSource: ScrollableGraphViewDataSource? {
         didSet {
             if(plots.count > 0) {
                 reload()
@@ -136,6 +136,12 @@ import UIKit
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    deinit {
+        for plot in plots {
+            plot.invalidate()
+        }
     }
     
     // You can change how you want the graph to appear in interface builder here.
