@@ -9,12 +9,12 @@
 #define SOUND_LIMIT_MORNING 43
 #define CDS_LIMIT_LIGHT 450
 #define CHECK_GAS_M(X) X >= GAS_LIMIT ? true : false
-#define DEBUG true
 
 // MARK: - Digital Pin
 enum DigitalPin {
   FLARE_DPIN = 6,
   BYZZER_DPIN = 8,
+  BUTTON_DPIN = 7,
   LED_RED_DPIN = 13,
   LED_GREEN_DPIN = 12,
   LED_BLUE_DPIN = 11,
@@ -40,6 +40,7 @@ typedef struct flag {
   bool byzzer_Flag = false;
   bool hotTemp_Flag = false;
   bool gas_Flag = false;
+  bool backup_Flag = false;
 } CFlag;
 
 // MARK: - Global Variable
@@ -68,6 +69,9 @@ void setup ()
   pinMode(LED_GREEN_DPIN, OUTPUT);
   pinMode(LED_BLUE_DPIN, OUTPUT);
 
+  /* setting read the digital button */
+  pinMode(BUTTON_DPIN, INPUT);
+
   /* setting Collect Sensor Date Timmer */
   sensorTimer.every(60000, collectSensorDate);
 }
@@ -80,6 +84,13 @@ void loop ()
   // MARK: - Sensing gas Method
   senseGas();
 
+  // MARK: - Read Backup Button
+  if (digitalRead(BUTTON_DPIN) == LOW) {
+    currentState.backup_Flag = true;
+    Serial.println("- Enable send to back-up server.");
+  }
+
+  // MARK: - Update Sensor Timer.
   sensorTimer.update();
 }
 
@@ -96,7 +107,9 @@ void collectSensorDate() {
   int brightness = collectCDS();
 
   /* Sending Data to Server Timmer */
-  sendSensorData(temputure, brightness, noise);
+  if (currentState.backup_Flag) {
+    sendSensorData(temputure, brightness, noise); 
+  }
 }
 
 void senseFlare() {
