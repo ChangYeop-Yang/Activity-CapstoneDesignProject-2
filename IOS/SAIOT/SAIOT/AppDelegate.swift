@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DispatchQueue.global(qos: .default).async(execute: {
             ParserJSON.parsorInstance.parsorSensorDataJSON(url: "http://yeop9657.duckdns.org/select.php")
         })
+        
+        // Configure FirebaseApp.
+        FirebaseApp.configure()
         
         return true
     }

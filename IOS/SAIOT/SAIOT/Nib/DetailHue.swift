@@ -39,6 +39,8 @@ class DetailHue: UIView {
     
     // MARK: - Variable
     internal weak var delegate: DetailHueDelegate?
+    private let hueColorsJsnoKey = "HUE_COLOR_KEY"
+    private let userDefault: UserDefaults = UserDefaults.standard
     private var hueColors: (RED: Int, GREEN: Int, BLUE: Int, ALPHA: Int) = (100, 100, 100, 200)
     
     override func awakeFromNib() {
@@ -51,18 +53,19 @@ class DetailHue: UIView {
     
     // MARK: - Outlet Action Method
     @IBAction func changeColorValue(_ sender: UISlider) {
-        
-        let sliderTag: SliderTag = SliderTag(rawValue: sender.tag)!
-        switch sliderTag {
+        if let sliderTag: SliderTag = SliderTag(rawValue: sender.tag) {
+            switch sliderTag {
             case .RED: hueColors.RED        = Int(sender.value)
             case .GREEN: hueColors.GREEN    = Int(sender.value)
             case .BLUE: hueColors.BLUE      = Int(sender.value)
             case .ALPHA: hueColors.ALPHA    = Int(sender.value)
+            }
+            
+            PhilipsHueBridge.hueInstance.changeHueColor(red: hueColors.RED, green: hueColors.GREEN, blue: hueColors.BLUE, alpha: hueColors.ALPHA)
         }
-        
-        PhilipsHueBridge.hueInstance.changeHueColor(red: hueColors.RED, green: hueColors.GREEN, blue: hueColors.BLUE, alpha: hueColors.ALPHA)
     }
     @IBAction func cancleNib(_ sender: UIButton) {
+
         delegate?.closeSubView()
         self.removeFromSuperview()
     }

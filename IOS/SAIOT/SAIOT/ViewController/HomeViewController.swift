@@ -12,11 +12,6 @@ import AudioToolbox
 import ScrollableGraphView
 
 // MARK: - Enum
-private enum NibName: String {
-    case DetailHue = "DetailHue"
-    case DetailGraph = "DetailGraph"
-    case PressHueBridge = "PressHueBridge"
-}
 private enum GraphLabel: String {
     case GraphTemputuer = "TEMPUTURE"
     case GraphCDS = "CDS"

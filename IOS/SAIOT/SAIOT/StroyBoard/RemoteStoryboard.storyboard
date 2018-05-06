@@ -37,6 +37,9 @@
                                         <state key="normal" title="POWER" image="ic_power_settings_new_white_48pt">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="controlTotalPower:" destination="U7q-fU-jbO" eventType="touchUpInside" id="JF5-7D-fnZ"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="grL-oA-NdI">
                                         <rect key="frame" x="0.0" y="235" width="375" height="50"/>
@@ -64,21 +67,33 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bkk-IT-c4R">
                                         <rect key="frame" x="10" y="530" width="355" height="128"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzD-kx-Pv7">
+                                            <button opaque="NO" tag="100" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzD-kx-Pv7">
                                                 <rect key="frame" x="0.0" y="0.0" width="89" height="128"/>
                                                 <state key="normal" image="pencil_red"/>
+                                                <connections>
+                                                    <action selector="changeColorHUE:" destination="U7q-fU-jbO" eventType="touchUpInside" id="wLZ-bp-aky"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCt-yQ-tjc">
+                                            <button opaque="NO" tag="200" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCt-yQ-tjc">
                                                 <rect key="frame" x="89" y="0.0" width="88.5" height="128"/>
                                                 <state key="normal" title="Button" image="pencil_green"/>
+                                                <connections>
+                                                    <action selector="changeColorHUE:" destination="U7q-fU-jbO" eventType="touchUpInside" id="iwO-N3-GHH"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1F-no-5Oh">
+                                            <button opaque="NO" tag="300" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1F-no-5Oh">
                                                 <rect key="frame" x="177.5" y="0.0" width="89" height="128"/>
                                                 <state key="normal" title="Button" image="pencil_blue"/>
+                                                <connections>
+                                                    <action selector="changeColorHUE:" destination="U7q-fU-jbO" eventType="touchUpInside" id="mDJ-N5-sKX"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlW-8K-A0L">
+                                            <button opaque="NO" tag="400" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlW-8K-A0L">
                                                 <rect key="frame" x="266.5" y="0.0" width="88.5" height="128"/>
                                                 <state key="normal" title="Button" image="pencil_pink"/>
+                                                <connections>
+                                                    <action selector="changeColorHUE:" destination="U7q-fU-jbO" eventType="touchUpInside" id="Oy7-fk-lVU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -105,6 +120,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUT-oB-hZ4">
                                                         <rect key="frame" x="0.0" y="100" width="182.5" height="99.5"/>
+                                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="ic_ac_unit_white_48pt"/>
                                                     </button>
                                                 </subviews>
@@ -114,6 +130,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiC-L3-7GY">
                                                         <rect key="frame" x="0.0" y="0.0" width="182.5" height="100"/>
+                                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="ic_live_tv_white_48pt"/>
                                                     </button>
