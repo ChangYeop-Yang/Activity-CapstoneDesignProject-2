@@ -7,10 +7,16 @@ enum DigitalPin {
   SS_DPIN = 10,
   RST_DPIN = 9,
   IR_DPIN = 8,
-  LED_RED_DPIN = 13,
-  LED_GREEN_DPIN = 12,
-  LED_BLUE_DPIN = 11,
+  BUTTON_DPIN = 4,
+  LED_RED_DPIN = 6,
+  LED_GREEN_DPIN = 5,
+  LED_BLUE_DPIN = 7,
+  MOTER_R_DPIN = 1,
+  MOTER_L_DPIN = 0
 };
+
+// MARK: - Button Variable
+bool isBackUpState = false;
 
 // MARK: - ESP8266 Variable
 SoftwareSerial esp8266_Serial = SoftwareSerial(2, 3);
@@ -32,8 +38,17 @@ void setup() {
   /* setting Degital Pin Mode */
   pinMode(IR_DPIN, INPUT);
 
-  pinMode(1, OUTPUT);
-  pinMode(0, OUTPUT);
+  /* setting Button Pin Mode */
+  pinMode(BUTTON_DPIN, INPUT);
+
+  /* setting Moter Pin Mode */
+  pinMode(MOTER_R_DPIN, OUTPUT);
+  pinMode(MOTER_L_DPIN, OUTPUT);
+
+  /* setting LED Module Degital Pin Mode */
+  pinMode(LED_RED_DPIN,   OUTPUT);
+  pinMode(LED_GREEN_DPIN, OUTPUT);
+  pinMode(LED_BLUE_DPIN,  OUTPUT);
 }
 
 void loop() {
@@ -41,15 +56,37 @@ void loop() {
   // RFID MFRC522 Method
   checkTagRFID();
 
-  delay(500);
-  digitalWrite(1, HIGH);
-  delay(500);
-  digitalWrite(0, LOW);
+  // Check Push BackUP Button
+  if (digitalRead(BUTTON_DPIN) == HIGH) {
+    isBackUpState = true;
+    Serial.println("- Enable send to back-up server.");
+    controlLED(LED_GREEN_DPIN);
+  }
+}
 
-  delay(500);
-  digitalWrite(0, LOW);
-  delay(500);
-  digitalWrite(1, HIGH);
+// MARK: - Control LED Module Method
+void controlLED(int color) {
+
+  switch (color) {
+    case LED_RED_DPIN: { 
+      digitalWrite(LED_RED_DPIN, HIGH);
+      delay(500);
+      digitalWrite(LED_RED_DPIN, LOW);
+      break; 
+    }
+    case LED_GREEN_DPIN: {
+      digitalWrite(LED_GREEN_DPIN, HIGH);
+      delay(500);
+      digitalWrite(LED_GREEN_DPIN, LOW);
+      break; 
+    }
+    case LED_BLUE_DPIN: { 
+      digitalWrite(LED_BLUE_DPIN, HIGH);
+      delay(500);
+      digitalWrite(LED_BLUE_DPIN, LOW);
+      break; 
+    }
+  }
 }
 
 // MARK: - RFID MFRC522 Method
@@ -64,7 +101,7 @@ void checkTagRFID() {
   byte letter;
   for (byte i = 0; i < mfrc522.uid.size; i++) 
   {
-     content.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
+     content.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? "0" : " "));
      content.concat(String(mfrc522.uid.uidByte[i], HEX));
   }
   
@@ -72,6 +109,12 @@ void checkTagRFID() {
   if (findContains(content, "64 9C 46 EC")) {
     Serial.println("- Tagging RFID marster key.");
     Serial.print("- RFID UID TAG: ");  Serial.println(content);
+
+    // Send to Back-up Server.
+    if (isBackUpState) {
+      delay(5000);
+      sendSensorData("MarsterKey-64:9C:46:EC"); 
+    }
   }
 }
 
@@ -103,7 +146,7 @@ void settingESP8266(bool state) {
 }
 
 // Send ESP8266 Method
-bool sendSensorData(int temp, int cmd, int noise) {
+bool sendSensorData(String rfidID) {
 
   const String backup_ServerURL = "yeop9657.duckdns.org";
   delay(5000);
@@ -113,11 +156,7 @@ bool sendSensorData(int temp, int cmd, int noise) {
     Serial.println("- HTTP TCP Connection Ready.");
 
     String query;
-//    query.concat("GET /insert.php?TEMP=");  query.concat(temp);
-//    query.concat("&CMD=");                  query.concat(cmd);  
-//    query.concat("&NOISE=");                query.concat(noise);
-//    query.concat("&FLARE=");                query.concat(currentState.flare_Flag);
-//    query.concat("&GAS=");                  query.concat(analogRead(GAS_APIN));      query.concat("\r\n");
+    query.concat("GET /outsideInsert.php?RFID=");  query.concat(rfidID);  query.concat("\r\n");
 
     delay(5000);
     const String sendCommand = "AT+CIPSEND=";
@@ -135,5 +174,5 @@ bool sendSensorData(int temp, int cmd, int noise) {
       }
     }
   }
-  esp8266_Serial.println("AT+CIPCLOSE\r");
+  esp8266_Serial.println("AT+CIPCLOSE\r\n");
 }
