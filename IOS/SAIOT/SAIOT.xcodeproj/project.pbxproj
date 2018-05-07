@@ -12,6 +12,7 @@
 		27185D3C20628D2600469807 /* SAIOT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27185D3A20628D2600469807 /* SAIOT.xcdatamodeld */; };
 		27185D3E20628D2600469807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27185D3D20628D2600469807 /* Assets.xcassets */; };
 		27185D4120628D2600469807 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27185D3F20628D2600469807 /* LaunchScreen.storyboard */; };
+		273025AA20A09FDE00868343 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273025A920A09FDE00868343 /* MessageUI.framework */; };
 		273A0DE32099D2C70093D481 /* DetailGraph.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273A0DE22099D2C70093D481 /* DetailGraph.xib */; };
 		273A0DE52099D2D90093D481 /* DetailGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273A0DE42099D2D90093D481 /* DetailGraph.swift */; };
 		2741DDB72073C8FA0064F312 /* ColorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741DDB62073C8FA0064F312 /* ColorCode.swift */; };
@@ -25,7 +26,6 @@
 		277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */; };
 		277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */; };
 		277E096E209E0DBD00F190FC /* NibINFO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277E096D209E0DBD00F190FC /* NibINFO.swift */; };
-		277E0970209E0F4B00F190FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 277E096F209E0F4B00F190FC /* GoogleService-Info.plist */; };
 		2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */; };
 		27923DE920865DEF00516EEB /* PhilipsHueBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */; };
 		27B376DB208501DC009AE9AC /* DetailHue.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B376DA208501DC009AE9AC /* DetailHue.xib */; };
@@ -45,6 +45,7 @@
 		27185D3D20628D2600469807 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27185D4020628D2600469807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27185D4220628D2600469807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		273025A920A09FDE00868343 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		273A0DE22099D2C70093D481 /* DetailGraph.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailGraph.xib; sourceTree = "<group>"; };
 		273A0DE42099D2D90093D481 /* DetailGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGraph.swift; sourceTree = "<group>"; };
 		2741DDB62073C8FA0064F312 /* ColorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCode.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutSideStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
 		277E096D209E0DBD00F190FC /* NibINFO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibINFO.swift; sourceTree = "<group>"; };
-		277E096F209E0F4B00F190FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutSideViewController.swift; sourceTree = "<group>"; };
 		27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilipsHueBridge.swift; sourceTree = "<group>"; };
 		27B376DA208501DC009AE9AC /* DetailHue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHue.xib; sourceTree = "<group>"; };
@@ -75,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				273025AA20A09FDE00868343 /* MessageUI.framework in Frameworks */,
 				FB1F3D1B9823B130E37A4476 /* Pods_SAIOT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +113,6 @@
 				27185D4820628FE100469807 /* Surport Files */,
 				27185D3320628D2600469807 /* AppDelegate.swift */,
 				27185D4220628D2600469807 /* Info.plist */,
-				277E096F209E0F4B00F190FC /* GoogleService-Info.plist */,
 			);
 			path = SAIOT;
 			sourceTree = "<group>";
@@ -193,6 +193,7 @@
 		3FD24DFD2ABB3961B6C45A00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				273025A920A09FDE00868343 /* MessageUI.framework */,
 				397CE0EC1A0F803942D5E158 /* Pods_SAIOT.framework */,
 			);
 			name = Frameworks;
@@ -277,7 +278,6 @@
 				27185D3E20628D2600469807 /* Assets.xcassets in Resources */,
 				273A0DE32099D2C70093D481 /* DetailGraph.xib in Resources */,
 				27F85AF92071403B00FFE763 /* HomeStoryboard.storyboard in Resources */,
-				277E0970209E0F4B00F190FC /* GoogleService-Info.plist in Resources */,
 				277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */,
 				27185D3920628D2600469807 /* Main.storyboard in Resources */,
 			);
@@ -314,20 +314,16 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyHue/SwiftyHue.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyHue.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

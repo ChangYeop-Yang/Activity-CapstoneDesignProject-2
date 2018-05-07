@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,7 +63,7 @@
                         <sections>
                             <tableViewSection headerTitle="DEVELOPER INFO" id="Xsl-mr-WKd">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YcL-Ex-oem" detailTextLabel="3BF-Qr-iRo" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="cA8-tE-2dK">
+                                    <tableViewCell clipsSubviews="YES" tag="100" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YcL-Ex-oem" detailTextLabel="3BF-Qr-iRo" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="cA8-tE-2dK">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cA8-tE-2dK" id="lzJ-6h-vEF">
@@ -87,7 +88,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Fdx-rC-TAI" detailTextLabel="HwJ-vt-1kU" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="HFd-3S-z8U">
+                                    <tableViewCell clipsSubviews="YES" tag="200" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Fdx-rC-TAI" detailTextLabel="HwJ-vt-1kU" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="HFd-3S-z8U">
                                         <rect key="frame" x="0.0" y="115.5" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HFd-3S-z8U" id="Jt4-6e-ndH">
@@ -112,7 +113,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="mN8-eb-dOO" detailTextLabel="4Hy-KK-4fS" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="Vy0-Tn-IRA">
+                                    <tableViewCell clipsSubviews="YES" tag="300" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="mN8-eb-dOO" detailTextLabel="4Hy-KK-4fS" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="Vy0-Tn-IRA">
                                         <rect key="frame" x="0.0" y="175.5" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vy0-Tn-IRA" id="HYf-RV-caM">
@@ -137,7 +138,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="BHO-tj-UKo" detailTextLabel="ARN-cL-J10" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="9KG-c1-7Mf">
+                                    <tableViewCell clipsSubviews="YES" tag="400" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="BHO-tj-UKo" detailTextLabel="ARN-cL-J10" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="9KG-c1-7Mf">
                                         <rect key="frame" x="0.0" y="235.5" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9KG-c1-7Mf" id="vDD-sE-z6E">
@@ -166,32 +167,46 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="APP SETTING" id="whD-OK-Ypt">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="SSc-lU-de8" detailTextLabel="F0B-1W-FZs" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="kVn-za-YlY">
+                                    <tableViewCell clipsSubviews="YES" tag="500" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="kVn-za-YlY">
                                         <rect key="frame" x="0.0" y="351.5" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kVn-za-YlY" id="5wQ-nM-NaI">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Device Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="SSc-lU-de8">
-                                                    <rect key="frame" x="16" y="8" width="106" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="알람을 활성화 및 비활성화 시킵니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="F0B-1W-FZs">
-                                                    <rect key="frame" x="16" y="31.5" width="215" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="e44-Dw-7pr">
+                                                    <rect key="frame" x="16" y="11" width="274" height="38"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Control APP Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ag-Sb-dvd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="274" height="19"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APP 알람을 설정합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtl-bQ-eSo">
+                                                            <rect key="frame" x="0.0" y="19" width="274" height="19"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbc-vS-r3x">
+                                                    <rect key="frame" x="310" y="14.5" width="51" height="31"/>
+                                                </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="e44-Dw-7pr" firstAttribute="bottom" secondItem="5wQ-nM-NaI" secondAttribute="bottomMargin" id="08h-1T-6vD"/>
+                                                <constraint firstItem="nbc-vS-r3x" firstAttribute="centerY" secondItem="5wQ-nM-NaI" secondAttribute="centerY" id="A8K-N8-fTE"/>
+                                                <constraint firstItem="e44-Dw-7pr" firstAttribute="leading" secondItem="5wQ-nM-NaI" secondAttribute="leadingMargin" id="GMv-9u-CBg"/>
+                                                <constraint firstItem="nbc-vS-r3x" firstAttribute="leading" secondItem="e44-Dw-7pr" secondAttribute="trailing" constant="20" id="a5N-2v-aen"/>
+                                                <constraint firstItem="e44-Dw-7pr" firstAttribute="top" secondItem="5wQ-nM-NaI" secondAttribute="topMargin" id="cyT-fH-Uq6"/>
+                                                <constraint firstItem="nbc-vS-r3x" firstAttribute="trailing" secondItem="5wQ-nM-NaI" secondAttribute="trailingMargin" id="kkJ-GS-Xqy"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NKa-5I-WXW" detailTextLabel="XDy-6k-Oyz" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="vsU-Cf-xXS">
+                                    <tableViewCell clipsSubviews="YES" tag="600" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NKa-5I-WXW" detailTextLabel="XDy-6k-Oyz" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="vsU-Cf-xXS">
                                         <rect key="frame" x="0.0" y="411.5" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vsU-Cf-xXS" id="haS-u9-6bH">
@@ -227,7 +242,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbB-JZ-RIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3196" y="363"/>
+            <point key="canvasLocation" x="3198" y="331"/>
         </scene>
     </scenes>
     <resources>
