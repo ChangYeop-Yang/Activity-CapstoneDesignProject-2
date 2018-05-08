@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mefestico.otf">
+            <string>Mefestico-</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -22,26 +27,68 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGt-Et-jT0">
-                                        <rect key="frame" x="59" y="239.66666666666669" width="256" height="256"/>
+                                        <rect key="frame" x="123" y="303.66666666666669" width="128" height="128"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="256" id="4Rc-EF-5tj"/>
-                                            <constraint firstAttribute="height" constant="256" id="z7L-kV-Cpx"/>
+                                            <constraint firstAttribute="width" constant="128" id="4Rc-EF-5tj"/>
+                                            <constraint firstAttribute="height" constant="128" id="z7L-kV-Cpx"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (C) 2018 Mr.Yang all rights reserved." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpV-L5-aqL">
-                                        <rect key="frame" x="10" y="706" width="355" height="18"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <rect key="frame" x="10" y="708.66666666666663" width="355" height="15.333333333333371"/>
+                                        <fontDescription key="fontDescription" name="Mefestico-" family="MefesticoLight" pointSize="15"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAIOT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGr-RR-K54">
+                                        <rect key="frame" x="10" y="451.66666666666669" width="355" height="42"/>
+                                        <fontDescription key="fontDescription" name="Mefestico-" family="MefesticoLight" pointSize="41"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV7-R3-iri">
+                                        <rect key="frame" x="20" y="20" width="31" height="51"/>
+                                        <fontDescription key="fontDescription" name="Mefestico-" family="MefesticoLight" pointSize="50"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS2-ak-tQn">
+                                        <rect key="frame" x="20" y="637.66666666666663" width="24" height="51"/>
+                                        <fontDescription key="fontDescription" name="Mefestico-" family="MefesticoLight" pointSize="50"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8B-ug-gG4">
+                                        <rect key="frame" x="324" y="20" width="31" height="51"/>
+                                        <fontDescription key="fontDescription" name="Mefestico-" family="MefesticoLight" pointSize="50"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4P-8V-MQc">
+                                        <rect key="frame" x="320" y="638" width="35" height="51"/>
+                                        <fontDescription key="fontDescription" name="Mefestico-" family="MefesticoLight" pointSize="50"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="AGr-RR-K54" firstAttribute="top" secondItem="EGt-Et-jT0" secondAttribute="bottom" constant="20" id="4cK-Wf-SjM"/>
                                     <constraint firstItem="zpV-L5-aqL" firstAttribute="leading" secondItem="g0I-7B-3hK" secondAttribute="leading" constant="10" id="5oL-RP-tv5"/>
+                                    <constraint firstItem="AGr-RR-K54" firstAttribute="leading" secondItem="g0I-7B-3hK" secondAttribute="leading" constant="10" id="Boy-R0-4pb"/>
+                                    <constraint firstAttribute="trailing" secondItem="k4P-8V-MQc" secondAttribute="trailing" constant="20" id="Lwc-qT-sJm"/>
+                                    <constraint firstItem="cS2-ak-tQn" firstAttribute="leading" secondItem="g0I-7B-3hK" secondAttribute="leading" constant="20" id="PbJ-Qq-siN"/>
                                     <constraint firstItem="EGt-Et-jT0" firstAttribute="centerY" secondItem="g0I-7B-3hK" secondAttribute="centerY" id="QEW-rt-2hJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="G8B-ug-gG4" secondAttribute="trailing" constant="20" id="UV2-FP-huA"/>
+                                    <constraint firstItem="zpV-L5-aqL" firstAttribute="top" secondItem="k4P-8V-MQc" secondAttribute="bottom" constant="20" id="bKH-T4-gq6"/>
+                                    <constraint firstItem="zpV-L5-aqL" firstAttribute="top" secondItem="cS2-ak-tQn" secondAttribute="bottom" constant="20" id="eFD-eP-s1v"/>
+                                    <constraint firstItem="G8B-ug-gG4" firstAttribute="top" secondItem="g0I-7B-3hK" secondAttribute="top" constant="20" id="ewX-zC-b0D"/>
                                     <constraint firstAttribute="bottom" secondItem="zpV-L5-aqL" secondAttribute="bottom" constant="10" id="hPT-wq-kVE"/>
+                                    <constraint firstAttribute="trailing" secondItem="AGr-RR-K54" secondAttribute="trailing" constant="10" id="l0j-1S-1EE"/>
+                                    <constraint firstItem="wV7-R3-iri" firstAttribute="leading" secondItem="g0I-7B-3hK" secondAttribute="leading" constant="20" id="uDa-IY-Xmf"/>
+                                    <constraint firstItem="wV7-R3-iri" firstAttribute="top" secondItem="g0I-7B-3hK" secondAttribute="top" constant="20" id="vcL-YO-T12"/>
                                     <constraint firstItem="EGt-Et-jT0" firstAttribute="centerX" secondItem="g0I-7B-3hK" secondAttribute="centerX" id="w5V-DE-ljR"/>
                                     <constraint firstAttribute="trailing" secondItem="zpV-L5-aqL" secondAttribute="trailing" constant="10" id="wzG-qH-zDm"/>
+                                    <constraint firstItem="AGr-RR-K54" firstAttribute="centerX" secondItem="g0I-7B-3hK" secondAttribute="centerX" id="zst-3l-rMg"/>
                                 </constraints>
                             </view>
                         </subviews>

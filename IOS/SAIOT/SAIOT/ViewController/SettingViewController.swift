@@ -17,7 +17,8 @@ fileprivate enum TabelRowAt: Int {
     case OpenSource = 300
     case PrivacyPolicy = 400
     case AppAlarm = 500
-    case AppHelp = 600
+    case HueReset = 600
+    case AppHelp = 700
 }
 
 class SettingViewController: UIViewController {
@@ -33,6 +34,13 @@ class SettingViewController: UIViewController {
         if let settingTableVC = segue.destination as? UITableViewController {
             settingTableVC.tableView.delegate = self
         }
+    }
+    
+    // MARK: Method
+    fileprivate func showInformationAlert(title: String, comment: String) {
+        let alert: UIAlertController = UIAlertController(title: title, message: comment, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -65,6 +73,12 @@ extension SettingViewController: UITableViewDelegate {
                     if let url: URL = URL(string: "http://yeop9657.blog.me/221270338767") {
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
+                case .HueReset:
+                    let userDefaults = UserDefaults.standard
+                    let keyValue = userDefaults.string(forKey: "HUE_BRIDGE_KEY")
+                    userDefaults.removeObject(forKey: "HUE_BRIDGE_KEY")
+                
+                    showInformationAlert(title: "Delete HUE Bridge", comment: "정상적으로 휴 브릿지 내용을 삭제하였습니다.")
                 case .AppAlarm:
                     break
                 case .AppHelp:

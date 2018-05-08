@@ -32,6 +32,7 @@
 		27B376DD20850900009AE9AC /* DetailHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B376DC20850900009AE9AC /* DetailHue.swift */; };
 		27B57A3B209B1044005FE84B /* PressHueBridge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B57A3A209B1044005FE84B /* PressHueBridge.xib */; };
 		27B57A3D209B1054005FE84B /* PressHueBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B57A3C209B1054005FE84B /* PressHueBridge.swift */; };
+		27CB5EDE20A17B8C001E15A4 /* Mefestico.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27CB5EDD20A17B8C001E15A4 /* Mefestico.otf */; };
 		27F85AF92071403B00FFE763 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */; };
 		FB1F3D1B9823B130E37A4476 /* Pods_SAIOT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397CE0EC1A0F803942D5E158 /* Pods_SAIOT.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		27B376DC20850900009AE9AC /* DetailHue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHue.swift; sourceTree = "<group>"; };
 		27B57A3A209B1044005FE84B /* PressHueBridge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PressHueBridge.xib; sourceTree = "<group>"; };
 		27B57A3C209B1054005FE84B /* PressHueBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressHueBridge.swift; sourceTree = "<group>"; };
+		27CB5EDD20A17B8C001E15A4 /* Mefestico.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mefestico.otf; sourceTree = "<group>"; };
 		27F85AF82071403B00FFE763 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		397CE0EC1A0F803942D5E158 /* Pods_SAIOT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAIOT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8584840B623EF40E58D2CB /* Pods-SAIOT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAIOT.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAIOT/Pods-SAIOT.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				27185D3D20628D2600469807 /* Assets.xcassets */,
 				27185D3F20628D2600469807 /* LaunchScreen.storyboard */,
 				27185D3A20628D2600469807 /* SAIOT.xcdatamodeld */,
+				27CB5EDD20A17B8C001E15A4 /* Mefestico.otf */,
 			);
 			path = "Surport Files";
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				273A0DE32099D2C70093D481 /* DetailGraph.xib in Resources */,
 				27F85AF92071403B00FFE763 /* HomeStoryboard.storyboard in Resources */,
 				277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */,
+				27CB5EDE20A17B8C001E15A4 /* Mefestico.otf in Resources */,
 				27185D3920628D2600469807 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
