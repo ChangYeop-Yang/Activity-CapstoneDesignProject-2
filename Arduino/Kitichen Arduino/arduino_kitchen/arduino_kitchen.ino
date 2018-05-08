@@ -73,7 +73,7 @@ void setup ()
   pinMode(BUTTON_DPIN, INPUT);
 
   /* setting Collect Sensor Date Timmer */
-  sensorTimer.every(60000, collectSensorDate);
+  sensorTimer.every(300000, collectSensorDate);
 }
 
 void loop ()

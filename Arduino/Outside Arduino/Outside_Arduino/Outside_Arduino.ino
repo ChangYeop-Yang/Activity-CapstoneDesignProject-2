@@ -1,25 +1,37 @@
+#include "SocketIOClient.h"
 #include <MFRC522.h>
 #include <SoftwareSerial.h>
 #include <SPI.h>
+#include <Servo.h>
 
 // MARK: - Digital Pin
 enum DigitalPin {
   SS_DPIN = 10,
   RST_DPIN = 9,
-  IR_DPIN = 8,
+  MOTER_DPIN = 8,
   BUTTON_DPIN = 4,
   LED_RED_DPIN = 6,
   LED_GREEN_DPIN = 5,
   LED_BLUE_DPIN = 7,
-  MOTER_R_DPIN = 1,
-  MOTER_L_DPIN = 0
+  S_DPIN = A5
+};
+
+// MARK: - Analog Pin
+enum AnalogPin {
+  VIBRATE_APIN = A0
 };
 
 // MARK: - Button Variable
 bool isBackUpState = false;
 
+// MARK: - SocketIO Variable
+SocketIOClient client;
+
 // MARK: - ESP8266 Variable
 SoftwareSerial esp8266_Serial = SoftwareSerial(2, 3);
+
+// MARK: - Servo Moter
+Servo lockMoter;
 
 // MARK: - RFID Variable
 MFRC522 mfrc522(SS_DPIN, RST_DPIN);   // Create MFRC522 instance.
@@ -35,16 +47,18 @@ void setup() {
   SPI.begin();
   mfrc522.PCD_Init();
 
-  /* setting Degital Pin Mode */
-  pinMode(IR_DPIN, INPUT);
-
+  /* setting Moter Mode */
+  lockMoter.attach(MOTER_DPIN);
+  
   /* setting Button Pin Mode */
   pinMode(BUTTON_DPIN, INPUT);
 
   /* setting Moter Pin Mode */
-  pinMode(MOTER_R_DPIN, OUTPUT);
-  pinMode(MOTER_L_DPIN, OUTPUT);
+  pinMode(MOTER_DPIN, OUTPUT);
 
+  /* setting Vibrate Pin Mode */
+  pinMode(VIBRATE_APIN, INPUT);
+  
   /* setting LED Module Degital Pin Mode */
   pinMode(LED_RED_DPIN,   OUTPUT);
   pinMode(LED_GREEN_DPIN, OUTPUT);
@@ -61,6 +75,24 @@ void loop() {
     isBackUpState = true;
     Serial.println("- Enable send to back-up server.");
     controlLED(LED_GREEN_DPIN);
+  }
+
+  // Check shock Detected
+  if (HIGH == digitalRead(VIBRATE_APIN)) {
+    Serial.println("The Arduino shock detected.");
+  }
+}
+
+// MARK: - Operate Sub Motor Method
+void operateMotor(bool degree) {
+  if (degree) {
+    for (int pos = 0; pos <= 180; pos += 10) {
+      lockMoter.write(pos);
+    }
+  } else {
+    for (int pos = 180; pos >= 0; pos -= 10) {
+      lockMoter.write(pos);
+    }
   }
 }
 
