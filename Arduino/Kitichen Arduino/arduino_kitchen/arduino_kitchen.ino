@@ -72,8 +72,8 @@ void setup ()
   /* setting read the digital button */
   pinMode(BUTTON_DPIN, INPUT);
 
-  /* setting Collect Sensor Date Timmer */
-  sensorTimer.every(300000, collectSensorDate);
+  /* setting Collect Sensor Date Timmer 300000 */
+  sensorTimer.every(60000, collectSensorDate);
 }
 
 void loop ()

@@ -18,7 +18,8 @@ enum DigitalPin {
 
 // MARK: - Analog Pin
 enum AnalogPin {
-  VIBRATE_APIN = A0
+  VIBRATE_APIN = A0,
+  BUZZER_APIN = A1
 };
 
 // MARK: - Button Variable
@@ -39,7 +40,7 @@ MFRC522 mfrc522(SS_DPIN, RST_DPIN);   // Create MFRC522 instance.
 void setup() {
    Serial.begin(9600);
   
-  /* setting Esp8266 WIFI Serial Module */
+  /* setting ESP8266 WIFI Serial Module */
   esp8266_Serial.begin(9600);
   settingESP8266(true);
 
@@ -75,12 +76,26 @@ void loop() {
     isBackUpState = true;
     Serial.println("- Enable send to back-up server.");
     controlLED(LED_GREEN_DPIN);
+    tone(BUZZER_APIN, 3729, 1000);
+    /* setting WebSocket */
+    client.setDataArrivedDelegate(ondata);
+    if (client.connect("http://192.168.43.7", 80)) {
+      Serial.println("- Connect WebSocket server.");
+      client.send("CLIENT");
+    }
   }
 
   // Check shock Detected
   if (HIGH == digitalRead(VIBRATE_APIN)) {
+    tone(BUZZER_APIN, 6000, 2000);
+    controlLED(LED_RED_DPIN);
     Serial.println("The Arduino shock detected.");
   }
+}
+
+// websocket message handler: do something with command from server
+void ondata(SocketIOClient client, char *data) {
+  Serial.println(data);
 }
 
 // MARK: - Operate Sub Motor Method
