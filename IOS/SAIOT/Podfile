@@ -7,6 +7,7 @@ target 'SAIOT' do
 
   pod 'ScrollableGraphView', '4.0.4'
   pod 'SwiftyHue', '0.4.1'
+  pod 'Socket.IO-Client-Swift', '~> 13.1.0'
   # Pods for SAIOT
 
 end

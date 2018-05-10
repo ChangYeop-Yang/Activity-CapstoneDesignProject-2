@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import SocketIO
 
 class OutSideViewController: UIViewController {
     
@@ -41,9 +42,6 @@ class OutSideViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
     }
     
     // MARK: - IBAction Method
