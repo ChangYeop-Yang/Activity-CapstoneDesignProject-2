@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -29,6 +30,13 @@ public class MainActivity extends FragmentActivity {
     ArrayList<ILineDataSet> lineDataSets;
     LineData lineData;
 
+    //json 형식으로 받아오기
+   // String imgUrl="http://yeop9657.duckdns.org/select.php";
+    //phpDown task;
+    TextView txtView;
+
+
+
 
 
 
@@ -46,6 +54,11 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         //init();
         //threadStart();
+
+        //json 형식으로 받아오기0506 update
+//        task = new phpDown();
+//        txtView=(TextView)findViewById(R.id.textView26);
+//        task.execute("http://yeop9657.duckdns.org/select.php");
 
         //4.4 하단바
         homeFragment = new HomeFragment();
@@ -138,6 +151,58 @@ public class MainActivity extends FragmentActivity {
     }
 
 
+    // json으로 값받아오기위해
+/*
+    private class phpDown extends AsyncTask<String,Integer,String>{
+
+
+        @Override
+        protected String doInBackground(String... urls) {
+            StringBuilder jsonHtml = new StringBuilder();
+            try{
+                //연결 url설정
+                URL url = new URL(urls[0]);
+
+                //커넥션 객체 생성
+                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+
+                //연결 되었으면
+                if(conn !=null){
+                    conn.setConnectTimeout(10000);
+                    conn.setUseCaches(false);
+                    //연결되었다는 코드가 리턴되면
+                        if(conn.getResponseCode()==HttpURLConnection.HTTP_OK){
+                            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+                            for(;;){
+                                //웹의 텍스트를 라인단위로 읽어저장
+                                String line = br.readLine();
+                                if(line==null) break;
+
+                                //저장된 텍스트 라인을 jsonHtml에 넣음
+                                jsonHtml.append(line+"\n");
+                            }
+                            br.close();
+
+
+
+
+
+                    }
+                    conn.disconnect();
+                }
+
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+
+            return jsonHtml.toString();
+        }
+
+        protected void onPostExecute(String str){
+            txtView.setText(str);
+        }
+    }
+*/
 /*
     private void init() {
         chart = (LineChart) findViewById(R.id.chart2);
