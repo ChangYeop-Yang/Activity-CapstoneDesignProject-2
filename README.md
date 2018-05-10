@@ -2,13 +2,12 @@
 **[Capstone Design 2] Team Capstone Design Project. (Prof. 고석주)**
 
 ### 프로젝트 사용할 오픈소스 기술 목록
-- Firebase cloud Messageging :: IOS -> Swift | Android -> Java | WEB -> JavaScript
-[FCM: 플랫폼을 가리지 않고 무료로 알림 전송](https://firebase.google.com/products/cloud-messaging/?hl=ko)
 
-- Philips Hue :: IOS -> Swift | Android -> Java::
+- Philips Hue ::IOS -> Swift | Android -> Java::
 [Philips Hue API](https://www.developers.meethue.com/)
 
 ### 프로젝트 팀원 담당 기술 목록
+
 - **경북대학교 IT대학 컴퓨터 학부 양창엽**  ::Mobile -> IOS | Network | Mobile UI/UX | HW::
 yeop9657@naver.com (@ChangYeop-Yang)
 
@@ -62,6 +61,7 @@ Num|Module Name|Module Comment
 003|3색 LED 센서|3색 LED를 발광하는 센서
 004|부저 센서|소리를 발생시키는 센서
 005|충격 센서|충격을 감지하는 센서
+006|카메라 모듈|주변을 촬영하는 모듈
 
 ### 프로젝트 구현 목표
 - [x] JavaScript Relational Database 기능 구현 (MySQL)
@@ -70,4 +70,8 @@ Num|Module Name|Module Comment
 - [ ] Arduino WIFI Remote Control 기능 구현
 - [ ] Arduino IR Remote Control 기능 구현 (TV, Air Condictioner, DVD player, Etc)
 - [ ] Arduino <-> IOS & Android Real Processing 기능 구현 (Notification)
-- [ ] BackUp Server <-> Main Server Database 자료 교환 기능 구현 (MySQL <-> SQLite3) 
+- [ ] BackUp Server <-> Main Server Database 자료 교환 기능 구현 (MySQL <-> SQLite3)
+
+### Project Links
+[Google Drive - Project Resource](https://drive.google.com/open?id=1B94huR0b4-fvKvtiAtKstcIHRmp9_om-)
+[Project Meeting Minutes](https://github.com/ChangYeop-Yang/CPL-20181-Team2/issues/7)
