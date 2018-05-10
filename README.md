@@ -61,6 +61,7 @@ Num|Module Name|Module Comment
 002|Serial WIFI 모듈|Serial을 통하여 WIFI 통신을 지원하는 모듈
 003|3색 LED 센서|3색 LED를 발광하는 센서
 004|부저 센서|소리를 발생시키는 센서
+005|충격 센서|충격을 감지하는 센서
 
 ### 프로젝트 구현 목표
 - [x] JavaScript Relational Database 기능 구현 (MySQL)
@@ -69,3 +70,4 @@ Num|Module Name|Module Comment
 - [ ] Arduino WIFI Remote Control 기능 구현
 - [ ] Arduino IR Remote Control 기능 구현 (TV, Air Condictioner, DVD player, Etc)
 - [ ] Arduino <-> IOS & Android Real Processing 기능 구현 (Notification)
+- [ ] BackUp Server <-> Main Server Database 자료 교환 기능 구현 (MySQL <-> SQLite3) 
