@@ -1,9 +1,10 @@
-#include <OneWire.h>
+
 #include <ESP8266Client.h>
 #include <Timer.h>
 #include <SoftwareSerial.h>
 #include <math.h>
-#include<DHT.h>     
+#include<DHT.h>
+#include <IRremote.h>     
 DHT dht(5, DHT11);
 
 // MARK: - Define
@@ -17,19 +18,21 @@ DHT dht(5, DHT11);
 // MARK: - Digital Pin
 enum DigitalPin {
   
-  //TEMPERATURE_APIN = 5,
+ 
   BYZZER_DPIN = 7,
   Button_DPIN = 8,
+  Gradient_DPIN = 4,
   LED_RED_DPIN = 13,
   LED_GREEN_DPIN = 12,
   LED_BLUE_DPIN = 11,
+  IR_DPIN = 6
  };
 
 // MARK: - Analog Pin
 enum AnalogPin {
-  TEMPERATURE_APIN = 0,
-  GAS_APIN = 4,
-  SOUND_APIN = 3,
+  
+  GAS_APIN = 3,
+  SOUND_APIN = 4,
   CDS_APIN = 2
 };
 
@@ -55,6 +58,46 @@ Timer sensorTimer;
 
 // MARK: - ESP8266 Variable
 SoftwareSerial esp8266_Serial = SoftwareSerial(2, 3);
+
+//IR_raw
+unsigned int power[] = {4550,4400,600,1650,550,1650,600,1650,
+550,550,600,500,600,550,550,550,600,500,600,1650,600,1600,600,
+1650,550,550,600,500,600,550,600,500,600,500,650,450,650,1600,
+600,500,650,450,650,500,600,500,600,500,600,550,600,1600,600,
+500,650,1600,650,1550,650,1600,650,1550,650,1600,650,1600,600};
+
+unsigned int S_mute[68]={4650,4350,650,1550,650,1550,700,1550,700,400,700,400,
+700,400,700,450,650,450,650,1550,700,1500,700,1550,700,400,700,450,650,400,700,
+450,700,400,700,1500,700,1550,650,1550,700,1500,700,450,700,400,700,400,700,400,
+700,400,700,450,650,450,700,400,700,1500,700,1550,650,1550,700,1500,700};
+
+unsigned int S_vup[68]={4600,4350,650,1550,700,1500,700,1550,700,400,700,
+400,700,450,650,450,700,400,700,1500,700,1550,650,1550,700,400,700,400,700,
+450,650,450,700,400,700,1500,700,1550,650,1550,700,400,700,450,700,400,700,
+400,700,400,700,450,650,450,650,450,650,1550,700,1500,700,1550,700,1500,700,
+1550,650};
+
+unsigned int S_vdown[68]={4600,4350,700,1550,650,1550,700,1500,700,450,650,
+450,700,400,700,400,700,400,700,1550,700,1500,700,1550,700,400,700,400,700,
+400,700,450,650,450,650,1550,700,1500,700,450,650,1550,700,400,700,400,700,
+450,700,400,700,400,700,400,700,1550,700,400,700,1500,700,1500,700,1550,700,
+1500,700};
+ // canais
+ // channel up
+ unsigned int S_cup[68]={4600,4350,700,1500,700,1500,700,1550,700,450,650,
+ 400,700,450,650,450,700,400,700,1500,700,1550,650,1550,700,450,650,450,700,
+ 400,700,400,700,400,700,400,700,1550,700,400,700,400,700,1550,650,450,700,
+ 400,700,400,700,1550,650,450,650,1600,650,1550,650,450,700,1500,700,1500,
+ 700,1550,650};
+// channel down
+ unsigned int S_cdown[68]={4650,4300,700,1550,700,1500,700,1550,700,400,700,
+ 400,700,400,700,450,650,450,650,1550,700,1500,700,1550,700,400,700,400,700,
+ 400,700,450,700,400,700,400,700,400,700,450,650,450,650,1550,700,400,700,
+ 450,650,400,700,1550,700,1500,700,1550,700,1500,700,400,700,1550,650,1550,
+ 700,1500,700};
+ int pp = 1; //ir order
+ 
+IRsend irsend;
  
 void setup ()
 { 
@@ -74,8 +117,8 @@ void setup ()
   pinMode(LED_GREEN_DPIN, OUTPUT);
   pinMode(LED_BLUE_DPIN, OUTPUT);
 
- 
-
+   pinMode(Gradient_DPIN,INPUT);
+   pinMode (IR_DPIN , OUTPUT); 
   /* setting Collect Sensor Date Timmer */
   sensorTimer.every(60000, collectSensorDate);
 }
@@ -83,14 +126,35 @@ void setup ()
 void loop ()
 {
  
-  //if(digitalRead(Button_DPIN) == HIGH){
-  //Serial.println("on");
-  //}
-  
   // MARK: - Sensing gas Method
   senseGas();
+  
+  senseGra();
 
+  tvIR(pp);  
+  
   sensorTimer.update();
+}
+
+void tvIR(int c){
+  if(c==1){
+    irsend.sendRaw(power,68,38);
+  }
+  else if(c==2){
+    irsend.sendRaw(S_cup,68,38);
+  }
+  else if(c==3){
+    irsend.sendRaw(S_cdown,68,38);
+  }
+  else if(c==4){
+    irsend.sendRaw(S_vup,68,38);
+  }else if(c==5){
+    irsend.sendRaw(S_vup,68,38);
+  }else if(c==6){
+    irsend.sendRaw(S_vdown,68,38);
+  }else if(c==7){
+    irsend.sendRaw(S_vdown,68,38);
+  }
 }
 
 // MARK: - Function
@@ -154,11 +218,33 @@ int senseAreaSound() {
 
   return db;
 }
+void senseGra(){
+      int sensorstate = digitalRead(Gradient_DPIN);
+           if(sensorstate){
+                while (sensorstate) {
+                          for (int i = 0; i < 80; i++) {
+                                digitalWrite (BYZZER_DPIN, HIGH); delay (2);  // Delay 1ms
+                                digitalWrite (BYZZER_DPIN, LOW);  delay (1);  // Delay 1ms
+                                digitalWrite (LED_RED_DPIN, HIGH); delay (1); // Delay 1ms
+                          }
+                          for (int i = 0; i < 100; i++) {
+                                digitalWrite (BYZZER_DPIN, HIGH); delay (1); // Delay 2ms
+                                digitalWrite (BYZZER_DPIN, LOW);  delay (2); // Delay 2ms
+                                digitalWrite (LED_RED_DPIN, LOW); delay (2); // Delay 2ms
+                                }
+      //Serial.println("warnning warnnig!!");
+      sensorstate = digitalRead(Gradient_DPIN);
+    }
+ }
+ else{
+    //Serial.println("current : 0"); 
+    }
+}
 
 void senseGas() {
 
   int rawADC = analogRead(GAS_APIN);
-     
+     //Serial.println(rawADC);
     if (CHECK_GAS_M(rawADC)) {
         
       currentState.gas_Flag = true;
@@ -200,6 +286,7 @@ int readingTemperatuer() {
   Serial.print("- Current Tempuerature = "); Serial.print(celsius); Serial.println("℃");
   return celsius;
 }
+
 //
 //int readingHumidity() {
 //  
@@ -245,19 +332,9 @@ if (state) {
      setESP8266("AT+CIFSR\r\n",1000,DEBUG); // get ip address
      setESP8266("AT+CIFSR\r\n",1000,DEBUG); // get ip address
      setESP8266("AT+CIFSR\r\n",1000,DEBUG); // get ip address
-     //sendSensorData();
+     
    }
-//    // Setting ESP8266 Configuration
-//    esp8266_Serial.println("AT+RST\r");
-//    if ( esp8266_Serial.find("OK") ) {
-//      Serial.println("- ESP8266 module is operating success.");
-//      
-//      esp8266_Serial.println("AT+CIOBAUD?\r\n");
-//      esp8266_Serial.println("AT+CWMODE=3\r\n");
-//      esp8266_Serial.println("AT+CWJAP=\"COLDY\",\"1q2w3e4r!\"\r\n");
-//      esp8266_Serial.println("AT+CIPMUX=0\r\n");
-//      esp8266_Serial.println("AT+CIPSERVER=1,80\r\n");
-//    }
+
 }
 
 bool sendSensorData(int temp, int hum, int noise) {
@@ -275,7 +352,7 @@ bool sendSensorData(int temp, int hum, int noise) {
     query.concat("&NOISE=");                query.concat(noise);
     query.concat("&GAS=");                  query.concat(analogRead(GAS_APIN));      query.concat("\r\n");
     
-    //http://175.201.153.33/getKitchenData?temp=3&cmd=4&
+    
     delay(5000);
     const String sendCommand = "AT+CIPSEND=";
     esp8266_Serial.print(sendCommand);

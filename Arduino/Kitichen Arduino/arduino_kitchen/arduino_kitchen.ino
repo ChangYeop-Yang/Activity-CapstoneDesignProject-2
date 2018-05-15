@@ -1,4 +1,6 @@
-#include <ESP8266Client.h>
+
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
 #include <Timer.h>
 #include <SoftwareSerial.h>
 #include <math.h>
@@ -156,7 +158,7 @@ int senseAreaSound() {
   return db;
 }
 
-void senseGas() {
+int senseGas() {
 
   int rawADC = analogRead(GAS_APIN);
     
@@ -245,38 +247,32 @@ void settingESP8266(bool state) {
       esp8266_Serial.println("AT+CIPSERVER=1,80\r\n");
     }
 }
-
 bool sendSensorData(int temp, int cmd, int noise) {
 
   const String backup_ServerURL = "yeop9657.duckdns.org";
   delay(5000);
-  
-  esp8266_Serial.println("AT+CIPSTART=\"TCP\",\"" + backup_ServerURL + "\",80\r");
-  if ( esp8266_Serial.find("OK") ) {
-    Serial.println("- HTTP TCP Connection Ready.");
 
-    String query;
-    query.concat("GET /insert.php?TEMP=");  query.concat(temp);
-    query.concat("&CMD=");                  query.concat(cmd);  
-    query.concat("&NOISE=");                query.concat(noise);
-    query.concat("&FLARE=");                query.concat(currentState.flare_Flag);
-    query.concat("&GAS=");                  query.concat(analogRead(GAS_APIN));      query.concat("\r\n");
+  String query;
+  query.concat("GET /insert.php?TEMP=");  query.concat(temp);
+  query.concat("&CMD=");                  query.concat(cmd);  
+  query.concat("&NOISE=");                query.concat(noise);
+  query.concat("&FLARE=");                query.concat(currentState.flare_Flag);
+  query.concat("&GAS=");                  query.concat(analogRead(GAS_APIN));      
 
-    delay(5000);
-    const String sendCommand = "AT+CIPSEND=";
-    esp8266_Serial.print(sendCommand);
-    esp8266_Serial.println(query.length());
+  delay(5000);
 
-    if ( esp8266_Serial.find(">") ) {
+  //send data to Web server by esp8266 http
+  HTTPClient http;
+  http.begin(backup_ServerURL + query);
+  delay(500);
+  int httpCode = http.GET();   
 
-      delay(500);
-      Serial.println("- Please, Input GET Request Query.");
-      esp8266_Serial.println(query);
-
-      if ( esp8266_Serial.find("SEND OK") ) {
-        Serial.println("- Success send server packet.");
-      }
-    }
+  if (httpCode > 0) {
+    String payload = http.getString();
+    Serial.println(payload);
   }
-  esp8266_Serial.println("AT+CIPCLOSE\r");
+
+  http.end();
+
+  
 }
