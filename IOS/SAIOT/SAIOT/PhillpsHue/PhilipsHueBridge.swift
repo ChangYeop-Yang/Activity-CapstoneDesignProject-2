@@ -23,6 +23,14 @@ final class PhilipsHueBridge: NSObject {
     private override init() {}
     
     // MARK: - Method
+    internal func getHueBridgeConfig() -> String {
+        
+        if connectHueBridge(), let bridgeConfig: BridgeConfiguration = swiftyHue.resourceCache?.bridgeConfiguration {
+            return "- IP: \(bridgeConfig.ipaddress!)\n- MAC: \(bridgeConfig.mac)"
+        }
+        
+        return "휴가 연결되어 있지 않아요."
+    }
     internal func connectHueBridge() -> Bool {
         
         if let bridgeAccessConfig: BridgeAccessConfig = readHueBridgeAccessConfig() {

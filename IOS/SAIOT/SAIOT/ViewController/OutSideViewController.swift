@@ -8,11 +8,11 @@
 
 import UIKit
 import AudioToolbox
-import SocketIO
 
 class OutSideViewController: UIViewController {
     
     // MARK: - Variable
+    private var isSelected: Bool = false
     private let shapeLayer: CAShapeLayer = CAShapeLayer()
     
     // MARK: - Outlet Variable
@@ -44,7 +44,23 @@ class OutSideViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // MARK: - Method
+    
+    
     // MARK: - IBAction Method
+    @IBAction func controlConnect(_ sender: UIButton) {
+        
+        if isSelected {
+            self.isSelected = SocketManager.socketManager.disconnect()
+            sender.setTitle("Connect to server", for: .normal)
+            sender.setImage(#imageLiteral(resourceName: "icons8-connected-50"), for: .normal)
+        } else {
+            self.isSelected = SocketManager.socketManager.connect(address: "yeop9657.duckdns.org", port: 2346)
+            SocketManager.socketManager.sendData(datas: "QWEASDZXC")
+            sender.setTitle("Disconnect to server", for: .normal)
+            sender.setImage(#imageLiteral(resourceName: "icons8-disconnected-50"), for: .normal)
+        }
+    }
     @IBAction func showState(_ sender: UIButton) {
         
         AudioServicesPlayAlertSound(4095)

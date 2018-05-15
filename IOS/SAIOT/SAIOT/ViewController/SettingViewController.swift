@@ -21,18 +21,30 @@ fileprivate enum TabelRowAt: Int {
     case AppHelp = 700
 }
 
+fileprivate enum SwitchAt: Int {
+    case AppAlarm = 10
+    case HuePower = 20
+}
+
 class SettingViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    
+    // MARK: - Outlet Variables
+    private var settingTable: UITableView?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let settingTableVC = segue.destination as? UITableViewController {
             settingTableVC.tableView.delegate = self
+            settingTable = settingTableVC.tableView
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        
+        // Change Hue Cell
+        if let hueCell: UITableViewCell = settingTable?.cellForRow(at: IndexPath(row: 2, section: 2)) {
+            hueCell.detailTextLabel?.text = PhilipsHueBridge.hueInstance.getHueBridgeConfig()
         }
     }
     
