@@ -8,6 +8,13 @@
 
 import Foundation
 
+// MARK: - Enum
+private enum LocalMessageCategory: String {
+    case Emergency = "Emergency"
+    case Arduino = "Arduino"
+    case Hue = "Hue"
+}
+
 class SocketManager: NSObject {
     
     // MARK: - Variables
@@ -57,16 +64,16 @@ class SocketManager: NSObject {
     
     internal func receiveData() -> String {
         
-        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 4096)
         var bucketData: Data = Data()
         
         while inputStream.hasBytesAvailable {
-            let numberOfBytesRead = inputStream.read(buffer, maxLength: 1024)
+            let numberOfBytesRead = inputStream.read(buffer, maxLength: 4096)
             
             if numberOfBytesRead < 0, let error = inputStream.streamError {
                 print(error.localizedDescription)
-                break
             }
+            
             bucketData.append(buffer, count: numberOfBytesRead)
         }
         
@@ -81,6 +88,13 @@ extension SocketManager: StreamDelegate {
         switch eventCode {
             case Stream.Event.hasBytesAvailable:
                 print("- HasBytesAvailable: new message received.")
+                
+                let message: String = receiveData()
+                print("- Success Received data from TCP socket server. \(message)")
+            
+                let notification: LocalNotification = LocalNotification(title: "Emergency Alarm", subTitle: "Arduino - ", body: message)
+                notification.occurNotification(id: "Arduino-Emergency")
+            
             case Stream.Event.endEncountered:
                 print("- EndEncountered: new message received.")
             case Stream.Event.errorOccurred:

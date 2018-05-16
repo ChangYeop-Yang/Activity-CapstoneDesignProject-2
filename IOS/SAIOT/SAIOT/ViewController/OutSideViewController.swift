@@ -46,18 +46,16 @@ class OutSideViewController: UIViewController {
     
     // MARK: - Method
     
-    
     // MARK: - IBAction Method
     @IBAction func controlConnect(_ sender: UIButton) {
         
         if isSelected {
             self.isSelected = SocketManager.socketManager.disconnect()
-            sender.setTitle("Connect to server", for: .normal)
+            sender.setTitle("서버 연결", for: .normal)
             sender.setImage(#imageLiteral(resourceName: "icons8-connected-50"), for: .normal)
         } else {
             self.isSelected = SocketManager.socketManager.connect(address: "yeop9657.duckdns.org", port: 2346)
-            SocketManager.socketManager.sendData(datas: "QWEASDZXC")
-            sender.setTitle("Disconnect to server", for: .normal)
+            sender.setTitle("서버 끊기", for: .normal)
             sender.setImage(#imageLiteral(resourceName: "icons8-disconnected-50"), for: .normal)
         }
     }
@@ -77,12 +75,6 @@ class OutSideViewController: UIViewController {
             mySelf?.shapeLayer.add(basicAnimation, forKey: "Basic")
             
             sender.backgroundColor = sender.backgroundColor == UIColor.springgreen ? UIColor.blanchedalmond : UIColor.springgreen
-        }, completion: { animated in
-            
-            if animated {
-            }
-        })
-        
-        
+        }, completion: nil)
     }
 }

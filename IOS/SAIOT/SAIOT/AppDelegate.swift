@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         DispatchQueue.global(qos: .default).async(execute: {
             ParserJSON.parsorInstance.parsorSensorDataJSON(url: "http://yeop9657.duckdns.org/select.php")
+        })
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted, error) in
+            
+            if let err = error { print("- User Notification Error: \(err.localizedDescription)") }
+            else if (granted) { print("- Accept User Notification.") }
         })
         
         return true

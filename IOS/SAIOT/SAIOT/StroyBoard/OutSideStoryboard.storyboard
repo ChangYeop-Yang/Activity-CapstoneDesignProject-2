@@ -21,16 +21,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxW-Y3-83j">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXm-O4-doX">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oGV-Sr-NT6">
                                         <rect key="frame" x="10" y="518" width="355" height="50"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
-                                        <state key="normal" title="Connect Server" image="icons8-connected-50">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="controlConnect:" destination="NDf-G5-NAo" eventType="touchUpInside" id="cUw-NZ-d0P"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" tag="500" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXm-O4-doX">
+                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="50"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="11" maxY="0.0"/>
+                                                <state key="normal" title="서버 연결" image="icons8-connected-50">
+                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="controlConnect:" destination="NDf-G5-NAo" eventType="touchUpInside" id="cUw-NZ-d0P"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="600" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5E-uP-u4B">
+                                                <rect key="frame" x="177.5" y="0.0" width="177.5" height="50"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="카메라 연결" image="icons8-connected-50">
+                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REMOTE STATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kv4-1D-1Gp">
                                         <rect key="frame" x="10" y="80" width="355" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -79,14 +93,14 @@
                                 <constraints>
                                     <constraint firstItem="Dce-bS-fKd" firstAttribute="centerY" secondItem="mxW-Y3-83j" secondAttribute="centerY" id="8Ft-pZ-hgb"/>
                                     <constraint firstAttribute="trailing" secondItem="06y-zR-6Ma" secondAttribute="trailing" id="9Uh-cR-WWJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="oGV-Sr-NT6" secondAttribute="trailing" constant="10" id="Daf-EC-eFp"/>
                                     <constraint firstItem="06y-zR-6Ma" firstAttribute="leading" secondItem="mxW-Y3-83j" secondAttribute="leading" id="KVI-RT-PsT"/>
                                     <constraint firstItem="Kv4-1D-1Gp" firstAttribute="top" secondItem="06y-zR-6Ma" secondAttribute="bottom" constant="10" id="PKh-KJ-T1V"/>
-                                    <constraint firstAttribute="trailing" secondItem="kXm-O4-doX" secondAttribute="trailing" constant="10" id="TUw-2K-f2h"/>
+                                    <constraint firstItem="oGV-Sr-NT6" firstAttribute="leading" secondItem="mxW-Y3-83j" secondAttribute="leading" constant="10" id="Qtf-4y-oxm"/>
                                     <constraint firstItem="Kv4-1D-1Gp" firstAttribute="leading" secondItem="mxW-Y3-83j" secondAttribute="leading" constant="10" id="Xmk-7v-DOj"/>
                                     <constraint firstItem="Dce-bS-fKd" firstAttribute="centerX" secondItem="mxW-Y3-83j" secondAttribute="centerX" id="YPg-69-KRm"/>
                                     <constraint firstAttribute="trailing" secondItem="Kv4-1D-1Gp" secondAttribute="trailing" constant="10" id="iI9-nN-Gjr"/>
-                                    <constraint firstItem="kXm-O4-doX" firstAttribute="leading" secondItem="mxW-Y3-83j" secondAttribute="leading" constant="10" id="lOg-pE-lBf"/>
-                                    <constraint firstAttribute="bottom" secondItem="kXm-O4-doX" secondAttribute="bottom" constant="30" id="rPT-RV-YU3"/>
+                                    <constraint firstAttribute="bottom" secondItem="oGV-Sr-NT6" secondAttribute="bottom" constant="30" id="k7O-7g-oKV"/>
                                     <constraint firstItem="06y-zR-6Ma" firstAttribute="top" secondItem="mxW-Y3-83j" secondAttribute="top" constant="10" id="sZf-lp-0LN"/>
                                 </constraints>
                             </view>
@@ -112,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rof-Gi-ypN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="58"/>
+            <point key="canvasLocation" x="324" y="57.121439280359823"/>
         </scene>
     </scenes>
     <resources>
