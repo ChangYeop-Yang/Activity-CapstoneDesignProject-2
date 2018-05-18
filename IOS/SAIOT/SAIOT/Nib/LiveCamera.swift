@@ -26,7 +26,7 @@ class LiveCamera: UIView {
         self.layer.borderColor = UIColor.white.cgColor
         
         // load Web View
-        loadWebView(url: "https://www.youtube.com/watch?v=_Q9zha5Ebtw")
+        loadWebView(url: "http://20.20.3.17:8080/stream")
     }
     
     // MARK: - Method
@@ -37,20 +37,22 @@ class LiveCamera: UIView {
             webView.allowsInlineMediaPlayback = true
             webView.allowsPictureInPictureMediaPlayback = true
             webView.loadRequest(URLRequest(url: link))
-            //webView.loadHTMLString(url, baseURL: nil)
         }
     }
     
     // MARK: - Action Method
     @IBAction func capturePhoto(_ sender: UIButton) {
         
-        var murMur: Murmur = Murmur(title: "Camera video screenshot")
-        murMur.backgroundColor = .moss
-        murMur.titleColor = .white
-        murMur.font = .boldSystemFont(ofSize: 10)
-        Whisper.show(whistle: murMur, action: .show(1))
+        // Wisper
+        showWhisperToast(title: "Camera video screenshot", background: .moss, textColor: .white)
         
         UIGraphicsBeginImageContext(webView.frame.size)
+        webView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
     }
     
     @IBAction func cancelGesture(_ sender: UILongPressGestureRecognizer) {

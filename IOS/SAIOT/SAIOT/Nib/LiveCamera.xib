@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qw5-DB-VoP">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="240"/>
                     <subviews>
-                        <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXl-6q-ZTR">
+                        <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXl-6q-ZTR">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="240"/>
                             <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </webView>

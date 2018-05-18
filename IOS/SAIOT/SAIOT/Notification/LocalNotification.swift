@@ -12,6 +12,7 @@ class LocalNotification: NSObject {
     
     // MARK: - Variables
     private let notiSoundName = "star.m4a"
+    private let notiRepeatSoundName = "nowhere.m4a"
     private let notificationContent: UNMutableNotificationContent = UNMutableNotificationContent()
     
     // MARK: - Init
@@ -23,6 +24,14 @@ class LocalNotification: NSObject {
         notificationContent.badge = 1
         notificationContent.setValue(true, forKey: "shouldAlwaysAlertWhileAppIsForeground")
     }
+    internal init(title: String, subTitle: String, body: String, repeat: Bool) {
+        notificationContent.title = title
+        notificationContent.subtitle = subTitle
+        notificationContent.body = body
+        notificationContent.sound = UNNotificationSound(named: notiRepeatSoundName)
+        notificationContent.badge = 1
+        super.init()
+    }
     
     // MARK: - Method
     internal func occurNotification(id: String) {
@@ -33,7 +42,15 @@ class LocalNotification: NSObject {
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
-    
+    internal func occurRepeatNotification(id: String) {
+        
+        var dateComponents: DateComponents = DateComponents()
+        dateComponents.second = 10
+        
+        let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request: UNNotificationRequest = UNNotificationRequest(identifier: id, content: notificationContent, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
 }
 
 // MARK: - LocalNotification Delegate Extension

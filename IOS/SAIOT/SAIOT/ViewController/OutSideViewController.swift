@@ -12,6 +12,7 @@ import AudioToolbox
 class OutSideViewController: UIViewController {
     
     // MARK: - Variable
+    private let socketServerInfo: (url: String, port: UInt32) = ("coldy24.iptime.org", 80)
     private var isSelected: (video: Bool, socket: Bool) = (false, false)
     private let shapeLayer: CAShapeLayer = CAShapeLayer()
     
@@ -61,7 +62,7 @@ class OutSideViewController: UIViewController {
             sender.setTitle("서버 연결", for: .normal)
             sender.setImage(#imageLiteral(resourceName: "icons8-connected-50"), for: .normal)
         } else {
-            self.isSelected.socket = SocketManager.socketManager.connect(address: "20.20.0.224", port: 8090)
+            self.isSelected.socket = SocketManager.socketManager.connect(address: socketServerInfo.url, port: socketServerInfo.port)
             sender.setTitle("서버 끊기", for: .normal)
             sender.setImage(#imageLiteral(resourceName: "icons8-disconnected-50"), for: .normal)
         }
@@ -69,9 +70,9 @@ class OutSideViewController: UIViewController {
     @IBAction func showState(_ sender: UIButton) {
         
         AudioServicesPlayAlertSound(4095)
-        
+    
         // Inner Circle Animation
-        UIView.animate(withDuration: 2, animations: { [weak mySelf = self] in
+        UIView.animate(withDuration: 2, animations: { [unowned self] in
             
             // Outside Circle Animation
             let basicAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
@@ -79,11 +80,18 @@ class OutSideViewController: UIViewController {
             basicAnimation.duration = 2
             basicAnimation.fillMode = kCAFillModeForwards
             basicAnimation.isRemovedOnCompletion = false
-            mySelf?.shapeLayer.add(basicAnimation, forKey: "Basic")
+            self.shapeLayer.add(basicAnimation, forKey: "Basic")
             
-            sender.backgroundColor = sender.backgroundColor == UIColor.springgreen ? UIColor.blanchedalmond : UIColor.springgreen
-            }, completion: { animated in
-                showWhisperToast(title: "QWE", background: .moss, textColor: .white)
+            sender.backgroundColor = (sender.backgroundColor == UIColor.springgreen ? UIColor.blanchedalmond : UIColor.springgreen)
+            }, completion: { [unowned self] animated in
+                
+                if self.isSelected.socket && sender.backgroundColor == UIColor.springgreen {
+                    SocketManager.socketManager.sendData(datas: "MOBILE:LOCK")
+                    showWhisperToast(title: "Smart PostBox Lock", background: .moss, textColor: .white)
+                } else if self.isSelected.socket {
+                    SocketManager.socketManager.sendData(datas: "MOBILE:UNLOCK")
+                    showWhisperToast(title: "Smart PostBox UnLock", background: .maroon, textColor: .white)
+                }
         })
     }
 }

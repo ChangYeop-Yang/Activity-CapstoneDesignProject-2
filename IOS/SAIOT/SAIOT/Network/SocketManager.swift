@@ -69,11 +69,11 @@ class SocketManager: NSObject {
     
     internal func receiveData() -> String {
         
-        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 4096)
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
         var bucketData: Data = Data()
         
         while inputStream.hasBytesAvailable {
-            let numberOfBytesRead = inputStream.read(buffer, maxLength: 4096)
+            let numberOfBytesRead = inputStream.read(buffer, maxLength: 1024)
             
             if numberOfBytesRead < 0, let error = inputStream.streamError {
                 print(error.localizedDescription)
@@ -94,10 +94,10 @@ extension SocketManager: StreamDelegate {
             case Stream.Event.hasBytesAvailable:
                 print("- HasBytesAvailable: new message received.")
                 
-                let message: String = receiveData()
+                let message: [Substring] = receiveData().split(separator: ":")
                 print("- Success Received data from TCP socket server. \(message)")
             
-                let notification: LocalNotification = LocalNotification(title: "Emergency Alarm", subTitle: "Arduino - ", body: message)
+                let notification: LocalNotification = LocalNotification(title: String(message[0]), subTitle: String(message[2]), body: "\(String(message[2]))에 대한 이벤트가 발생하였습니다. \(String(message[3]))")
                 notification.occurNotification(id: "Arduino-Emergency")
             
             case Stream.Event.endEncountered:

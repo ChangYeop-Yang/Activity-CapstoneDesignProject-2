@@ -27,6 +27,8 @@
 	</dict>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Bluetooth</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Permission</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Mefestico.otf</string>
