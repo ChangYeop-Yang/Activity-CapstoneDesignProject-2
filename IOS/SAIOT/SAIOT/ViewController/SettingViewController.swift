@@ -47,13 +47,7 @@ class SettingViewController: UIViewController {
             hueCell.detailTextLabel?.text = PhilipsHueBridge.hueInstance.getHueBridgeConfig()
         }
     }
-    
-    // MARK: Method
-    fileprivate func showInformationAlert(title: String, comment: String) {
-        let alert: UIAlertController = UIAlertController(title: title, message: comment, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
+
 }
 
 // MARK: - TableView Delegate Extension
@@ -87,10 +81,10 @@ extension SettingViewController: UITableViewDelegate {
                     }
                 case .HueReset:
                     let userDefaults = UserDefaults.standard
-                    let keyValue = userDefaults.string(forKey: "HUE_BRIDGE_KEY")
                     userDefaults.removeObject(forKey: "HUE_BRIDGE_KEY")
-                
-                    showInformationAlert(title: "Delete HUE Bridge", comment: "정상적으로 휴 브릿지 내용을 삭제하였습니다.")
+                    
+                    // Whisper
+                    showWhisperToast(title: "Success delete hue bridge configuration.", background: .moss, textColor: .white)
                 case .AppAlarm:
                     break
                 case .AppHelp:

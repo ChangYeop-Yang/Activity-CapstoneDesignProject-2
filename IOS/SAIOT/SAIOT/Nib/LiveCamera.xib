@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LiveCamera" customModule="SAIOT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qw5-DB-VoP">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="240"/>
+                    <subviews>
+                        <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXl-6q-ZTR">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="240"/>
+                            <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </webView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="aXl-6q-ZTR" secondAttribute="trailing" id="6Lu-nU-eYB"/>
+                        <constraint firstAttribute="bottom" secondItem="aXl-6q-ZTR" secondAttribute="bottom" id="AV3-k5-Jee"/>
+                        <constraint firstItem="aXl-6q-ZTR" firstAttribute="top" secondItem="Qw5-DB-VoP" secondAttribute="top" id="PQp-zn-C5A"/>
+                        <constraint firstItem="aXl-6q-ZTR" firstAttribute="leading" secondItem="Qw5-DB-VoP" secondAttribute="leading" id="lcY-4z-Lus"/>
+                        <constraint firstAttribute="height" constant="240" id="tzt-Yr-jMv"/>
+                        <constraint firstAttribute="width" constant="300" id="xsv-Og-BQo"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fR9-DU-GUm">
+                    <rect key="frame" x="164" y="102" width="37" height="37"/>
+                    <color key="color" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pud-y0-lvp">
+                    <rect key="frame" x="300" y="0.0" width="65" height="240"/>
+                    <gestureRecognizers/>
+                    <state key="normal" image="baseline_videocam_white_48pt_1x"/>
+                    <connections>
+                        <action selector="capturePhoto:" destination="iN0-l3-epB" eventType="touchUpInside" id="hEN-hP-Cbr"/>
+                        <outletCollection property="gestureRecognizers" destination="Q2z-5S-bhw" appends="YES" id="8hC-jg-Eyw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Qw5-DB-VoP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="8GC-qL-F5v"/>
+                <constraint firstItem="Pud-y0-lvp" firstAttribute="leading" secondItem="Qw5-DB-VoP" secondAttribute="trailing" id="CAL-E6-vAF"/>
+                <constraint firstItem="fR9-DU-GUm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IUK-RM-3YJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pud-y0-lvp" secondAttribute="trailing" id="QdI-9f-IHx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Pud-y0-lvp" secondAttribute="bottom" id="SUK-cD-7Ke"/>
+                <constraint firstItem="Qw5-DB-VoP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="oNt-0L-IYD"/>
+                <constraint firstItem="fR9-DU-GUm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sMs-6h-hso"/>
+                <constraint firstItem="Pud-y0-lvp" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="uPk-yE-D1Z"/>
+                <constraint firstItem="Qw5-DB-VoP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wu2-a8-lf8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="indicator" destination="fR9-DU-GUm" id="MjV-5D-5uZ"/>
+                <outlet property="webView" destination="aXl-6q-ZTR" id="0om-n0-fKh"/>
+            </connections>
+            <point key="canvasLocation" x="-43.5" y="81"/>
+        </view>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Q2z-5S-bhw">
+            <connections>
+                <action selector="cancelGesture:" destination="iN0-l3-epB" id="Wxw-pN-OG6"/>
+            </connections>
+        </pongPressGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="baseline_videocam_white_48pt_1x" width="48" height="48"/>
+    </resources>
+</document>

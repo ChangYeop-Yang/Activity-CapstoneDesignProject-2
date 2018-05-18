@@ -39,9 +39,12 @@
                                                 <rect key="frame" x="177.5" y="0.0" width="177.5" height="50"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <state key="normal" title="카메라 연결" image="icons8-connected-50">
+                                                <state key="normal" title="카메라 연결" image="baseline_videocam_white_48pt_1x">
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="conntrolRemoteVideo:" destination="NDf-G5-NAo" eventType="touchUpInside" id="t51-1d-Drg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -130,6 +133,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="baseline_videocam_white_48pt_1x" width="48" height="48"/>
         <image name="ic_filter_hdr_white_36pt" width="36" height="36"/>
         <image name="icons8-connected-50" width="50" height="50"/>
     </resources>

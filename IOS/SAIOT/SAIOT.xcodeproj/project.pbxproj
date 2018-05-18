@@ -31,6 +31,9 @@
 		2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */; };
 		27923DE920865DEF00516EEB /* PhilipsHueBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */; };
 		27A656B320AC46EA0022B5D9 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A656B220AC46EA0022B5D9 /* LocalNotification.swift */; };
+		27A9C25420AEAAB6004A7065 /* LiveCamera.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A9C25320AEAAB6004A7065 /* LiveCamera.xib */; };
+		27A9C25620AEAF12004A7065 /* LiveCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A9C25520AEAF12004A7065 /* LiveCamera.swift */; };
+		27A9C25820AEC0E1004A7065 /* WhisperToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A9C25720AEC0E1004A7065 /* WhisperToast.swift */; };
 		27B376DB208501DC009AE9AC /* DetailHue.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B376DA208501DC009AE9AC /* DetailHue.xib */; };
 		27B376DD20850900009AE9AC /* DetailHue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B376DC20850900009AE9AC /* DetailHue.swift */; };
 		27B57A3B209B1044005FE84B /* PressHueBridge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B57A3A209B1044005FE84B /* PressHueBridge.xib */; };
@@ -68,6 +71,9 @@
 		2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutSideViewController.swift; sourceTree = "<group>"; };
 		27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilipsHueBridge.swift; sourceTree = "<group>"; };
 		27A656B220AC46EA0022B5D9 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		27A9C25320AEAAB6004A7065 /* LiveCamera.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCamera.xib; sourceTree = "<group>"; };
+		27A9C25520AEAF12004A7065 /* LiveCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCamera.swift; sourceTree = "<group>"; };
+		27A9C25720AEC0E1004A7065 /* WhisperToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperToast.swift; sourceTree = "<group>"; };
 		27B376DA208501DC009AE9AC /* DetailHue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHue.xib; sourceTree = "<group>"; };
 		27B376DC20850900009AE9AC /* DetailHue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHue.swift; sourceTree = "<group>"; };
 		27B57A3A209B1044005FE84B /* PressHueBridge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PressHueBridge.xib; sourceTree = "<group>"; };
@@ -113,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				27A656B120AC467D0022B5D9 /* Notification */,
-				279C2BC320AAF62700D60A62 /* Socket */,
 				2741DDB82073C8FE0064F312 /* Public */,
 				275F3A15209733DB0002FF77 /* PhillpsHue */,
 				275F3A14209733C90002FF77 /* Network */,
@@ -167,6 +172,7 @@
 			children = (
 				2741DDB62073C8FA0064F312 /* ColorCode.swift */,
 				275F3A122096F5490002FF77 /* GraphSet.swift */,
+				27A9C25720AEC0E1004A7065 /* WhisperToast.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 		275F3A14209733C90002FF77 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				277FACA920AB023D00730A24 /* SocketManager.swift */,
 				275F3A162097341C0002FF77 /* ParserJSON.swift */,
 				274AC2052098342F0049B133 /* ParserStruct.swift */,
 			);
@@ -186,14 +193,6 @@
 				27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */,
 			);
 			path = PhillpsHue;
-			sourceTree = "<group>";
-		};
-		279C2BC320AAF62700D60A62 /* Socket */ = {
-			isa = PBXGroup;
-			children = (
-				277FACA920AB023D00730A24 /* SocketManager.swift */,
-			);
-			path = Socket;
 			sourceTree = "<group>";
 		};
 		27A656B120AC467D0022B5D9 /* Notification */ = {
@@ -213,6 +212,8 @@
 				273A0DE42099D2D90093D481 /* DetailGraph.swift */,
 				27B57A3A209B1044005FE84B /* PressHueBridge.xib */,
 				27B57A3C209B1054005FE84B /* PressHueBridge.swift */,
+				27A9C25320AEAAB6004A7065 /* LiveCamera.xib */,
+				27A9C25520AEAF12004A7065 /* LiveCamera.swift */,
 				277E096D209E0DBD00F190FC /* NibINFO.swift */,
 			);
 			path = Nib;
@@ -314,6 +315,7 @@
 				277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */,
 				27CB5EDE20A17B8C001E15A4 /* Mefestico.otf in Resources */,
 				274FAC5920AC5F8E0023A572 /* star.m4a in Resources */,
+				27A9C25420AEAAB6004A7065 /* LiveCamera.xib in Resources */,
 				27185D3920628D2600469807 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +353,7 @@
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyHue/SwiftyHue.framework",
+				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -359,6 +362,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyHue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -388,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27185D3C20628D2600469807 /* SAIOT.xcdatamodeld in Sources */,
+				27A9C25820AEC0E1004A7065 /* WhisperToast.swift in Sources */,
 				275F3A172097341C0002FF77 /* ParserJSON.swift in Sources */,
 				277FACAA20AB023D00730A24 /* SocketManager.swift in Sources */,
 				277E096E209E0DBD00F190FC /* NibINFO.swift in Sources */,
@@ -403,6 +408,7 @@
 				275F3A132096F5490002FF77 /* GraphSet.swift in Sources */,
 				274AC2062098342F0049B133 /* ParserStruct.swift in Sources */,
 				27B57A3D209B1054005FE84B /* PressHueBridge.swift in Sources */,
+				27A9C25620AEAF12004A7065 /* LiveCamera.swift in Sources */,
 				27A656B320AC46EA0022B5D9 /* LocalNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

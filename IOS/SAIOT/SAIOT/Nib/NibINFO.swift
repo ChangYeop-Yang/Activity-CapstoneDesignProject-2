@@ -10,4 +10,5 @@ public enum NibName: String {
     case DetailHue = "DetailHue"
     case DetailGraph = "DetailGraph"
     case PressHueBridge = "PressHueBridge"
+    case LiveCamera = "LiveCamera"
 }
