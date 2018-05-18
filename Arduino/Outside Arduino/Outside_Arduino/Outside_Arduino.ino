@@ -1,4 +1,3 @@
-#include "SocketIOClient.h"
 #include <MFRC522.h>
 #include <SoftwareSerial.h>
 #include <SPI.h>
@@ -24,9 +23,6 @@ enum AnalogPin {
 
 // MARK: - Button Variable
 bool isBackUpState = false;
-
-// MARK: - SocketIO Variable
-SocketIOClient client;
 
 // MARK: - ESP8266 Variable
 SoftwareSerial esp8266_Serial = SoftwareSerial(2, 3);
@@ -77,12 +73,6 @@ void loop() {
     Serial.println("- Enable send to back-up server.");
     controlLED(LED_GREEN_DPIN);
     tone(BUZZER_APIN, 3729, 1000);
-    /* setting WebSocket */
-    client.setDataArrivedDelegate(ondata);
-    if (client.connect("http://192.168.43.7", 80)) {
-      Serial.println("- Connect WebSocket server.");
-      client.send("CLIENT");
-    }
   }
 
   // Check shock Detected
@@ -91,11 +81,15 @@ void loop() {
     controlLED(LED_RED_DPIN);
     Serial.println("The Arduino shock detected.");
   }
-}
 
-// websocket message handler: do something with command from server
-void ondata(SocketIOClient client, char *data) {
-  Serial.println(data);
+  // Read data from client.
+  if(esp8266_Serial.available()) {
+     controlLED(LED_BLUE_DPIN);
+     if (esp8266_Serial.find("+IPD")) {
+        delay(1000);
+        Serial.println(esp8266_Serial.read());
+     }
+  }
 }
 
 // MARK: - Operate Sub Motor Method
@@ -183,11 +177,12 @@ void settingESP8266(bool state) {
     esp8266_Serial.println("AT+RST\r");
     if ( esp8266_Serial.find("OK") ) {
       Serial.println("- ESP8266 module is operating success.");
-      
+
+      esp8266_Serial.println("AT+RST\r\n");
       esp8266_Serial.println("AT+CIOBAUD?\r\n");
       esp8266_Serial.println("AT+CWMODE=3\r\n");
       esp8266_Serial.println("AT+CWJAP=\"YCY-Android-Note7\",\"1q2w3e4r!\"\r\n");
-      esp8266_Serial.println("AT+CIPMUX=0\r\n");
+      esp8266_Serial.println("AT+CIPMUX=1\r\n");
       esp8266_Serial.println("AT+CIPSERVER=1,80\r\n");
     }
 }
