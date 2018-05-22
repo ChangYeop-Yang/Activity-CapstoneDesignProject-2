@@ -48,14 +48,18 @@ module.exports = {
     },
 
     getKitchenDBData: function (callback) {
-        var sql = `SELECT * FROM KitchenDB ORDER BY N_ORD DESC LIMIT 30`;
+        var sql = 'SELECT AVG(Temp_NO), AVG(CDS_NO), AVG(Noise_NO), AVG(Gas_FL), Insert_DT FROM \
+        KitchenDB GROUP BY YEAR(Insert_DT), MONTH(Insert_DT), DAY(Insert_DT) LIMIT 30';
         db.all(sql, function (err, rows) {
             callback(rows);
         });
+        //SELECT AVG(Temp_NO), AVG(Cmd_NO), AVG(Noise_NO), AVG(Gas_FL), Insert_DT FROM `Kitchen` GROUP BY YEAR(Insert_DT), MONTH(Insert_DT), DAY(Insert_DT) LIMIT 30
+
+
     },
 
     createLIvingRoomDBData: function (date, temperature, light, noise, gas, ipAddress) {
-        db.run("INSERT INTO KitchenDB(Insert_DT,Temp_NO,CDS_NO,Noise_NO,Flare_FL,Gas_FL,IP_ID)\
+        db.run("INSERT INTO KitchenDB(Insert_DT,Temp_NO,CDS_NO,Noise_NO,Gas_FL,IP_ID)\
                 VALUES ('" + String(date) + "'\
                 ," + parseInt(temperature) + "\
                 ," + parseInt(light) + "\
@@ -67,7 +71,8 @@ module.exports = {
     },
 
     getLivingRoomDBData: function (callback) {
-        var sql = `SELECT * FROM LivingRoomDB ORDER BY N_ORD DESC LIMIT 30`;
+        var sql = 'SELECT AVG(Temp_NO), AVG(CDS_NO), AVG(Noise_NO), AVG(Gas_FL), Insert_DT FROM \
+            LivingRoomDB GROUP BY YEAR(Insert_DT), MONTH(Insert_DT), DAY(Insert_DT) LIMIT 30';
         db.all(sql, function (err, rows) {
             callback(rows);
         });
@@ -81,16 +86,15 @@ module.exports = {
         });
     },
 
-  //  RFID_SET
+    //  RFID_SET
 
 
     getOutDoorDBData: function (callback) {
-        var sql = `SELECT * FROM LivingRoomDB ORDER BY N_ORD DESC LIMIT 30`;
+        var sql = 'SELECT RFID_SET,Insert_DT FROM \
+            getOutDoorDB GROUP BY YEAR(Insert_DT), MONTH(Insert_DT), DAY(Insert_DT) LIMIT 30'
         db.all(sql, function (err, rows) {
             callback(rows);
         });
     }
 
 }
-
-

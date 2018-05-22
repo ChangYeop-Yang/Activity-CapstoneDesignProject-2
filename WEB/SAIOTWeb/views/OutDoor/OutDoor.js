@@ -1,4 +1,6 @@
-﻿var time;
+﻿
+
+var time;
 var rfid = 0;
 var ipAddress = 0;
 
@@ -26,7 +28,7 @@ module.exports = {
             ipAddress = client.remoteAddress;
             //client.send('SEND OK');
             console.log(time + ' Get OutDoorData from ' + ipAddress);
-            DBData.createLIvingRoomDBData(time, temperature, light, noise, gas, ipAddress);
+            DBData.createOutDoorDBData(time, rfid, ipAddress);
         }
         else{
             console.log('data format is not match : ' +client.remoteAddress);

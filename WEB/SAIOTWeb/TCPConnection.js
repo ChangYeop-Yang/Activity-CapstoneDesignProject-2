@@ -47,7 +47,13 @@ module.exports= {
 
                 ///Arduino Emergency Message
                 else if (inputData[0] == "ARDUINO" && inputData[1]) {
-                    sendData(mobileSocketList,inputData[1]);
+                    var orderData = "";
+                    for(var i = 1; i<inputData.length-1; i++){
+                        orderData += inputData[i];
+                        orderData += ":"
+                    }
+                    orderData += inputData[inputData.length-1];
+                    sendData(mobileSocketList,orderData);
                 }
             });
 
@@ -78,12 +84,20 @@ module.exports= {
 
             ///Mobile control message get, send to Arduino
             client.on('data', function (data) {
-                console.log(new Date().yyyymmdd() + ' : Received data from Arduino client : ' + data.toString());
+                console.log(new Date().yyyymmdd() + ' : Received data from Mobile client : ' + data.toString());
                 var inputData = (data.toString()).split(":");
                 console.log(inputData + "mobile Data");
                 ///Mobile Control Message
                 if (inputData[0] == "MOBILE" && inputData[1]) {
-                    sendData(arduinoSocketList,inputData[1]);
+                    var orderData = "";
+                    for(var i = 1; i<inputData.length-1; i++){
+                        console.log(orderData);
+                        orderData += inputData[i];
+                        orderData += ":"
+                    }
+                    orderData += inputData[inputData.length-1];
+                    console.log(orderData);
+                    sendData(mobileSocketList,orderData);
                 }
             });
 
@@ -136,6 +150,3 @@ function sendData(clientList,message){
     });
 
 }
-
-
-
