@@ -47,13 +47,13 @@ module.exports= {
 
                 ///Arduino Emergency Message
                 else if (inputData[0] == "ARDUINO" && inputData[1]) {
-                    var orderData = "";
+                    /*var orderData = "";
                     for(var i = 1; i<inputData.length-1; i++){
                         orderData += inputData[i];
                         orderData += ":"
                     }
-                    orderData += inputData[inputData.length-1];
-                    sendData(mobileSocketList,orderData);
+                    orderData += inputData[inputData.length-1];*/
+                    sendData(mobileSocketList,data);
                 }
             });
 
