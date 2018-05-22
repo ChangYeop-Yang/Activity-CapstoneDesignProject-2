@@ -24,6 +24,8 @@
 		274FAC5920AC5F8E0023A572 /* star.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 274FAC5820AC5F8E0023A572 /* star.m4a */; };
 		275F3A132096F5490002FF77 /* GraphSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F3A122096F5490002FF77 /* GraphSet.swift */; };
 		275F3A172097341C0002FF77 /* ParserJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F3A162097341C0002FF77 /* ParserJSON.swift */; };
+		2777D39A20B4340000A0CEEC /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777D39920B4340000A0CEEC /* DownloadManager.swift */; };
+		2777D3A220B4528900A0CEEC /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2777D3A120B4528900A0CEEC /* MobileNet.mlmodel */; };
 		277AE5EA20693ED0009553D9 /* RemoteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */; };
 		277AE5EC20693EE7009553D9 /* OutSideStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */; };
 		277AE5EE20693EFD009553D9 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */; };
@@ -32,6 +34,7 @@
 		2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */; };
 		27923DE920865DEF00516EEB /* PhilipsHueBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */; };
 		27A656B320AC46EA0022B5D9 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A656B220AC46EA0022B5D9 /* LocalNotification.swift */; };
+		27A9822020B407B20009917A /* NotificationCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A9821F20B407B20009917A /* NotificationCategory.swift */; };
 		27A9C25420AEAAB6004A7065 /* LiveCamera.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A9C25320AEAAB6004A7065 /* LiveCamera.xib */; };
 		27A9C25620AEAF12004A7065 /* LiveCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A9C25520AEAF12004A7065 /* LiveCamera.swift */; };
 		27A9C25820AEC0E1004A7065 /* WhisperToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A9C25720AEC0E1004A7065 /* WhisperToast.swift */; };
@@ -65,6 +68,8 @@
 		274FAC5820AC5F8E0023A572 /* star.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.m4a; sourceTree = "<group>"; };
 		275F3A122096F5490002FF77 /* GraphSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSet.swift; sourceTree = "<group>"; };
 		275F3A162097341C0002FF77 /* ParserJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserJSON.swift; sourceTree = "<group>"; };
+		2777D39920B4340000A0CEEC /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		2777D3A120B4528900A0CEEC /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		277AE5E920693ED0009553D9 /* RemoteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemoteStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5EB20693EE7009553D9 /* OutSideStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutSideStoryboard.storyboard; sourceTree = "<group>"; };
 		277AE5ED20693EFD009553D9 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 		2782E9DB206CA94900EFF1BE /* OutSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutSideViewController.swift; sourceTree = "<group>"; };
 		27923DE820865DEF00516EEB /* PhilipsHueBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilipsHueBridge.swift; sourceTree = "<group>"; };
 		27A656B220AC46EA0022B5D9 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		27A9821F20B407B20009917A /* NotificationCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategory.swift; sourceTree = "<group>"; };
 		27A9C25320AEAAB6004A7065 /* LiveCamera.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCamera.xib; sourceTree = "<group>"; };
 		27A9C25520AEAF12004A7065 /* LiveCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCamera.swift; sourceTree = "<group>"; };
 		27A9C25720AEC0E1004A7065 /* WhisperToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperToast.swift; sourceTree = "<group>"; };
@@ -142,6 +148,7 @@
 				27185D3A20628D2600469807 /* SAIOT.xcdatamodeld */,
 				274FAC5820AC5F8E0023A572 /* star.m4a */,
 				2743342120AF151700A80621 /* nowhere.m4a */,
+				2777D3A120B4528900A0CEEC /* MobileNet.mlmodel */,
 				27CB5EDD20A17B8C001E15A4 /* Mefestico.otf */,
 			);
 			path = "Surport Files";
@@ -186,6 +193,7 @@
 				277FACA920AB023D00730A24 /* SocketManager.swift */,
 				275F3A162097341C0002FF77 /* ParserJSON.swift */,
 				274AC2052098342F0049B133 /* ParserStruct.swift */,
+				2777D39920B4340000A0CEEC /* DownloadManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				27A656B220AC46EA0022B5D9 /* LocalNotification.swift */,
+				27A9821F20B407B20009917A /* NotificationCategory.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -403,10 +412,13 @@
 				273A0DE52099D2D90093D481 /* DetailGraph.swift in Sources */,
 				2782E9DC206CA94900EFF1BE /* OutSideViewController.swift in Sources */,
 				2741DDB72073C8FA0064F312 /* ColorCode.swift in Sources */,
+				2777D3A220B4528900A0CEEC /* MobileNet.mlmodel in Sources */,
 				2741DDBA2073CFA60064F312 /* HomeViewController.swift in Sources */,
 				27185D3420628D2600469807 /* AppDelegate.swift in Sources */,
+				27A9822020B407B20009917A /* NotificationCategory.swift in Sources */,
 				27923DE920865DEF00516EEB /* PhilipsHueBridge.swift in Sources */,
 				2741DDBC2073CFB20064F312 /* RemoteViewController.swift in Sources */,
+				2777D39A20B4340000A0CEEC /* DownloadManager.swift in Sources */,
 				2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */,
 				27B376DD20850900009AE9AC /* DetailHue.swift in Sources */,
 				275F3A132096F5490002FF77 /* GraphSet.swift in Sources */,

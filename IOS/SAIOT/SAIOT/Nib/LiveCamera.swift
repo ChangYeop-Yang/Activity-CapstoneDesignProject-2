@@ -64,7 +64,7 @@ class LiveCamera: UIView {
 extension LiveCamera: UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
-        self.indicator.stopAnimating()
+        self.indicator.startAnimating()
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {

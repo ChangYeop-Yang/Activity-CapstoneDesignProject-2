@@ -20,17 +20,17 @@ class LocalNotification: NSObject {
         notificationContent.title = title
         notificationContent.subtitle = subTitle
         notificationContent.body = body
+        notificationContent.categoryIdentifier = CategoryID.Emergency.rawValue
         notificationContent.sound = UNNotificationSound(named: notiSoundName)
-        notificationContent.badge = 1
         notificationContent.setValue(true, forKey: "shouldAlwaysAlertWhileAppIsForeground")
     }
     internal init(title: String, subTitle: String, body: String, repeat: Bool) {
         notificationContent.title = title
         notificationContent.subtitle = subTitle
         notificationContent.body = body
+        notificationContent.categoryIdentifier = CategoryID.SmartBox.rawValue
         notificationContent.sound = UNNotificationSound(named: notiRepeatSoundName)
-        notificationContent.badge = 1
-        super.init()
+        notificationContent.setValue(true, forKey: "shouldAlwaysAlertWhileAppIsForeground")
     }
     
     // MARK: - Method
@@ -39,7 +39,6 @@ class LocalNotification: NSObject {
         let trigger: UNTimeIntervalNotificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request: UNNotificationRequest = UNNotificationRequest(identifier: id, content: notificationContent, trigger: trigger)
         
-        UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     internal func occurRepeatNotification(id: String) {
@@ -49,18 +48,10 @@ class LocalNotification: NSObject {
         
         let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request: UNNotificationRequest = UNNotificationRequest(identifier: id, content: notificationContent, trigger: trigger)
+        
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
-}
-
-// MARK: - LocalNotification Delegate Extension
-extension LocalNotification: UNUserNotificationCenterDelegate {
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .badge, .sound])
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
+    internal func removeNotification(id: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
     }
 }

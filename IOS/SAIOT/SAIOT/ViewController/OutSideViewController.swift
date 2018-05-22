@@ -12,7 +12,7 @@ import AudioToolbox
 class OutSideViewController: UIViewController {
     
     // MARK: - Variable
-    private let socketServerInfo: (url: String, port: UInt32) = ("coldy24.iptime.org", 80)
+    private let socketServerInfo: (url: String, port: UInt32) = ("coldy24.iptime.org", 8090)
     private var isSelected: (video: Bool, socket: Bool) = (false, false)
     private let shapeLayer: CAShapeLayer = CAShapeLayer()
     

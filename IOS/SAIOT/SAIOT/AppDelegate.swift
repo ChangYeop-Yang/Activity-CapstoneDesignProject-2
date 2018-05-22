@@ -22,10 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ParserJSON.parsorInstance.parsorSensorDataJSON(url: "http://yeop9657.duckdns.org/select.php")
         })
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: { (granted, error) in
             
             if let err = error { print("- User Notification Error: \(err.localizedDescription)") }
             else if (granted) { print("- Accept User Notification.") }
+            
+            UNUserNotificationCenter.current().delegate = self
         })
         
         return true
@@ -84,7 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -98,6 +99,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+}
 
+// Extension UNUserNotificationCenterDelegate
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .sound])
+        
+        if let category: CategoryID = CategoryID(rawValue: notification.request.content.categoryIdentifier) {
+            
+            switch category {
+                case .Emergency:
+                    print("- Occur Emergency event message. ")
+                case .SmartBox:
+                    DownloadManager.downloadManager.downloadImage(url: "http://20.20.3.17:8080/stream/snapshot.jpeg?delay_s=0")
+                    print("- Occur SmartBox event message. ")
+            }
+        }
+    }
 }
 

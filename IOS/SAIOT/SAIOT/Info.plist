@@ -25,10 +25,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Bluetooth</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Permission</string>
+	<string>Request permission photo library because of Core ML.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Request permission camera because of Core ML.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Mefestico.otf</string>

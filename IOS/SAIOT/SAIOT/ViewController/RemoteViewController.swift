@@ -54,14 +54,18 @@ class RemoteViewController: UIViewController {
         
         if let tagHUE: ColorHUE = ColorHUE(rawValue: sender.tag) {
             switch tagHUE {
-            case .RedHUE:
-                PhilipsHueBridge.hueInstance.changeHueColor(red: 255, green: 0, blue: 0, alpha: 255)
-            case .GreenHUE:
-                PhilipsHueBridge.hueInstance.changeHueColor(red: 0, green: 255, blue: 0, alpha: 255)
-            case .BlueHUE:
-                PhilipsHueBridge.hueInstance.changeHueColor(red: 0, green: 0, blue: 255, alpha: 255)
-            case .PinkHUE:
-                PhilipsHueBridge.hueInstance.changeHueColor(red: 255, green: 0, blue: 255, alpha: 255)
+                case .RedHUE:
+                    showWhisperToast(title: "Change philips hue color red", background: .maroon, textColor: .white)
+                    PhilipsHueBridge.hueInstance.changeHueColor(red: 255, green: 0, blue: 0, alpha: 255)
+                case .GreenHUE:
+                    showWhisperToast(title: "Change philips hue color green", background: .moss, textColor: .white)
+                    PhilipsHueBridge.hueInstance.changeHueColor(red: 0, green: 255, blue: 0, alpha: 255)
+                case .BlueHUE:
+                    showWhisperToast(title: "Change philips hue color blue", background: .blue, textColor: .white)
+                    PhilipsHueBridge.hueInstance.changeHueColor(red: 0, green: 0, blue: 255, alpha: 255)
+                case .PinkHUE:
+                    showWhisperToast(title: "Change philips hue color pink", background: .magenta, textColor: .white)
+                    PhilipsHueBridge.hueInstance.changeHueColor(red: 255, green: 0, blue: 255, alpha: 255)
             }
         }
         

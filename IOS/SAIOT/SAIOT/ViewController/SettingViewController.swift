@@ -33,6 +33,9 @@ fileprivate enum DefaultsKey: String {
 
 class SettingViewController: UIViewController {
     
+    // MARK: - Variable
+    private let SmartBoxKey: String = "SMART_BOX_KEY"
+    
     // MARK: - Outlet Variables
     private var settingTable: UITableView!
     private let settingTableIndexPaths: [(index: IndexPath, cellAt: SwitchCellAt)] = [
@@ -58,18 +61,20 @@ class SettingViewController: UIViewController {
         for cell in settingTableIndexPaths {
             print(settingTable.cellForRow(at: cell.index)?.accessoryView)
             if let cellAt: UITableViewCell = settingTable.cellForRow(at: cell.index), let cellSwitch: UISwitch = cellAt.accessoryView as? UISwitch {
-                print(cellSwitch.tag)
                 
                 switch cell.cellAt {
                     case .AppAlarm:
-                        let value: Bool = userDefaults.object(forKey: DefaultsKey.AlarmKey.rawValue) as! Bool
-                        cellSwitch.isOn = value
+                        if let value = userDefaults.object(forKey: DefaultsKey.AlarmKey.rawValue) {
+                            cellSwitch.isOn = value as! Bool
+                        }
                     case .HuePower:
-                        let value: Bool = userDefaults.object(forKey: DefaultsKey.HuePowerKey.rawValue) as! Bool
-                        cellSwitch.isOn = value
+                        if let value = userDefaults.object(forKey: DefaultsKey.HuePowerKey.rawValue) {
+                            cellSwitch.isOn = value as! Bool
+                        }
                     case .MonitorAlarm:
-                        let value: Bool = userDefaults.object(forKey: DefaultsKey.MonitorKey.rawValue) as! Bool
-                        cellSwitch.isOn = value
+                        if let value = userDefaults.object(forKey: DefaultsKey.MonitorKey.rawValue) {
+                            cellSwitch.isOn = value as! Bool
+                        }
                     default: break
                 }
                 
@@ -97,6 +102,10 @@ class SettingViewController: UIViewController {
                     defaults.set(switchView.isOn, forKey: DefaultsKey.MonitorKey.rawValue)
                     showWhisperToast(title: "Occur Monitor Change Value Event", background: .moss, textColor: .white)
                     print("- Occur Monitor UISwitch Change Value Event.")
+                
+                    let repeatNotification: LocalNotification = LocalNotification(title: "Smart Post Box", subTitle: "Detection", body: "스마트 우편 상자에서 사진을 촬영하였습니다.", repeat: true)
+                    
+                    switchView.isOn ? repeatNotification.occurRepeatNotification(id: SmartBoxKey) : repeatNotification.removeNotification(id: SmartBoxKey)
                 default: break
             }
         }

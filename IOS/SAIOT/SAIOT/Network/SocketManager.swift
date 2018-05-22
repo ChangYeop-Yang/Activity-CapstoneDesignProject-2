@@ -96,9 +96,10 @@ extension SocketManager: StreamDelegate {
                 
                 let message: [Substring] = receiveData().split(separator: ":")
                 print("- Success Received data from TCP socket server. \(message)")
-            
-                let notification: LocalNotification = LocalNotification(title: String(message[0]), subTitle: String(message[2]), body: "\(String(message[2]))에 대한 이벤트가 발생하였습니다. \(String(message[3]))")
+                
+                let notification: LocalNotification = LocalNotification(title: String(message[0]), subTitle: String(message[2]), body: "\(String(message[3]))에 대한 이벤트가 발생하였습니다.)")
                 notification.occurNotification(id: "Arduino-Emergency")
+            
             
             case Stream.Event.endEncountered:
                 print("- EndEncountered: new message received.")
