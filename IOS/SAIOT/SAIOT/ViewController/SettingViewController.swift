@@ -12,24 +12,35 @@ import AudioToolbox
 
 // MARK: - Enum
 fileprivate enum TabelRowAt: Int {
-    case Email = 100
-    case Introduce = 200
-    case OpenSource = 300
-    case PrivacyPolicy = 400
-    case AppAlarm = 500
-    case HueReset = 600
-    case AppHelp = 700
+    case Email = 10
+    case Introduce = 11
+    case OpenSource = 12
+    case PrivacyPolicy = 13
+    case HueReset = 17
+    case AppHelp = 16
 }
-
-fileprivate enum SwitchAt: Int {
-    case AppAlarm = 10
-    case HuePower = 20
+fileprivate enum SwitchCellAt: Int {
+    case AppAlarm = 1000
+    case HuePower = 3000
+    case MonitorAlarm = 2000
+    case NetworkInfoHue = 4000
+}
+fileprivate enum DefaultsKey: String {
+    case AlarmKey = "ALARM_KEY"
+    case HuePowerKey = "HUE_TOTAL_POWER_KEY"
+    case MonitorKey = "MONITOR_KEY"
 }
 
 class SettingViewController: UIViewController {
     
     // MARK: - Outlet Variables
-    private var settingTable: UITableView?
+    private var settingTable: UITableView!
+    private let settingTableIndexPaths: [(index: IndexPath, cellAt: SwitchCellAt)] = [
+        (IndexPath(row: 0, section: 1), .AppAlarm),
+        (IndexPath(row: 1, section: 1), .MonitorAlarm),
+        (IndexPath(row: 1, section: 2), .HuePower),
+        (IndexPath(row: 2, section: 2), .NetworkInfoHue)
+    ]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -42,12 +53,54 @@ class SettingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidLoad()
         
-        // Change Hue Cell
-        if let hueCell: UITableViewCell = settingTable?.cellForRow(at: IndexPath(row: 2, section: 2)) {
-            hueCell.detailTextLabel?.text = PhilipsHueBridge.hueInstance.getHueBridgeConfig()
+        // Setting Detail Cell
+        let userDefaults: UserDefaults = UserDefaults.standard
+        for cell in settingTableIndexPaths {
+            print(settingTable.cellForRow(at: cell.index)?.accessoryView)
+            if let cellAt: UITableViewCell = settingTable.cellForRow(at: cell.index), let cellSwitch: UISwitch = cellAt.accessoryView as? UISwitch {
+                print(cellSwitch.tag)
+                
+                switch cell.cellAt {
+                    case .AppAlarm:
+                        let value: Bool = userDefaults.object(forKey: DefaultsKey.AlarmKey.rawValue) as! Bool
+                        cellSwitch.isOn = value
+                    case .HuePower:
+                        let value: Bool = userDefaults.object(forKey: DefaultsKey.HuePowerKey.rawValue) as! Bool
+                        cellSwitch.isOn = value
+                    case .MonitorAlarm:
+                        let value: Bool = userDefaults.object(forKey: DefaultsKey.MonitorKey.rawValue) as! Bool
+                        cellSwitch.isOn = value
+                    default: break
+                }
+                
+                cellSwitch.addTarget(self, action: #selector(changeUISwitch), for: UIControlEvents.valueChanged)
+            }
         }
     }
-
+    
+    // MARK: - Method
+    @objc private func changeUISwitch(switchView: UISwitch) {
+        
+        let defaults = UserDefaults.standard
+        
+        if let type: SwitchCellAt = SwitchCellAt(rawValue: switchView.tag) {
+            switch type {
+                case .AppAlarm:
+                    defaults.set(switchView.isOn, forKey: DefaultsKey.AlarmKey.rawValue)
+                    showWhisperToast(title: "Occur AppAlarm Change Value Event", background: .moss, textColor: .white)
+                    print("- Occur AppAlarm UISwitch Change Value Event.")
+                case .HuePower:
+                    defaults.set(switchView.isOn, forKey: DefaultsKey.HuePowerKey.rawValue)
+                    showWhisperToast(title: "Occur HuePower Change Value Event", background: .moss, textColor: .white)
+                    print("- Occur HuePower UISwitch Change Value Event.")
+                case .MonitorAlarm:
+                    defaults.set(switchView.isOn, forKey: DefaultsKey.MonitorKey.rawValue)
+                    showWhisperToast(title: "Occur Monitor Change Value Event", background: .moss, textColor: .white)
+                    print("- Occur Monitor UISwitch Change Value Event.")
+                default: break
+            }
+        }
+    }
 }
 
 // MARK: - TableView Delegate Extension
@@ -56,7 +109,7 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let tag: Int = tableView.cellForRow(at: indexPath)?.tag, let cell: TabelRowAt = TabelRowAt(rawValue: tag) {
-            
+            print(indexPath)
             switch cell {
                 case .Introduce:
                     if let url: URL = URL(string: "http://yeop9657.blog.me") {
@@ -85,10 +138,7 @@ extension SettingViewController: UITableViewDelegate {
                     
                     // Whisper
                     showWhisperToast(title: "Success delete hue bridge configuration.", background: .moss, textColor: .white)
-                case .AppAlarm:
-                    break
-                case .AppHelp:
-                    break
+                default: break
             }
         }
     }
@@ -112,3 +162,4 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
 }
+

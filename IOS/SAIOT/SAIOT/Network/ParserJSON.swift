@@ -60,9 +60,9 @@ final class ParserJSON: NSObject {
                         let formatter: DateFormatter = DateFormatter()
                         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                         if let insertDT: Date = formatter.date(from: item[jsonName.date.rawValue] as! String) {
-                            let hour = Calendar.current.component(.hour, from: insertDT)
-                            let minute = Calendar.current.component(.minute, from: insertDT)
-                            self?.dateList.append("\(hour):\(minute)")
+                            let hour = Calendar.current.component(.month, from: insertDT)
+                            let minute = Calendar.current.component(.day, from: insertDT)
+                            self?.dateList.append("\(hour)/\(minute)")
                         }
                     }
                     self?.group.leave()

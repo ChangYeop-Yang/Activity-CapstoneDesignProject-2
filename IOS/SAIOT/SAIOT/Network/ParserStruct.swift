@@ -10,10 +10,10 @@ import Foundation
 
 internal enum jsonName: String {
     case date = "Insert_DT"
-    case temputure = "Temp_NO"
-    case cds = "Cmd_NO"
-    case noise = "Noise_NO"
+    case temputure = "AVG(Temp_NO)"
+    case cds = "AVG(Cmd_NO)"
+    case noise = "AVG(Noise_NO)"
     case flare = "Flare_FL"
-    case gas = "Gas_FL"
+    case gas = "AVG(Gas_FL)"
     case clientIP = "IP_ID"
 }
