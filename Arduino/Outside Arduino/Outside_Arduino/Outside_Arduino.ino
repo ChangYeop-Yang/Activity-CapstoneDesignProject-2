@@ -190,15 +190,15 @@ void settingESP8266(bool state) {
 // Send ESP8266 Method
 bool sendSensorData(String rfidID) {
 
-  const String backup_ServerURL = "yeop9657.duckdns.org";
+  const String basic_ServerURL = "coldy24.iptime.org";
   delay(5000);
   
-  esp8266_Serial.println("AT+CIPSTART=\"TCP\",\"" + backup_ServerURL + "\",80\r");
+  esp8266_Serial.println("AT+CIPSTART=\"TCP\",\"" + basic_ServerURL + "\",8080\r");
   if ( esp8266_Serial.find("OK") ) {
     Serial.println("- HTTP TCP Connection Ready.");
 
     String query;
-    query.concat("GET /outsideInsert.php?RFID=");  query.concat(rfidID);  query.concat("\r\n");
+    query.concat("GET /setOutDoorData?RFID=");  query.concat(rfidID);  query.concat("\r\n");
 
     delay(5000);
     const String sendCommand = "AT+CIPSEND=";
@@ -217,4 +217,53 @@ bool sendSensorData(String rfidID) {
     }
   }
   esp8266_Serial.println("AT+CIPCLOSE\r\n");
+}
+
+
+bool getDataFromWebServer() {
+  String data = "";
+  //Serial.println("data sense comming");
+  if(esp8266_Serial.find("OK")){
+    data = esp8266_Serial.readString();
+    if(data!=NULL){
+      ////////data processing////
+      Serial.println("data comming");
+      Serial.println(data);
+    }
+  } 
+  else{
+    const String serverURL = "coldy24.iptime.org";
+    esp8266_Serial.println("AT+CIPSTART=\"TCP\",\"" + serverURL + "\",8080\r\n");
+  }
+}
+
+
+
+
+bool sendEmergentcyWarning(int code){
+  Serial.println("emergency part in");
+  if(!esp8266_Serial.find("OK")){
+    const String serverURL = "coldy24.iptime.org";
+    esp8266_Serial.println("AT+CIPSTART=\"TCP\",\"" + serverURL + "\",8080\r\n");
+   }
+  String emergency;
+  if(code == 1){
+    emergency = "ARDUINO:OUTSIDE:EMERGENCY:EARTHQUAKE";
+  }
+   delay(500);
+   const String sendCommand = "AT+CIPSEND=";
+   esp8266_Serial.print(sendCommand);
+   esp8266_Serial.println (emergency.length());
+  
+  if ( esp8266_Serial.find(">") ) {
+    delay(2000);
+    Serial.println("- emergency." + emergency);
+    esp8266_Serial.println(emergency);
+    
+
+    if ( esp8266_Serial.find("SEND OK") ) {
+      Serial.println("- emergency Message send.");
+    }
+  }
+
 }

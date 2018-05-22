@@ -97,7 +97,7 @@ module.exports= {
                     }
                     orderData += inputData[inputData.length-1];
                     console.log(orderData);
-                    sendData(mobileSocketList,orderData);
+                    sendData(arduinoSocketList,orderData);
                 }
             });
 

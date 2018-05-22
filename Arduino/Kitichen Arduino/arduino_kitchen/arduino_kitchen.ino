@@ -1,6 +1,3 @@
-
-#include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
 #include <Timer.h>
 #include <SoftwareSerial.h>
 #include <math.h>
@@ -86,11 +83,11 @@ void loop ()
   // MARK: - Sensing gas Method
   senseGas();
 
-  // MARK: - Read Backup Button
+  /*/ MARK: - Read Backup Button
   if (digitalRead(BUTTON_DPIN) == LOW) {
     currentState.backup_Flag = true;
     Serial.println("- Enable send to back-up server.");
-  }
+  }*/
 
   // MARK: - Update Sensor Timer.
   sensorTimer.update();
@@ -121,6 +118,8 @@ void senseFlare() {
 
   if (currentState.flare_Flag) {
     Serial.println("Sensing Dangerous Fire Flare...");
+    delay(10000); 
+    sendEmergentcyWarning(1);
 
     while ( (currentState.flare_Flag = digitalRead(FLARE_DPIN)) ) {
       // Speak Byzzer
@@ -147,10 +146,12 @@ int senseAreaSound() {
     digitalWrite (LED_RED_DPIN, HIGH);  digitalWrite (LED_GREEN_DPIN, HIGH); delay(2);
     digitalWrite (LED_RED_DPIN, LOW);   digitalWrite (LED_GREEN_DPIN, LOW);
     Serial.println("[Night] Current room dB vary high!!!");
+   
   } else if (db > SOUND_LIMIT_MORNING) {
     digitalWrite (LED_BLUE_DPIN, HIGH);  digitalWrite (LED_GREEN_DPIN, HIGH); delay(2);
     digitalWrite (LED_BLUE_DPIN, LOW);   digitalWrite (LED_GREEN_DPIN, LOW);
     Serial.println("[Mornig] Current room dB vary high!!!");
+    
   }
 
   Serial.print("Current dB Value: "); Serial.println(db);
@@ -183,6 +184,8 @@ int senseGas() {
         }
         
          Serial.println("Current Danger GAS PPM!!!");
+         delay(10000);
+         sendEmergentcyWarning(3);
          Serial.print( analogRead(GAS_APIN) ); Serial.println("PPM");
       }
     } 
@@ -248,31 +251,72 @@ void settingESP8266(bool state) {
     }
 }
 bool sendSensorData(int temp, int cmd, int noise) {
+  Serial.println("send secction in");
+  const String basic_serverURL = "coldy24.iptime.org";
+  
+  delay(10000);
 
-  const String backup_ServerURL = "yeop9657.duckdns.org";
-  delay(5000);
 
-  String query;
-  query.concat("GET /insert.php?TEMP=");  query.concat(temp);
-  query.concat("&CMD=");                  query.concat(cmd);  
-  query.concat("&NOISE=");                query.concat(noise);
-  query.concat("&FLARE=");                query.concat(currentState.flare_Flag);
-  query.concat("&GAS=");                  query.concat(analogRead(GAS_APIN));      
 
-  delay(5000);
+if ( esp8266_Serial.find("OK") ) {
+    Serial.println("- Main Server TCP Connection Ready.");
 
-  //send data to Web server by esp8266 http
-  HTTPClient http;
-  http.begin(backup_ServerURL + query);
-  delay(500);
-  int httpCode = http.GET();   
 
-  if (httpCode > 0) {
-    String payload = http.getString();
-    Serial.println(payload);
-  }
+    String query;
+    query.concat("GET /setKitchenData?TEMP=");  query.concat(temp);
+    query.concat("&CMD=");                  query.concat(cmd);  
+    query.concat("&NOISE=");                query.concat(noise);
+    query.concat("&FLARE=");                query.concat(currentState.flare_Flag);
+    query.concat("&GAS=");                  query.concat(analogRead(GAS_APIN));     query.concat("\r\n");
 
-  http.end();
-
+    if ( esp8266_Serial.find(">") ) {
+        delay(5000);
+        Serial.println("- Please, Input GET Request Query.");
+        esp8266_Serial.println(query);
+      
+        if ( esp8266_Serial.find("SEND OK") ) {
+            Serial.println("- Success send server packet.");
+          }
+      esp8266_Serial.println("AT+CIPCLOSE\r");
+      }
+}
   
 }
+
+
+bool sendEmergentcyWarning(int code){
+  Serial.println("emergency part in");
+  if(!esp8266_Serial.find("OK")){
+    const String serverURL = "coldy24.iptime.org";
+    esp8266_Serial.println("AT+CIPSTART=\"TCP\",\"" + serverURL + "\",8080\r\n");
+   }
+  String emergency;
+  if(code == 1){
+    emergency = "ARDUINO:KITCHEN:EMERGENCY:FIRE";
+  }else if(code == 2){
+    emergency = "ARDUINO:KITCHEN:EMERGENCY:SOUND";
+  }else if(code == 3){
+    emergency = "ARDUINO:KITCHEN:EMERGENCY:GAS";
+  }else if(code == 4){
+   emergency = "ARDUINO:KITCHEN:EMERGENCY:TEMPERATURE";}
+   else if(code == 5){
+   emergency = "ARDUINO:KITCHEN:EMERGENCY:CDS";}
+   
+   delay(500);
+   const String sendCommand = "AT+CIPSEND=";
+   esp8266_Serial.print(sendCommand);
+   esp8266_Serial.println (emergency.length());
+  
+  if ( esp8266_Serial.find(">") ) {
+    delay(2000);
+    Serial.println("- emergency." + emergency);
+    esp8266_Serial.println(emergency);
+    
+
+    if ( esp8266_Serial.find("SEND OK") ) {
+      Serial.println("- emergency Message send.");
+    }
+  }
+
+}
+
