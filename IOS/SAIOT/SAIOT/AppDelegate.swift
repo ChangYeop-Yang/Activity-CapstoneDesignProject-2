@@ -114,7 +114,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 case .Emergency:
                     print("- Occur Emergency event message. ")
                 case .SmartBox:
-                    DownloadManager.downloadManager.downloadImage(url: "http://20.20.3.17:8080/stream/snapshot.jpeg?delay_s=0")
+                    DownloadManager.downloadManager.downloadImage(url: "http://172.30.1.2:8080/stream/snapshot.jpeg?delay_s=0")
                     print("- Occur SmartBox event message. ")
             }
         }

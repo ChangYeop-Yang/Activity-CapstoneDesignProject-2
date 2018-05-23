@@ -26,7 +26,7 @@ class LiveCamera: UIView {
         self.layer.borderColor = UIColor.white.cgColor
         
         // load Web View
-        loadWebView(url: "http://20.20.3.17:8080/stream")
+        loadWebView(url: "http://172.30.1.2:8080/stream")
     }
     
     // MARK: - Method

@@ -61,12 +61,16 @@ class DownloadManager: NSObject {
     internal func downloadImage(url: String) {
         
         if let link: URL = URL(string: url) {
-            DispatchQueue.global(qos: .userInteractive).async(execute: { [unowned self] in
+            DispatchQueue.main.async(execute: { [unowned self] in
                 if let data = try? Data(contentsOf: link), let image: UIImage = UIImage(data: data) {
                     
                     // Detected Object
                     if let objectNames: String = self.detectObject(data: data) {
                         print("- The Objects have been detected. \(objectNames)")
+                        
+                        if UIApplication.shared.applicationState == .active {
+                            showWhisperToast(title: "Detected \(objectNames) object.", background: .maroon, textColor: .white, clock: 10)
+                        }
                     }
                     
                     // Detected Person
@@ -74,6 +78,10 @@ class DownloadManager: NSObject {
                     if peopleCount > 0 {
                         print("- A person has been detected. \(peopleCount)")
                         UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+                        
+                        if UIApplication.shared.applicationState == .active {
+                            showWhisperToast(title: "Detected \(peopleCount) peoples.", background: .maroon, textColor: .white, clock: 10)
+                        }
                     }
                 }
             })
