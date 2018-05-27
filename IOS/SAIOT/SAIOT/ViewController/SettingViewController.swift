@@ -18,17 +18,14 @@ fileprivate enum TabelRowAt: Int {
     case PrivacyPolicy = 13
     case HueReset = 17
     case AppHelp = 16
+    case SmartBoxAddress = 30
+    case SocketAddress = 31
 }
 fileprivate enum SwitchCellAt: Int {
     case AppAlarm = 1000
     case HuePower = 3000
     case MonitorAlarm = 2000
     case NetworkInfoHue = 4000
-}
-fileprivate enum DefaultsKey: String {
-    case AlarmKey = "ALARM_KEY"
-    case HuePowerKey = "HUE_TOTAL_POWER_KEY"
-    case MonitorKey = "MONITOR_KEY"
 }
 
 class SettingViewController: UIViewController {
@@ -59,7 +56,7 @@ class SettingViewController: UIViewController {
         // Setting Detail Cell
         let userDefaults: UserDefaults = UserDefaults.standard
         for cell in settingTableIndexPaths {
-            print(settingTable.cellForRow(at: cell.index)?.accessoryView)
+            
             if let cellAt: UITableViewCell = settingTable.cellForRow(at: cell.index), let cellSwitch: UISwitch = cellAt.accessoryView as? UISwitch {
                 
                 switch cell.cellAt {
@@ -118,7 +115,7 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let tag: Int = tableView.cellForRow(at: indexPath)?.tag, let cell: TabelRowAt = TabelRowAt(rawValue: tag) {
-            print(indexPath)
+            
             switch cell {
                 case .Introduce:
                     if let url: URL = URL(string: "http://yeop9657.blog.me") {
@@ -142,11 +139,32 @@ extension SettingViewController: UITableViewDelegate {
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
                 case .HueReset:
-                    let userDefaults = UserDefaults.standard
                     userDefaults.removeObject(forKey: "HUE_BRIDGE_KEY")
-                    
-                    // Whisper
                     showWhisperToast(title: "Success delete hue bridge configuration.", background: .moss, textColor: .white)
+                case .SmartBoxAddress:
+                    let inputAlert: UIAlertController = UIAlertController(title: "SMART BOX SERVER ADDRESS", message: "스마트 박스 서버 주소를 입력해주세요.", preferredStyle: .alert)
+                    inputAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { [unowned self] _ in
+                        if let text = inputAlert.textFields?.first?.text, text.isEmpty == false {
+                            userDefaults.set(text, forKey: DefaultsKey.SmartBoxAddressKey.rawValue)
+                            showWhisperToast(title: "APPLY SMART BOX ADDRESS", background: .moss, textColor: .white)
+                        }
+                    }))
+                    inputAlert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+                    inputAlert.addTextField(configurationHandler: nil)
+                    present(inputAlert, animated: true, completion: nil)
+                
+                case .SocketAddress:
+                    let inputAlert: UIAlertController = UIAlertController(title: "SOCKET SERVER ADDRESS", message: "통신 서버 주소를 입력해주세요.", preferredStyle: .alert)
+                    inputAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { [unowned self] _ in
+                        if let text = inputAlert.textFields?.first?.text , text.isEmpty == false {
+                            userDefaults.set(text, forKey: DefaultsKey.SocketAddressKey.rawValue)
+                            showWhisperToast(title: "APPLY SOCKET ADDRESS", background: .moss, textColor: .white)
+                        }
+                    }))
+                    inputAlert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+                    inputAlert.addTextField(configurationHandler: nil)
+                    present(inputAlert, animated: true, completion: nil)
+                
                 default: break
             }
         }

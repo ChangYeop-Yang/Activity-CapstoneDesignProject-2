@@ -70,6 +70,9 @@ class DownloadManager: NSObject {
                         
                         if UIApplication.shared.applicationState == .active {
                             showWhisperToast(title: "Detected \(objectNames) object.", background: .maroon, textColor: .white, clock: 10)
+                            if PhilipsHueBridge.hueInstance.connectHueBridge() {
+                                PhilipsHueBridge.hueInstance.changeHueColor(red: 100, green: 100, blue: 50, alpha: 100)
+                            }
                         }
                     }
                     
@@ -81,6 +84,9 @@ class DownloadManager: NSObject {
                         
                         if UIApplication.shared.applicationState == .active {
                             showWhisperToast(title: "Detected \(peopleCount) peoples.", background: .maroon, textColor: .white, clock: 10)
+                            if PhilipsHueBridge.hueInstance.connectHueBridge() {
+                                PhilipsHueBridge.hueInstance.changeHueColor(red: 200, green: 50, blue: 50, alpha: 100)
+                            }
                         }
                     }
                 }

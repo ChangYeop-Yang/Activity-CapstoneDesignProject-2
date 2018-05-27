@@ -27,5 +27,5 @@ internal func showWhisperToast(title: String, background: UIColor, textColor: UI
     message.titleColor = textColor
     message.font = .boldSystemFont(ofSize: 11)
     
-    Whisper.show(whistle: message, action: .show(10))
+    Whisper.show(whistle: message, action: .show(TimeInterval(clock)))
 }

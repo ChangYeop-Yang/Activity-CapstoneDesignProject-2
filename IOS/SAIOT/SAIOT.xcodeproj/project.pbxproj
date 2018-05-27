@@ -22,6 +22,7 @@
 		2743342220AF151700A80621 /* nowhere.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2743342120AF151700A80621 /* nowhere.m4a */; };
 		274AC2062098342F0049B133 /* ParserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AC2052098342F0049B133 /* ParserStruct.swift */; };
 		274FAC5920AC5F8E0023A572 /* star.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 274FAC5820AC5F8E0023A572 /* star.m4a */; };
+		275EAD0F20B6C26A000C2D5C /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275EAD0E20B6C26A000C2D5C /* DefaultsKeys.swift */; };
 		275F3A132096F5490002FF77 /* GraphSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F3A122096F5490002FF77 /* GraphSet.swift */; };
 		275F3A172097341C0002FF77 /* ParserJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F3A162097341C0002FF77 /* ParserJSON.swift */; };
 		2777D39A20B4340000A0CEEC /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777D39920B4340000A0CEEC /* DownloadManager.swift */; };
@@ -66,6 +67,7 @@
 		2743342120AF151700A80621 /* nowhere.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = nowhere.m4a; sourceTree = "<group>"; };
 		274AC2052098342F0049B133 /* ParserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserStruct.swift; sourceTree = "<group>"; };
 		274FAC5820AC5F8E0023A572 /* star.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.m4a; sourceTree = "<group>"; };
+		275EAD0E20B6C26A000C2D5C /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		275F3A122096F5490002FF77 /* GraphSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSet.swift; sourceTree = "<group>"; };
 		275F3A162097341C0002FF77 /* ParserJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserJSON.swift; sourceTree = "<group>"; };
 		2777D39920B4340000A0CEEC /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
@@ -129,8 +131,8 @@
 				27A656B120AC467D0022B5D9 /* Notification */,
 				2741DDB82073C8FE0064F312 /* Public */,
 				275F3A15209733DB0002FF77 /* PhillpsHue */,
-				275F3A14209733C90002FF77 /* Network */,
 				27B376D92085019D009AE9AC /* Nib */,
+				275F3A14209733C90002FF77 /* Network */,
 				27185D4A2062904300469807 /* StroyBoard */,
 				27185D492062903100469807 /* ViewController */,
 				27185D4820628FE100469807 /* Surport Files */,
@@ -183,6 +185,7 @@
 				2741DDB62073C8FA0064F312 /* ColorCode.swift */,
 				275F3A122096F5490002FF77 /* GraphSet.swift */,
 				27A9C25720AEC0E1004A7065 /* WhisperToast.swift */,
+				275EAD0E20B6C26A000C2D5C /* DefaultsKeys.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				2741DDBC2073CFB20064F312 /* RemoteViewController.swift in Sources */,
 				2777D39A20B4340000A0CEEC /* DownloadManager.swift in Sources */,
 				2741DDBE2073CFC40064F312 /* SettingViewController.swift in Sources */,
+				275EAD0F20B6C26A000C2D5C /* DefaultsKeys.swift in Sources */,
 				27B376DD20850900009AE9AC /* DetailHue.swift in Sources */,
 				275F3A132096F5490002FF77 /* GraphSet.swift in Sources */,
 				274AC2062098342F0049B133 /* ParserStruct.swift in Sources */,

@@ -114,8 +114,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 case .Emergency:
                     print("- Occur Emergency event message. ")
                 case .SmartBox:
-                    DownloadManager.downloadManager.downloadImage(url: "http://172.30.1.2:8080/stream/snapshot.jpeg?delay_s=0")
-                    print("- Occur SmartBox event message. ")
+                    if let serverURL: String = userDefaults.string(forKey: DefaultsKey.SmartBoxAddressKey.rawValue) {
+                        DownloadManager.downloadManager.downloadImage(url: "http://\(serverURL):8080/stream/snapshot.jpeg?delay_s=0")
+                        print("- Occur SmartBox event message. ")
+                    }
             }
         }
     }

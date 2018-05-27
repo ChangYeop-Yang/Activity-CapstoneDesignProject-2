@@ -12,7 +12,7 @@ import AudioToolbox
 class OutSideViewController: UIViewController {
     
     // MARK: - Variable
-    private let socketServerInfo: (url: String, port: UInt32) = ("coldy24.iptime.org", 8090)
+    private let socketServerPort: UInt32 = 8090
     private var isSelected: (video: Bool, socket: Bool) = (false, false)
     private let shapeLayer: CAShapeLayer = CAShapeLayer()
     
@@ -58,13 +58,15 @@ class OutSideViewController: UIViewController {
     @IBAction func controlConnect(_ sender: UIButton) {
         
         if isSelected.socket {
-            self.isSelected.socket = SocketManager.socketManager.disconnect()
+            isSelected.socket = SocketManager.socketManager.disconnect()
             sender.setTitle("서버 연결", for: .normal)
             sender.setImage(#imageLiteral(resourceName: "icons8-connected-50"), for: .normal)
         } else {
-            self.isSelected.socket = SocketManager.socketManager.connect(address: socketServerInfo.url, port: socketServerInfo.port)
-            sender.setTitle("서버 끊기", for: .normal)
-            sender.setImage(#imageLiteral(resourceName: "icons8-disconnected-50"), for: .normal)
+            if let serverURL: String = userDefaults.string(forKey: DefaultsKey.SocketAddressKey.rawValue) {
+                isSelected.socket = SocketManager.socketManager.connect(address: serverURL, port: socketServerPort)
+                sender.setTitle("서버 끊기", for: .normal)
+                sender.setImage(#imageLiteral(resourceName: "icons8-disconnected-50"), for: .normal)
+            }
         }
     }
     @IBAction func showState(_ sender: UIButton) {
@@ -89,7 +91,7 @@ class OutSideViewController: UIViewController {
                     SocketManager.socketManager.sendData(datas: "MOBILE:LOCK")
                     showWhisperToast(title: "Smart PostBox Lock", background: .moss, textColor: .white)
                 } else if self.isSelected.socket {
-                    SocketManager.socketManager.sendData(datas: "MOBILE:UNLOCK")
+                    SocketManager.socketManager.sendData(datas: "MOBILE:DISABLE")
                     showWhisperToast(title: "Smart PostBox UnLock", background: .maroon, textColor: .white)
                 }
         })

@@ -26,7 +26,9 @@ class LiveCamera: UIView {
         self.layer.borderColor = UIColor.white.cgColor
         
         // load Web View
-        loadWebView(url: "http://172.30.1.2:8080/stream")
+        if let serverURL: String = userDefaults.string(forKey: DefaultsKey.SmartBoxAddressKey.rawValue) {
+            loadWebView(url: "http://\(serverURL)/stream")
+        }
     }
     
     // MARK: - Method
