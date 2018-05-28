@@ -3,8 +3,8 @@ package androidtown.org.saiot;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -15,9 +15,13 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import java.net.Socket;
 import java.util.ArrayList;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
+
+    //tcp socket
+    Socket socket = null;
 
 
     LineChart chart;
@@ -66,6 +70,10 @@ public class MainActivity extends FragmentActivity {
         outsideFragment = new OutsideFragment();
         settingActivity = new SettingActivity();
 
+
+        //5.26
+        final String addr = "coldy24.iptime.org";
+        //new ConnectServer(addr, 8090, MainActivity.this).execute();
         //hue버튼
        // huebtn=(Button)findViewById(R.id.huebtn);
        // huebtn.setOnClickListener((View.OnClickListener) this);
@@ -278,4 +286,14 @@ public class MainActivity extends FragmentActivity {
         thread.start();
     }
     */
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //충돌때문에 여기로 5.26
+        final String addr = "coldy24.iptime.org";
+       new ConnectServer(addr, 8090, MainActivity.this).execute();
+    }
+
+
 }

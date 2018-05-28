@@ -107,6 +107,7 @@ public class HomeFragment extends Fragment  {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
         //init();
        // threadStart();
     }
@@ -396,12 +397,17 @@ public class HomeFragment extends Fragment  {
             }
         });
 
+        //충돌때문에 여기로 5.26
+        //final String addr = "coldy24.iptime.org";
+       //new ConnectServer(addr, 8090, getActivity()).execute();
+
         return view;
 
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_home, container, false);
 
     }
+
 
 
     private class phpDown extends AsyncTask<String, Integer,String> {
@@ -460,10 +466,10 @@ public class HomeFragment extends Fragment  {
                 for(int i=0; i<ja.length();i++){
                     JSONObject jo = ja.getJSONObject(i);
                     datetime = jo.getString("Insert_DT");
-                    temp = jo.getString("Temp_NO");
-                    cmd = jo.getString("Cmd_NO");
-                    noise = jo.getString("Noise_NO");
-                    gas = jo.getString("Gas_FL");
+                    temp = jo.getString("AVG(Temp_NO)");
+                    cmd = jo.getString("AVG(Cmd_NO)");
+                    noise = jo.getString("AVG(Noise_NO)");
+                    gas = jo.getString("AVG(Gas_FL)");
                     listItem.add(new ListItem(datetime,temp,cmd,noise,gas));
 
                 }
@@ -501,7 +507,7 @@ public class HomeFragment extends Fragment  {
             tempchart.setData(lineData);
 
             for(int i=0; i<num; i++) {
-                xVal.add(new Entry(Integer.parseInt(listItem.get(i).getData(1)), xVal.size()));
+                xVal.add(new Entry((int)Double.parseDouble(listItem.get(i).getData(1)), xVal.size()));
                 setXcomp.notifyDataSetChanged();
                 tempchart.notifyDataSetChanged();
             }
@@ -526,7 +532,7 @@ public class HomeFragment extends Fragment  {
             cdschart.setData(lineData2);
 
             for(int i=0; i<num; i++) {
-                xVal2.add(new Entry(Integer.parseInt(listItem.get(i).getData(2)), xVal2.size()));
+                xVal2.add(new Entry((int)Double.parseDouble(listItem.get(i).getData(2)), xVal2.size()));
                 setXcomp2.notifyDataSetChanged();
                 cdschart.notifyDataSetChanged();
             }
@@ -552,7 +558,7 @@ public class HomeFragment extends Fragment  {
             gaschart.setData(lineData3);
 
             for(int i=0; i<num; i++) {
-                xVal3.add(new Entry(Integer.parseInt(listItem.get(i).getData(3)), xVal3.size()));
+                xVal3.add(new Entry((int)Double.parseDouble(listItem.get(i).getData(3)), xVal3.size()));
                 setXcomp3.notifyDataSetChanged();
                 gaschart.notifyDataSetChanged();
             }
@@ -578,11 +584,13 @@ public class HomeFragment extends Fragment  {
             noisechart.setData(lineData4);
 
             for(int i=0; i<num; i++) {
-                xVal4.add(new Entry(Integer.parseInt(listItem.get(i).getData(4)), xVal4.size()));
+                xVal4.add(new Entry((int)Double.parseDouble(listItem.get(i).getData(4)), xVal4.size()));
                 setXcomp4.notifyDataSetChanged();
                 noisechart.notifyDataSetChanged();
             }
             noisechart.invalidate();
+
+
 
 
 

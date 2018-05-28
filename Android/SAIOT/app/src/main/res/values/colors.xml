@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="bg">#434343</color>
+    <drawable name="bg_select">#5e5e5e</drawable>
+
 </resources>

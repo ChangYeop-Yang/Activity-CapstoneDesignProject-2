@@ -1,6 +1,7 @@
 package androidtown.org.saiot;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.widget.Button;
 public class OutsideFragment extends Fragment {
 
     Button btn_server;
+    private Button cameraButton;
 
 
     public OutsideFragment() {
@@ -41,6 +43,20 @@ public class OutsideFragment extends Fragment {
                 // view.startAnimation(animation);
                 //return view;
 
+            }
+        });
+
+        cameraButton =(Button)view.findViewById(R.id.camerabutton);
+        cameraButton.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intentcamera = new Intent(getActivity(), CameraActivity.class);
+
+                startActivity(intentcamera);
             }
         });
 
