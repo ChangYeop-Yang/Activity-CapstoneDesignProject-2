@@ -22,7 +22,7 @@ enum AnalogPin {
 };
 
 // MARK: - Button Variable
-bool isBackUpState = false;
+bool isBackUpState = true;
 
 // MARK: - ESP8266 Variable
 SoftwareSerial esp8266_Serial = SoftwareSerial(2, 3);
@@ -62,45 +62,53 @@ void setup() {
   pinMode(LED_BLUE_DPIN,  OUTPUT);
 }
 
+
 void loop() {
+
+ 
 
   // RFID MFRC522 Method
   checkTagRFID();
 
-  // Check Push BackUP Button
+  /* Check Push BackUP Button
   if (digitalRead(BUTTON_DPIN) == HIGH) {
     isBackUpState = true;
     Serial.println("- Enable send to back-up server.");
     controlLED(LED_GREEN_DPIN);
     tone(BUZZER_APIN, 3729, 1000);
-  }
+  }*/
 
   // Check shock Detected
-  if (HIGH == digitalRead(VIBRATE_APIN)) {
+  if(HIGH == digitalRead(VIBRATE_APIN)) {
     tone(BUZZER_APIN, 6000, 2000);
     controlLED(LED_RED_DPIN);
     Serial.println("The Arduino shock detected.");
   }
 
-  // Read data from client.
+  /*/ Read data from client.
   if(esp8266_Serial.available()) {
      controlLED(LED_BLUE_DPIN);
      if (esp8266_Serial.find("+IPD")) {
         delay(1000);
         Serial.println(esp8266_Serial.read());
      }
-  }
+  }*/
+
+  //getDataFromWebServer();
 }
 
 // MARK: - Operate Sub Motor Method
 void operateMotor(bool degree) {
+  Serial.println("moter in");
   if (degree) {
-    for (int pos = 0; pos <= 180; pos += 10) {
+    for (int pos = 0; pos <= 180; pos += 1) {
       lockMoter.write(pos);
+      delay(5);
     }
   } else {
-    for (int pos = 180; pos >= 0; pos -= 10) {
+    for (int pos = 180; pos >= 0; pos -= 1) {
       lockMoter.write(pos);
+      delay(5);
     }
   }
 }
@@ -181,7 +189,7 @@ void settingESP8266(bool state) {
       esp8266_Serial.println("AT+RST\r\n");
       esp8266_Serial.println("AT+CIOBAUD?\r\n");
       esp8266_Serial.println("AT+CWMODE=3\r\n");
-      esp8266_Serial.println("AT+CWJAP=\"YCY-Android-Note7\",\"1q2w3e4r!\"\r\n");
+      esp8266_Serial.println("AT+CWJAP=\"Coldys\",\"kim1010!!\"\r\n");
       esp8266_Serial.println("AT+CIPMUX=1\r\n");
       esp8266_Serial.println("AT+CIPSERVER=1,80\r\n");
     }
@@ -221,20 +229,34 @@ bool sendSensorData(String rfidID) {
 
 
 bool getDataFromWebServer() {
-  String data = "";
-  //Serial.println("data sense comming");
-  if(esp8266_Serial.find("OK")){
-    data = esp8266_Serial.readString();
-    if(data!=NULL){
-      ////////data processing////
-      Serial.println("data comming");
-      Serial.println(data);
-    }
-  } 
+  //char data[20];
+ //int index = 0;
+  //char inChar = -1;
+  String data;
+ // Serial.println("data sense comming");
+  if(esp8266_Serial.available()){
+    // data = esp8266_Serial.readString();
+     //Serial.println(data);
+
+     //if(data){
+      if(esp8266_Serial.find("LOCK")){
+         delay(500);
+         Serial.println("locklock");
+         operateMotor(true);
+      }
+    
+      else if(esp8266_Serial.find("UNOOCK")){
+        delay(500);
+        Serial.println("unlockunlock");
+         operateMotor(false);
+      }
+   // } 
+  }
   else{
     const String serverURL = "coldy24.iptime.org";
     esp8266_Serial.println("AT+CIPSTART=\"TCP\",\"" + serverURL + "\",8080\r\n");
   }
+
 }
 
 
