@@ -63,14 +63,23 @@ Num|Module Name|Module Comment
 005|충격 센서|충격을 감지하는 센서
 006|카메라 모듈|주변을 촬영하는 모듈
 
+### 프로젝트 화면 구성도
+|Page 001|Page 002|
+|:----:|:----:|
+|![001](https://user-images.githubusercontent.com/20036523/40636376-388887cc-62ee-11e8-9b98-c2f57e8bd988.png)|![002](https://user-images.githubusercontent.com/20036523/40636378-38e1ce40-62ee-11e8-807f-c799f485ae45.png)|
+
+|Page 003|Page 004|
+|:----:|:----:|
+|![003](https://user-images.githubusercontent.com/20036523/40636379-3911d1da-62ee-11e8-9a5a-220463b7db8c.png)|![004](https://user-images.githubusercontent.com/20036523/40636380-393af16e-62ee-11e8-858e-85f87faa32b6.png)|
+
 ### 프로젝트 구현 목표
 - [x] JavaScript Relational Database 기능 구현 (MySQL)
 - [x] PHP Relational Database 기능 구현 (MySQL)
 - [x] IOS Philips Hue 스마트 전구 연동 기능 구현
-- [ ] Arduino WIFI Remote Control 기능 구현
-- [ ] Arduino IR Remote Control 기능 구현 (TV, Air Condictioner, DVD player, Etc)
-- [ ] Arduino <-> IOS & Android Real Processing 기능 구현 (Notification)
-- [ ] BackUp Server <-> Main Server Database 자료 교환 기능 구현 (MySQL <-> SQLite3)
+- [X] Arduino WIFI Remote Control 기능 구현
+- [X] Arduino IR Remote Control 기능 구현 (TV, Air Condictioner, DVD player, Etc)
+- [X] Arduino <-> IOS & Android Real Processing 기능 구현 (Notification)
+- [X] BackUp Server <-> Main Server Database 자료 교환 기능 구현 (MySQL <-> SQLite3)
 
 ### Project Links
 [Google Drive - Project Resource](https://drive.google.com/open?id=1B94huR0b4-fvKvtiAtKstcIHRmp9_om-)
