@@ -41,10 +41,10 @@
 
 |School Name|Name|Responsibility|E-Mail|
 |:----------:|:----:|:--------------:|:------:|
-|경북대학교 IT대학 컴퓨터학부|**양창엽**|Mobile - iOS, Server - PHP, Mobile - UI/UX, HW - Arduino|yeop9657@naver.com|
-|경북대학교 IT대학 컴퓨터학부|이재선|WEB - Node.js, HW - Arduino|coldy24@gmail.com|
-|경북대학교 IT대학 컴퓨터학부|정의석|Mobile - Android|jesboom0635@naver.com|
-|경북대학교 IT대학 컴퓨터학부|허수호|HW - Arduino|conankids62@gmail.com|
+|OO 대학교 IT대학 컴퓨터학부|**양창엽**|Mobile - iOS, Server - PHP, Mobile - UI/UX, HW - Arduino|yeop9657@naver.com|
+|OO 대학교 IT대학 컴퓨터학부|이 OO|WEB - Node.js, HW - Arduino|coldy24@gmail.com|
+|OO 대학교 IT대학 컴퓨터학부|정 OO|Mobile - Android|jesboom0635@naver.com|
+|OO 대학교 IT대학 컴퓨터학부|허 OO|HW - Arduino|conankids62@gmail.com|
 
 ## ⌘ 프로젝트 상세 내용
 
