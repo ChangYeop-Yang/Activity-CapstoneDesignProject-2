@@ -1,4 +1,4 @@
-# 종합설계프로젝트2 [ITEC402] - SAIOT
+# ■ 종합설계프로젝트2 [ITEC402] - SAIOT
 **[Capstone Design 2] Team Capstone Design Project. (Prof. 고석주)**
 
 ## ⌘ 프로젝트 추진 배경
@@ -128,3 +128,9 @@ Num|Module Name|Module Comment
 - [Google Drive - Project Resource](https://drive.google.com/open?id=1B94huR0b4-fvKvtiAtKstcIHRmp9_om-)
 - [Project Meeting Minutes](https://github.com/ChangYeop-Yang/CPL-20181-Team2/issues/7)
 - [Naver Blog - Project Introduction](http://yeop9657.blog.me/221289605478)
+
+## ★ Developer Information
+
+|:rocket: Github QR Code|:pencil: Naver-Blog QR Code|:eyeglasses: Linked-In QR Code|
+|:---------------------:|:-------------------------:|:----------------------------:|
+|![](https://user-images.githubusercontent.com/20036523/50044128-60406880-00c2-11e9-8d57-ea1cb8e6b2a7.jpg)|![](https://user-images.githubusercontent.com/20036523/50044131-60d8ff00-00c2-11e9-818c-cf5ad97dc76e.jpg)|![](https://user-images.githubusercontent.com/20036523/50044130-60d8ff00-00c2-11e9-991a-107bffa2bf57.jpg)|
