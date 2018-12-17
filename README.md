@@ -1,6 +1,10 @@
 # ■ 종합설계프로젝트2 [ITEC402] - SAIOT
 **[Capstone Design 2] Team Capstone Design Project. (Prof. 고석주)**
 
+|:page_facing_up: syllabus for lecture 001|:page_facing_up: syllabus for lecture 002|:page_facing_up: syllabus for lecture 003|
+|:---------------------------------------:|:---------------------------------------:|:---------------------------------------:|
+|![](https://user-images.githubusercontent.com/20036523/50080403-5720da00-022f-11e9-9250-02f66d1e1068.jpg)|![](https://user-images.githubusercontent.com/20036523/50080404-57b97080-022f-11e9-9160-1e45eb2423e3.jpg)|![](https://user-images.githubusercontent.com/20036523/50080405-57b97080-022f-11e9-949d-af20e6b49eac.jpg)|
+
 ## ★ 프로젝트 추진 배경
 
 - 정부-기업 주도의 4차산업혁명이 진행중인 상황에서 수많은 IoT제품 및 서비스가 
