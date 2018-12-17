@@ -1,4 +1,4 @@
-# ■ 종합설계프로젝트2 [ITEC402] - SAIOT
+# ■ 종합설계프로젝트2 [ITEC402] - SAIOT <kbd>[Kyungpook National University](http://www.knu.ac.kr/wbbs/)</kbd>
 **[Capstone Design 2] Team Capstone Design Project. (Prof. 고석주)**
 
 |:page_facing_up: syllabus for lecture 001|:page_facing_up: syllabus for lecture 002|:page_facing_up: syllabus for lecture 003|
