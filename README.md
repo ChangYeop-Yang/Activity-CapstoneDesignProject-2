@@ -61,8 +61,6 @@ Num|Module Name|Module Comment
 007|Serial WIFI 모듈|Serial을 통하여 WIFI 통신을 지원하는 모듈
 008|CDS 센서|주변의 조도를 측정하는 센서
 
-* * *
-
 ###### ※ 002. Arduino Kitchen
 
 Num|Module Name|Module Comment
@@ -75,8 +73,6 @@ Num|Module Name|Module Comment
 006|가스 센서|일산화탄소 및 LPG가스의 농도를 측정하는 센서
 007|Serial WIFI 모듈|Serial을 통하여 WIFI 통신을 지원하는 모듈
 008|CDS 센서|주변의 조도를 측정하는 센서
-
-* * *
 
 ###### ※ 003. Arduino Outside
 
