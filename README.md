@@ -43,12 +43,12 @@
 
 ## ★ 프로젝트 팀원 및 담당 기술 목록
 
-|School Name|Name|Responsibility|E-Mail|
-|:----------:|:----:|:--------------:|:------:|
-|경북 대학교 IT대학 컴퓨터학부|**양창엽**|Mobile - iOS, Server - PHP, Mobile - UI/UX, HW - Arduino|yeop9657@naver.com|
-|경북 대학교 IT대학 컴퓨터학부|이 OO|WEB - Node.js, HW - Arduino|coldy24@gmail.com|
-|경북 대학교 IT대학 컴퓨터학부|정 OO|Mobile - Android|jesboom0635@naver.com|
-|경북 대학교 IT대학 컴퓨터학부|허 OO|HW - Arduino|conankids62@gmail.com|
+|University|Student Name|Responsibility|E-Mail|
+|:------------:|:--------:|:---------:|:------:|
+|경북 대학교</br> IT대학 컴퓨터학부|**양창엽**|Mobile - iOS, Mobile - UI/UX|yeop9657@naver.com|
+|경북 대학교</br> IT대학 컴퓨터학부|이 OO|WEB - Node.js, HW - Arduino|coldy24@gmail.com|
+|경북 대학교</br> IT대학 컴퓨터학부|정 OO|Mobile - Android|jesboom0635@naver.com|
+|경북 대학교</br> IT대학 컴퓨터학부|허 OO|HW - Arduino|conankids62@gmail.com|
 
 ## ★ 프로젝트 상세 내용
 
