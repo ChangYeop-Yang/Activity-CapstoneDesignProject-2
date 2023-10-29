@@ -99,24 +99,6 @@ Num|Module Name|Module Comment
 |:-------------:|:-------------:|
 |![003](https://user-images.githubusercontent.com/20036523/40636379-3911d1da-62ee-11e8-9a5a-220463b7db8c.png)|![004](https://user-images.githubusercontent.com/20036523/40636380-393af16e-62ee-11e8-858e-85f87faa32b6.png)|
 
-## ★ 프로젝트 구동 사진
-
-|:camera: Photo 001|:camera: Photo 002|
-|:----------------:|:----------------:|
-|<img src="https://user-images.githubusercontent.com/20036523/40636363-369ebd50-62ee-11e8-98bf-fa52d8b8d7ec.gif" width="480" height="460"/>|<img src="https://user-images.githubusercontent.com/20036523/40636365-36cb6bb6-62ee-11e8-853b-2d554bf8b1c7.gif" width="480" height="460" />|
-
-|:camera: Photo 003|:camera: Photo 004|
-|:----------------:|:----------------:|
-|<img src="https://user-images.githubusercontent.com/20036523/40636366-36f3a37e-62ee-11e8-80ba-248dd4f5ac18.gif" width="480" height="460" />|<img src="https://user-images.githubusercontent.com/20036523/40636367-371a6040-62ee-11e8-96e2-09c78aa7860c.gif" width="480" height="460" />|
-
-|:camera: Photo 005|:camera: Photo 006|
-|:----------------:|:----------------:|
-|<img src="https://user-images.githubusercontent.com/20036523/40636368-373fe3ec-62ee-11e8-831f-a077ca2c981b.gif" width="480" height="460" />|<img src="https://user-images.githubusercontent.com/20036523/40636369-376e62f8-62ee-11e8-9030-c261c9cb3e85.gif" width="480" height="460">|
-
-|:camera: Page 007|:camera: Page 008|
-|:---------------:|:---------------:|
-|<img src="https://user-images.githubusercontent.com/20036523/40636371-37be88aa-62ee-11e8-847a-eddd54000faf.gif" width="480" height="460" />|<img src="https://user-images.githubusercontent.com/20036523/40636372-37e51880-62ee-11e8-899c-01b419ce1e9e.gif" width="480" height="460" />|
-
 ## ★ 프로젝트 구현 목표
 
 - [x] JavaScript Relational Database 기능 구현 (MySQL)
